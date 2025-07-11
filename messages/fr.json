@@ -1,0 +1,21 @@
+{
+    "Header": {
+        "Project": "Projet",
+        "Contact": "Contact"
+    },
+    "Hero": {
+        "Title": "Étudiant à l'UTC en Génie Informatique",
+        "Subtitle": "spécialité IA et Données",
+        "Description": "Passionné par l'Intelligence Artificielle et le développement web, je crée des applications innovantes.",
+        "DownloadCV": "Télécharger mon CV"
+    },
+    "Parcours": {
+        "Title": "Formation",
+        "AnneeBac": "2023",
+        "Bac": "Baccalauréat Scientifique",
+        "DescriptionBac": "Obtention du Baccalauréat Scientifique avec mention Bien."
+    },
+    "Contact": {
+        "email": "leo.laborie.ll@icloud.com"
+    }
+}
