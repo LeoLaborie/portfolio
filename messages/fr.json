@@ -1,21 +1,52 @@
 {
-    "Header": {
-        "Project": "Projet",
-        "Contact": "Contact"
-    },
-    "Hero": {
-        "Title": "Étudiant à l'UTC en Génie Informatique",
-        "Subtitle": "spécialité IA et Données",
-        "Description": "Passionné par l'Intelligence Artificielle et le développement web, je crée des applications innovantes.",
-        "DownloadCV": "Télécharger mon CV"
-    },
-    "Parcours": {
-        "Title": "Formation",
-        "AnneeBac": "2023",
-        "Bac": "Baccalauréat Scientifique",
-        "DescriptionBac": "Obtention du Baccalauréat Scientifique avec mention Bien."
-    },
-    "Contact": {
-        "email": "leo.laborie.ll@icloud.com"
-    }
+  "Header": {
+    "Project": "Projet",
+    "Contact": "Contact"
+  },
+  "Hero": {
+    "Title": "Étudiant à l'UTC en Génie Informatique",
+    "Subtitle": "spécialité IA et Données",
+    "Description": "Passionné par l'Intelligence Artificielle et le développement web, je crée des applications innovantes.",
+    "DownloadCV": "Télécharger mon CV"
+  },
+  "Parcours": {
+    "Title": "Formation",
+    "BacTitle": "Baccalauréat Général",
+    "BacSession": "Session 2023",
+    "BacSpecialties": "Spécialités",
+    "MathsSpecialty": "Mathématiques",
+    "NSI_Specialty": "Numérique et Sciences Informatiques",
+    "MathsScoreLabel": "Mathématiques",
+    "InfoScoreLabel": "Informatique",
+    "UtcTitle": "Ingénieur UTC",
+    "UtcYears": "2023 - 2028",
+    "UtcDescription": "Formation BAC+5 Post-BAC",
+    "TroncCommunTitle": "Tronc Commun",
+    "TroncCommunDesc": "Formation généraliste",
+    "TroncCommunDuration": "2 ans",
+    "TroncCommunYears": "2023-2025",
+    "GenieInfoTitle": "Génie Informatique",
+    "GenieInfoDesc": "Spécialisation",
+    "GenieInfoDuration": "3 ans",
+    "GenieInfoYears": "2025-2028",
+    "InProgress": "En cours",
+    "CurrentlyStudying": "Actuellement en formation"
+  },
+  "Projects": {
+    "Title": "Mes Projets",
+    "Subtitle": "Découvrez mes réalisations techniques à travers différents domaines",
+    "CategoryML": "Machine Learning",
+    "CategoryWeb": "Applications Web",
+    "CategoryAlgo": "Algorithmie",
+    "CategoryOther": "Autres",
+    "DetailsButton": "Détails",
+    "EmptyStateTitle": "Aucun projet dans cette catégorie",
+    "EmptyStateDescription": "Sélectionnez une autre catégorie pour voir mes projets."
+  },
+  "Contact": {
+    "Title": "Contactez-moi",
+    "Email": "leo.laborie.ll@icloud.com",
+    "GithubLabel": "GitHub",
+    "LinkedinLabel": "LinkedIn"
+  }
 }

@@ -1,5 +1,52 @@
 {
-    "contact": {
-        "email": "leo.laborie.ll@icloud.com"
-    }
+  "Header": {
+    "Project": "Projects",
+    "Contact": "Contact"
+  },
+  "Hero": {
+    "Title": "Computer Science Engineering Student at UTC",
+    "Subtitle": "AI and Data specialization",
+    "Description": "Passionate about Artificial Intelligence and web development, I create innovative applications.",
+    "DownloadCV": "Download my CV"
+  },
+  "Parcours": {
+    "Title": "Education",
+    "BacTitle": "General Baccalaureate",
+    "BacSession": "2023 Session",
+    "BacSpecialties": "Specialties",
+    "MathsSpecialty": "Mathematics",
+    "NSI_Specialty": "Digital and Computer Science",
+    "MathsScoreLabel": "Mathematics",
+    "InfoScoreLabel": "Computer Science",
+    "UtcTitle": "UTC Engineer",
+    "UtcYears": "2023 - 2028",
+    "UtcDescription": "BAC+5 Post-BAC Program",
+    "TroncCommunTitle": "Common Core",
+    "TroncCommunDesc": "Generalist training",
+    "TroncCommunDuration": "2 years",
+    "TroncCommunYears": "2023-2025",
+    "GenieInfoTitle": "Computer Engineering",
+    "GenieInfoDesc": "Specialization",
+    "GenieInfoDuration": "3 years",
+    "GenieInfoYears": "2025-2028",
+    "InProgress": "In progress",
+    "CurrentlyStudying": "Currently studying"
+  },
+  "Projects": {
+    "Title": "My Projects",
+    "Subtitle": "Discover my technical achievements across different domains",
+    "CategoryML": "Machine Learning",
+    "CategoryWeb": "Web Applications",
+    "CategoryAlgo": "Algorithms",
+    "CategoryOther": "Other",
+    "DetailsButton": "Details",
+    "EmptyStateTitle": "No projects in this category",
+    "EmptyStateDescription": "Select another category to view my projects."
+  },
+  "Contact": {
+    "Title": "Contact Me",
+    "Email": "leo.laborie.ll@icloud.com",
+    "GithubLabel": "GitHub",
+    "LinkedinLabel": "LinkedIn"
+  }
 }

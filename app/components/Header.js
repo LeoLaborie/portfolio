@@ -68,7 +68,6 @@ export default function Header() {
         className={`md:hidden fixed inset-x-0 bg-white border-t transition-all duration-300 ease-in-out z-45
           ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"}
         `}
-        // Position it below the main header. Assuming header height is roughly 64px on mobile.
         style={{ top: "64px" }}
       >
         <ul className="flex flex-col space-y-1 px-4 py-4">

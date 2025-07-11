@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Github, ExternalLink, Brain, Globe, Code, Zap, Play } from "lucide-react"
+import { ExternalLink, Brain, Globe, Code, Zap, Play } from "lucide-react"
+import { useTranslations } from "next-intl" // Added useTranslations import
 
 type Categorie = "Machine Learning" | "Applications Web" | "Algorithmie" | "Autres"
 
@@ -9,43 +10,75 @@ type Projet = {
   titre: string
   description: string
   mediaUrl: string
-  mediaType: "image" | "video"
+  mediaType: "image" | "video" 
   githubUrl: string
   categorie: Categorie
 }
 
 const projets: Projet[] = [
   {
-    titre: "Détection d'émotions par Deep Learning",
-    description: "Un modèle CNN entraîné sur FER2013 pour reconnaître les émotions faciales.",
-    mediaUrl: "/images/emotion.png",
-    mediaType: "image",
-    githubUrl: "https://github.com/monprofil/emotion-detector",
+    titre: "Drone Navigation to a target",
+    description: "Un modèle de drone autonome qui navigue vers une cible en évitant les obstacles. Entrainé par reinforcement learning sur Unity avec ML-agents. Issu d'un projet universaire en collaboration avec Intellitech.",
+    mediaUrl: "/images/drone.mp4",
+    mediaType: "video",
+    githubUrl: "https://github.com/LeoLaborie/AI-autonomous-drone-RL",
     categorie: "Machine Learning",
   },
   {
-    titre: "To-do App avec authentification",
-    description: "Application web fullstack avec Next.js, MongoDB et authentification via JWT.",
-    mediaUrl: "/videos/todo-demo.mp4",
+    titre: "SnakeAI",
+    description: "Un modèle de jeu Snake autonome qui apprend à jouer en évitant les obstacles et en maximisant le score. Entrainé par un algorithme génétique.",
+    mediaUrl: "/videos/snake.mp4",
     mediaType: "video",
-    githubUrl: "https://github.com/monprofil/todo-app",
-    categorie: "Applications Web",
+    githubUrl: "https://github.com/LeoLaborie/snakeAI",
+    categorie: "Machine Learning",
   },
   {
-    titre: "Solveur de Sudoku en backtracking",
-    description: "Algorithme récursif avec interface React pour visualiser la résolution.",
-    mediaUrl: "/images/sudoku.png",
+    titre: "Hackathon SWERC",
+    description: "Participation au SWERC 2024, en équipe avec 3 autres étudiants de l'UTC. Le Swerc est un hackathon d'Algorithmie Européen de 5 heures.",
+    mediaUrl: "/images/SWERC.png",
     mediaType: "image",
-    githubUrl: "https://github.com/monprofil/sudoku-solver",
+    githubUrl: "",
     categorie: "Algorithmie",
   },
   {
-    titre: "Simulateur de propagation virale",
-    description: "Simulation graphique d'une épidémie, modèle SIR en JS.",
-    mediaUrl: "/videos/sir-demo.mp4",
-    mediaType: "video",
-    githubUrl: "https://github.com/monprofil/sir-simulation",
+    titre: "Hackathon YouScribe",
+    description: "1ère place au hackathon de YouScribe x UTC, en équipe avec 3 autres étudiants de l'UTC. Le but du Hackathon était de créer un algorithme de recommandation de livres pour les utilisateurs de la plateforme YouScribe.",
+    mediaUrl: "/images/hackathon.png",
+    mediaType: "image",
+    githubUrl: "https://gitlab.utc.fr/gareajea/hackaton-groupe-c",
+    categorie: "Algorithmie",
+  },
+  {
+    titre: "Hackathon OpenAI",
+    description: "Participation au hackathon OpenAI, en équipe avec 3 autres étudiants de l'UTC. Le but du Hackathon était de faire une application web utilisant l'API de OpenAI.",
+    mediaUrl: "/images/openai.png",
+    mediaType: "image",
+    githubUrl: "",
     categorie: "Autres",
+  },
+  {
+    titre: "MailFast",
+    description: "Une application web permettant d'écrire des emails rapidement et efficacement grâce à l'API de OpenAI. Utilise Node.js, Tailwind et PostgresSQL.",
+    mediaUrl: "/videos/mailfast.mp4",
+    mediaType: "video",
+    githubUrl: "https://github.com/LeoLaborie/mailfast",
+    categorie: "Applications Web",
+  },
+  {
+    titre: "Portfolio",
+    description: "Mon portfolio personnel, réalisé avec Next.js, Tailwind et TypeScript. Il présente mes projets et mes compétences.",
+    mediaUrl: "/images/portfolio.png",
+    mediaType: "image",
+    githubUrl: "https://github.com/LeoLaborie/portfolio",
+    categorie: "Applications Web",
+  },
+  {
+    titre: "Hackathon MC2I",
+    description: "Participation au hackathon MC2I x UTC, en équipe avec 3 autres étudiants de l'UTC. Le but du Hackathon était de faire une application web accessible et responsable pour les étudiants de l'UTC. MC2I est une entreprise de conseil en transformation numérique.",
+    mediaUrl: "/images/university_project.png",
+    mediaType: "image",
+    githubUrl: "https://gitlab.utc.fr/gareajea/hackaton-groupe-c",
+    categorie: "Applications Web",
   },
 ]
 
@@ -76,20 +109,24 @@ const getCategoryColor = (category: Categorie) => {
 }
 
 export default function Projects() {
+  const t = useTranslations("Projects") // Initialized useTranslations
   const [categorieActive, setCategorieActive] = useState<Categorie>("Machine Learning")
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
 
-  const categories: Categorie[] = ["Machine Learning", "Applications Web", "Algorithmie", "Autres"]
+  const categories: Categorie[] = [
+    t("CategoryML") as Categorie, // Using t() for categories
+    t("CategoryWeb") as Categorie,
+    t("CategoryAlgo") as Categorie,
+    t("CategoryOther") as Categorie,
+  ]
   const projetsFiltres = projets.filter((p) => p.categorie === categorieActive)
 
   return (
     <section id="projects" className="py-16 px-4 md:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">Mes Projets</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Découvrez mes réalisations techniques à travers différents domaines
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">{t("Title")}</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">{t("Subtitle")}</p>
         </div>
 
         {/* Category Filter */}
@@ -114,12 +151,15 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Projects List (Vertical) */}
+        <div className="space-y-8 max-w-3xl mx-auto">
           {projetsFiltres.map((projet, index) => (
-            <div
+            <a
               key={index}
-              className="group bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+              href={projet.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
             >
@@ -160,21 +200,11 @@ export default function Projects() {
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6">{projet.description}</p>
 
-                {/* Actions */}
-                <div className="flex items-center justify-between">
-                  <a
-                    href={projet.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors duration-200 text-sm font-medium"
-                  >
-                    <Github className="w-4 h-4" />
-                    GitHub
-                  </a>
-
+                {/* Actions (Only "Détails" button remains) */}
+                <div className="flex items-center justify-end">
                   <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-colors duration-200 text-sm font-medium">
                     <ExternalLink className="w-4 h-4" />
-                    Détails
+                    {t("DetailsButton")}
                   </button>
                 </div>
               </div>
@@ -185,7 +215,7 @@ export default function Projects() {
                   projet.categorie,
                 )} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`}
               />
-            </div>
+            </a>
           ))}
         </div>
 
@@ -195,8 +225,8 @@ export default function Projects() {
             <div className="text-gray-400 mb-4">
               <Code className="w-16 h-16 mx-auto" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-600 mb-2">Aucun projet dans cette catégorie</h3>
-            <p className="text-gray-500">Sélectionnez une autre catégorie pour voir mes projets.</p>
+            <h3 className="text-xl font-semibold text-gray-600 mb-2">{t("EmptyStateTitle")}</h3>
+            <p className="text-gray-500">{t("EmptyStateDescription")}</p>
           </div>
         )}
       </div>

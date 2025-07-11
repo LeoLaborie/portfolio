@@ -32,9 +32,9 @@ export default function Hero() {
           <Image
             src="/images/moi.png"
             alt="Photo de moi"
-            width={500} // Set to the largest desired size
-            height={500} // Set to the largest desired size
-            className="rounded-full object-cover w-[300px] h-auto lg:w-[500px] lg:h-auto" // Responsive sizing
+            width={500}
+            height={500}
+            className="rounded-full object-cover w-[300px] h-auto lg:w-[500px]"
           />
         </div>
       </div>
