@@ -4,7 +4,7 @@ import { useState } from "react"
 import { ExternalLink, Brain, Globe, Code, Zap, Play } from "lucide-react"
 import { useTranslations } from "next-intl" // Added useTranslations import
 
-type Categorie = "Machine Learning" | "Applications Web" | "Algorithmie" | "Autres"
+type Categorie = "Machine Learning" | "Applications Web" | "Algorithmie" | "Autres" | "Web Applications" | "Algorithms" | "Other"
 
 type Projet = {
   titre: string
@@ -86,11 +86,17 @@ const getCategoryIcon = (category: Categorie) => {
   switch (category) {
     case "Machine Learning":
       return <Brain className="w-5 h-5" />
-    case "Applications Web":
+    case "Applications Web" :
+      return <Globe className="w-5 h-5" />
+    case "Web Applications":
       return <Globe className="w-5 h-5" />
     case "Algorithmie":
       return <Code className="w-5 h-5" />
+    case "Algorithms":
+      return <Code className="w-5 h-5" />
     case "Autres":
+      return <Zap className="w-5 h-5" />
+    case "Other":
       return <Zap className="w-5 h-5" />
   }
 }
@@ -101,9 +107,15 @@ const getCategoryColor = (category: Categorie) => {
       return "from-purple-500 to-pink-500"
     case "Applications Web":
       return "from-blue-500 to-cyan-500"
+    case "Web Applications":
+      return "from-blue-500 to-cyan-500"
     case "Algorithmie":
       return "from-green-500 to-emerald-500"
+    case "Algorithms":
+      return "from-green-500 to-emerald-500"
     case "Autres":
+      return "from-orange-500 to-red-500"
+    case "Other":
       return "from-orange-500 to-red-500"
   }
 }

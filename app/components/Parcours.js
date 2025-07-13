@@ -14,17 +14,17 @@ export default function Parcours() {
         {/* Timeline Container */}
         <div className="relative flex flex-col md:flex-row md:justify-center md:items-stretch md:gap-12">
           {/* Vertical Timeline Line (Mobile Only) */}
-          <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-purple-600 md:hidden"></div>
+          <div className="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-purple-600 md:hidden"></div>
           {/* Horizontal Timeline Line (Desktop Only) */}
           <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-purple-600 transform -translate-y-1/2 z-0"></div>
 
           {/* Baccalauréat Entry */}
           <div className="relative mb-16 md:mb-0 md:flex-1 flex">
-            <div className="ml-16 md:ml-0 md:mt-0 flex-1">
-              <div className="bg-gray-50 rounded-2xl shadow-xl p-8 border border-gray-100 h-full">
+            <div className="ml-8 md:ml-0 md:mt-0 flex-1">
+              <div className="bg-gray-50 rounded-2xl shadow-xl p-4 md:p-8 border border-gray-100 h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <Award className="w-6 h-6 text-blue-600" />
-                  <h3 className="text-2xl font-bold text-gray-800">{t("BacTitle")}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-800">{t("BacTitle")}</h3>
                 </div>
                 <div className="flex items-center gap-2 mb-6 text-gray-600">
                   <Calendar className="w-4 h-4" />
@@ -44,13 +44,13 @@ export default function Parcours() {
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-gray-100 rounded-xl">
-                    <div className="text-3xl font-bold text-blue-700 mb-1">18/20</div>
-                    <div className="text-sm text-blue-600 font-medium">{t("MathsScoreLabel")}</div>
+                  <div className="text-center p-3 md:p-4 bg-gray-100 rounded-xl">
+                    <div className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">18/20</div>
+                    <div className="text-xs md:text-sm text-blue-600 font-medium">{t("MathsScoreLabel")}</div>
                   </div>
-                  <div className="text-center p-4 bg-gray-100 rounded-xl">
-                    <div className="text-3xl font-bold text-purple-700 mb-1">20/20</div>
-                    <div className="text-sm text-purple-600 font-medium">{t("InfoScoreLabel")}</div>
+                  <div className="text-center p-3 md:p-4 bg-gray-100 rounded-xl">
+                    <div className="text-2xl md:text-3xl font-bold text-purple-700 mb-1">20/20</div>
+                    <div className="text-xs md:text-sm text-purple-600 font-medium">{t("InfoScoreLabel")}</div>
                   </div>
                 </div>
               </div>
@@ -59,11 +59,11 @@ export default function Parcours() {
 
           {/* UTC Engineering Entry */}
           <div className="relative md:flex-1 flex">
-            <div className="ml-16 md:ml-0 md:mt-0 flex-1">
-              <div className="bg-gray-50 rounded-2xl shadow-xl p-8 border border-gray-100 h-full">
+            <div className="ml-8 md:ml-0 md:mt-0 flex-1">
+              <div className="bg-gray-50 rounded-2xl shadow-xl p-4 md:p-8 border border-gray-100 h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <Award className="w-6 h-6 text-purple-600" />
-                  <h3 className="text-2xl font-bold text-gray-800">{t("UtcTitle")}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-800">{t("UtcTitle")}</h3>
                 </div>
                 <div className="flex items-center gap-2 mb-6 text-gray-600">
                   <Calendar className="w-4 h-4" />

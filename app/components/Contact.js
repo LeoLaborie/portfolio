@@ -25,7 +25,7 @@ export default function Contact() {
           <div className="flex space-x-8">
             {/* GitHub Link */}
             <a
-              href="https://github.com/your-github-profile" // Replace with your actual GitHub URL
+              href="https://github.com/LeoLaborie" // Replace with your actual GitHub URL
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors duration-200"
@@ -36,7 +36,7 @@ export default function Contact() {
 
             {/* LinkedIn Link */}
             <a
-              href="https://linkedin.com/in/your-linkedin-profile" // Replace with your actual LinkedIn URL
+              href="https://www.linkedin.com/in/l%C3%A9o-laborie/" // Replace with your actual LinkedIn URL
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors duration-200"
