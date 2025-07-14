@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
 interface StaggeredContainerProps {
@@ -17,7 +17,7 @@ export default function StaggeredContainer({ children, className = "", staggerDe
     threshold: 0.1,
   })
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,

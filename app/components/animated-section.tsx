@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
 interface AnimatedSectionProps {
@@ -26,7 +26,7 @@ export default function AnimatedSection({
     rootMargin: "-50px 0px",
   })
 
-  const variants = {
+  const variants: Variants = {
     hidden: {
       opacity: 0,
       y: direction === "up" ? 50 : direction === "down" ? -50 : 0,
@@ -41,7 +41,7 @@ export default function AnimatedSection({
       transition: {
         duration: duration,
         delay: delay,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     },
   }

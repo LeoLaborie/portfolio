@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 
 interface StaggeredItemProps {
   children: React.ReactNode
@@ -11,7 +11,7 @@ interface StaggeredItemProps {
 }
 
 export default function StaggeredItem({ children, className = "", direction = "up" }: StaggeredItemProps) {
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: {
       opacity: 0,
       y: direction === "up" ? 30 : direction === "down" ? -30 : 0,
@@ -25,7 +25,7 @@ export default function StaggeredItem({ children, className = "", direction = "u
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     },
   }
