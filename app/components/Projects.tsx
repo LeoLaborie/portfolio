@@ -5,7 +5,7 @@ import { ExternalLink, Brain, Globe, Code, Zap, Play } from "lucide-react"
 import { useTranslations } from "next-intl"
 
 type Categorie =
-  | "Machine Learning"
+  "Machine Learning"
   | "Applications Web"
   | "Algorithmie"
   | "Autres"
@@ -58,15 +58,6 @@ const projets: Projet[] = [
     mediaType: "image",
     githubUrl: "https://gitlab.utc.fr/gareajea/hackaton-groupe-c",
     categorie: "Algorithmie",
-  },
-  {
-    titre: "Hackathon OpenAI",
-    description:
-      "Participation au hackathon OpenAI, en équipe avec 3 autres étudiants de l'UTC. Le but du Hackathon était de faire une application web utilisant l'API de OpenAI.",
-    mediaUrl: "/images/openai.png",
-    mediaType: "image",
-    githubUrl: "",
-    categorie: "Autres",
   },
   {
     titre: "MailFast",
@@ -129,7 +120,7 @@ export default function Projects() {
   const projetsFiltres = projets.filter((p) => p.categorie === categorieActive)
 
   return (
-    <section id="projects" className="py-20 px-4 md:px-8 bg-white">
+    <section id="projects" className="py-20 px-4 md:px-8 bg-white scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

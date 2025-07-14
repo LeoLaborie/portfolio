@@ -7,7 +7,7 @@ export default function Hero() {
   const t = useTranslations("Hero")
 
   return (
-    <section className="bg-gray-100 hero flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 py-8 md:py-16 px-4 md:px-8 font-[Times_New_Roman]">
+    <section className="bg-gray-100 hero flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 py-8 md:py-16 px-4 md:px-8">
       {/* Text Section */}
       <div className="flex-1 text-center order-2 md:order-1">
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold">{t("Title")}</h1>
@@ -39,5 +39,6 @@ export default function Hero() {
         </div>
       </div>
     </section>
+    
   )
 }

@@ -47,6 +47,9 @@
     "Title": "Contact Me",
     "Email": "leo.laborie.ll@icloud.com",
     "GithubLabel": "GitHub",
-    "LinkedinLabel": "LinkedIn"
+    "LinkedinLabel": "LinkedIn",
+    "AvailableStatus": "Available for new opportunities",
+    "GithubDescription": "View my code repositories and open source contributions",
+    "LinkedinDescription": "Connect with me professionally and view my career journey"
   }
 }

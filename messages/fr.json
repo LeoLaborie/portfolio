@@ -30,7 +30,7 @@
     "GenieInfoDuration": "3 ans",
     "GenieInfoYears": "2025-2028",
     "InProgress": "En cours",
-    "CurrentlyStudying": "Actuellement en formation"
+    "CurrentlyStudying": "Actuellement en Génie Informatique"
   },
   "Projects": {
     "Title": "Mes Projets",
@@ -47,6 +47,9 @@
     "Title": "Contactez-moi",
     "Email": "leo.laborie.ll@icloud.com",
     "GithubLabel": "GitHub",
-    "LinkedinLabel": "LinkedIn"
+    "LinkedinLabel": "LinkedIn",
+    "AvailableStatus": "Disponible pour de nouvelles opportunités",
+    "GithubDescription": "Consultez mes dépôts de code et mes contributions open source",
+    "LinkedinDescription": "Connectez-vous avec moi professionnellement et découvrez mon parcours professionnel"
   }
 }
