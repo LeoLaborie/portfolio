@@ -12,10 +12,10 @@ export default function Home() {
       <main className="bg-white text-black">
         <Header />
         <Hero />
-        <Parcours />
-        <Projects />
         <Contact />
-      
+        <Projects />
+        <Parcours />
+        <Contact />
       </main>
     </>
   )
