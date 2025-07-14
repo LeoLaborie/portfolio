@@ -19,7 +19,7 @@ export default function Hero() {
           <a
             href="/cv.pdf"
             download
-            className="inline-block px-6 md:px-12 py-3 md:py-4 bg-black text-white text-base md:text-xl rounded hover:bg-gray-800 transition-colors duration-200"
+            className="inline-block px-6 md:px-12 py-3 md:py-4 bg-black text-white text-base md:text-2xl rounded hover:bg-gray-800 transition-colors duration-200"
           >
             {t("DownloadCV")}
           </a>

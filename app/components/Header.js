@@ -22,7 +22,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex space-x-8 lg:space-x-20 text-sm lg:text-6xl font-medium">
+          <ul className="hidden md:flex space-x-8 lg:space-x-18 text-sm lg:text-5xl font-medium font-[Times_New_Roman]">
             <li>
               <a
                 href="#projects"

@@ -75,7 +75,7 @@ export default function Parcours() {
               <div className="absolute left-6 md:left-1/2 w-4 h-4 bg-white border-4 border-gray-600 rounded-full md:transform md:-translate-x-2 z-10"></div>
 
               {/* Content Card */}
-              <div className="ml-16 md:ml-0 md:w-5/12 md:ml-auto">
+              <div className="ml-16 md:w-5/12 md:ml-auto">
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="p-2 bg-gray-100 rounded-lg">
