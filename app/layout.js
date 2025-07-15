@@ -30,11 +30,7 @@ export default function RootLayout({ children }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              // On page load or when changing themes, best to add inline in head to avoid FOUC
-              document.documentElement.classList.toggle(
-                'dark',
-                localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-              );
+              // Optional: you can preload theme here if you want (optional, not required anymore)
             `,
           }}
         />
