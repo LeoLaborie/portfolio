@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useMemo } from "react"
 import { useState } from "react"
 import { ExternalLink, Brain, Globe, Code, Zap, Play } from "lucide-react"
 import { motion } from "framer-motion"
@@ -14,14 +14,19 @@ export default function Projects() {
   const { t } = useLanguage()
   const [categorieActive, setCategorieActive] = useState<Categorie>("ml")
 
-  const categoryMap: Record<Categorie, { label: string; icon: React.ReactNode }> = {
+  // Memoize categoryMap to prevent recreation on every render
+  const categoryMap: Record<Categorie, { label: string; icon: React.ReactNode }> = useMemo(() => ({
     ml: { label: t("Projects.CategoryML"), icon: <Brain className="w-4 h-4" /> },
     web: { label: t("Projects.CategoryWeb"), icon: <Globe className="w-4 h-4" /> },
     algo: { label: t("Projects.CategoryAlgo"), icon: <Code className="w-4 h-4" /> },
     other: { label: t("Projects.CategoryOther"), icon: <Zap className="w-4 h-4" /> },
-  }
+  }), [t])
 
-  const projetsFiltres = projets.filter((p) => p.categorie === categorieActive)
+  // Memoize filtered projects to prevent unnecessary recalculations
+  const projetsFiltres = useMemo(() => 
+    projets.filter((p) => p.categorie === categorieActive), 
+    [categorieActive]
+  )
 
   return (
     <section id="projects" className="py-20 px-4 md:px-8 bg-white dark:bg-gray-900 scroll-mt-20 transition-colors duration-300">

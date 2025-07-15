@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useMemo } from "react"
 import { Code, Database, Brain, Palette, Globe, Server, Cpu, Users } from "lucide-react"
 import { motion } from "framer-motion"
 import AnimatedSection from "./animated-section"
@@ -25,14 +25,19 @@ export default function Skills() {
   const { t } = useLanguage()
   const [categoryActive, setCategoryActive] = useState<SkillCategory>("programming")
 
-  const categoryMap: Record<SkillCategory, { label: string; icon: React.ReactNode }> = {
+  // Memoize categoryMap to prevent recreation on every render
+  const categoryMap: Record<SkillCategory, { label: string; icon: React.ReactNode }> = useMemo(() => ({
     programming: { label: t("Skills.CategoryProgramming"), icon: <Code className="w-4 h-4" /> },
     ml: { label: t("Skills.CategoryML"), icon: <Brain className="w-4 h-4" /> },
     web: { label: t("Skills.CategoryWeb"), icon: <Globe className="w-4 h-4" /> },
     tools: { label: t("Skills.CategoryTools"), icon: <Cpu className="w-4 h-4" /> },
-  }
+  }), [t])
 
-  const filteredSkills = skills.filter((skill) => skill.category === categoryActive)
+  // Memoize filtered skills to prevent unnecessary recalculations
+  const filteredSkills = useMemo(() => 
+    skills.filter((skill) => skill.category === categoryActive), 
+    [categoryActive]
+  )
 
   return (
     <section id="skills" className="py-20 px-4 md:px-8 bg-gray-50 dark:bg-gray-800 scroll-mt-20 transition-colors duration-300">

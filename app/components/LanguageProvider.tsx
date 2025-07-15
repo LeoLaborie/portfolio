@@ -1,6 +1,6 @@
 "use client"
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react"
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo, ReactNode } from "react"
 
 // Import translation data directly
 import enMessages from "../../messages/en.json"
@@ -35,34 +35,35 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     }
   }, [])
 
-  const switchLanguage = (newLanguage: Language) => {
+  const switchLanguage = useCallback((newLanguage: Language) => {
     if (newLanguage === "en" || newLanguage === "fr") {
       setCurrentLanguage(newLanguage)
       setMessages(newLanguage === "en" ? enMessages : frMessages)
       localStorage.setItem("preferredLanguage", newLanguage)
     }
-  }
+  }, [])
 
-  const t = (key: string): string => {
+  const t = useCallback((key: string): string => {
     const keys = key.split(".")
-    let value: any = messages
+    let value: unknown = messages
     
     for (const k of keys) {
-      value = value?.[k]
-      if (value === undefined) {
+      if (typeof value === 'object' && value !== null && k in value) {
+        value = (value as Record<string, unknown>)[k]
+      } else {
         return key
       }
     }
     
-    return value || key
-  }
+    return typeof value === 'string' ? value : key
+  }, [messages])
 
-  const value: LanguageContextType = {
+  const value: LanguageContextType = useMemo(() => ({
     currentLanguage,
     switchLanguage,
     t,
     messages
-  }
+  }), [currentLanguage, switchLanguage, t, messages])
 
   return (
     <LanguageContext.Provider value={value}>

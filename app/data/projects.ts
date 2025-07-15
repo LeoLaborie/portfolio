@@ -81,4 +81,34 @@ export const projets: Projet[] = [
     githubUrl: "https://gitlab.utc.fr/gareajea/hackaton-groupe-c",
     categorie: "web",
   },
+  {
+    titre: "XtraSup",
+    description:
+      "IA d'aide à la sélection de candidats post-bac souhaitant intégrer un établissement d’enseignement supérieur. Développée dans le cadre d'un projet universitaire.",
+    descriptionKey: "ProjectDescriptions.XtraSup",
+    mediaUrl: "",
+    mediaType: "image",
+    githubUrl: "https://github.com/LeoLaborie/XtraSup",
+    categorie: "algo",
+  },
+  {
+    titre: "AI solving Tic-Tac-Toe",
+    description:
+      "IA capable de jouer au jeu du Morpion. Utilise un algorithme Minimax avec élagage alpha-bêta pour optimiser les performances.",
+    descriptionKey: "ProjectDescriptions.TicTacToeAI",
+    mediaUrl: "",
+    mediaType: "video",
+    githubUrl: "",
+    categorie: "algo",
+  },
+  {
+    titre: "AI solving Connect 4",
+    description:
+      "IA capable de jouer au jeu Puissance 4. ",
+    descriptionKey: "ProjectDescriptions.Connect4AI",
+    mediaUrl: "",
+    mediaType: "image",
+    githubUrl: "",
+    categorie: "algo",
+  },
 ]

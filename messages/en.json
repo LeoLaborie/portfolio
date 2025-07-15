@@ -68,6 +68,9 @@
     "HackathonYouScribe": "1st place at the YouScribe x UTC hackathon, in a team with 3 other UTC students. The goal of the hackathon was to create a book recommendation algorithm for YouScribe platform users.",
     "MailFast": "A web application for writing emails quickly and efficiently using OpenAI's API. Uses Node.js, Tailwind and PostgreSQL.",
     "Portfolio": "My personal portfolio, built with Next.js, Tailwind and TypeScript. It showcases my projects and skills.",
-    "HackathonMC2I": "Participation in the MC2I x UTC hackathon, in a team with 3 other UTC students. The goal of the hackathon was to create an accessible and responsible web application for UTC students. MC2I is a digital transformation consulting company."
+    "HackathonMC2I": "Participation in the MC2I x UTC hackathon, in a team with 3 other UTC students. The goal of the hackathon was to create an accessible and responsible web application for UTC students. MC2I is a digital transformation consulting company.",
+    "XtraSup": "AI for assisting in the selection of post-bac candidates wishing to join a higher education institution. Developed as part of a university project.",
+    "TicTacToeAI": "AI capable of playing Tic-Tac-Toe. Uses a Minimax algorithm with alpha-beta pruning to optimize performance.",
+    "Connect4AI": "AI capable of playing Connect 4."
   }
 }

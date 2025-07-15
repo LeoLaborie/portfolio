@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect, useCallback } from "react"
 import { Menu, X } from "lucide-react"
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { useLanguage } from "./LanguageProvider"
@@ -12,14 +12,37 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { scrollY } = useScroll()
   const headerOpacity = useTransform(scrollY, [0, 100], [1, 0.95])
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
 
   const navigationItems = [
     { href: "#projects", label: t("Header.Project") },
     { href: "#contact", label: t("Header.Contact") }
   ]
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
-  const toggleLanguage = () => switchLanguage(currentLanguage === 'en' ? 'fr' : 'en')
+  const toggleMenu = useCallback(() => setIsMenuOpen(!isMenuOpen), [isMenuOpen])
+  const toggleLanguage = useCallback(() => switchLanguage(currentLanguage === 'en' ? 'fr' : 'en'), [currentLanguage, switchLanguage])
+
+  // Close mobile menu when clicking under the menu area
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!isMenuOpen) return
+      
+      const target = event.target as Node
+      const isClickInsideMenu = mobileMenuRef.current?.contains(target)
+      
+      // Only close if click is below the menu area (not inside menu or header)
+      if (!isClickInsideMenu && (event.clientY > 200)) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside)
+      }
+    }
+  }, [isMenuOpen])
 
   return (
     <>
@@ -94,6 +117,7 @@ export default function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            ref={mobileMenuRef}
             key="mobile-menu"
             className="md:hidden fixed inset-x-0 top-[64px] bg-white/95 dark:bg-gray-900/95 border-t border-gray-200 dark:border-gray-700 z-50 backdrop-blur overflow-y-auto max-h-[calc(100vh-64px)] transition-colors duration-300"
             initial={{ y: "-100%", opacity: 0 }}
