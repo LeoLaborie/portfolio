@@ -57,8 +57,17 @@
     "Title": "Skills & Expertise",
     "Subtitle": "Technologies and tools I work with to bring ideas to life",
     "CategoryProgramming": "Programming",
-    "CategoryFrameworks": "Frameworks",
-    "CategoryTools": "Tools",
-    "CategorySoft": "Soft Skills"
+    "CategoryML": "Machine Learning",
+    "CategoryWeb": "Web Development",
+    "CategoryTools": "Tools"
+  },
+  "ProjectDescriptions": {
+    "DroneNavigation": "An autonomous drone model that navigates to a target while avoiding obstacles. Trained using reinforcement learning on Unity with ML-agents. From a university project in collaboration with Intellitech.",
+    "SnakeAI": "An autonomous Snake model that learns to play by avoiding obstacles and maximizing score. Trained using a genetic algorithm.",
+    "HackathonSWERC": "Participation in SWERC 2024, in a team with 3 other UTC students. SWERC is a European 5-hour algorithmic hackathon.",
+    "HackathonYouScribe": "1st place at the YouScribe x UTC hackathon, in a team with 3 other UTC students. The goal of the hackathon was to create a book recommendation algorithm for YouScribe platform users.",
+    "MailFast": "A web application for writing emails quickly and efficiently using OpenAI's API. Uses Node.js, Tailwind and PostgreSQL.",
+    "Portfolio": "My personal portfolio, built with Next.js, Tailwind and TypeScript. It showcases my projects and skills.",
+    "HackathonMC2I": "Participation in the MC2I x UTC hackathon, in a team with 3 other UTC students. The goal of the hackathon was to create an accessible and responsible web application for UTC students. MC2I is a digital transformation consulting company."
   }
 }

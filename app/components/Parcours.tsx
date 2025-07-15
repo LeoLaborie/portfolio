@@ -27,8 +27,80 @@ export default function Parcours() {
             {/* Timeline Line - now animated with the container */}
             <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-600 md:transform md:-translate-x-px"></div>
 
-            {/* Baccalauréat Entry */}
+            {/* UTC Engineering Entry */}
             <StaggeredItem direction="left">
+              <div className="relative flex items-start md:justify-center">
+                {/* Timeline Dot */}
+                <motion.div
+                  className="absolute left-6 md:left-1/2 w-4 h-4 bg-white dark:bg-gray-800 border-4 border-gray-600 dark:border-gray-400 rounded-full md:transform md:-translate-x-2 z-10"
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ duration: 0.2 }}
+                ></motion.div>
+
+                {/* Content Card */}
+                <div className="ml-16 md:ml-0 md:w-5/12 md:mr-auto">
+                  <motion.div
+                    className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-xl transition-shadow duration-300"
+                    whileHover={{ y: -5, scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                        <Award className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                      </div>
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{t("Parcours.UtcTitle")}</h3>
+                    </div>
+
+                    <div className="flex items-center gap-2 mb-4 text-gray-500 dark:text-gray-400">
+                      <Calendar className="w-4 h-4" />
+                      <span className="text-sm font-medium">{t("Parcours.UtcYears")}</span>
+                    </div>
+
+                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 leading-relaxed">{t("Parcours.UtcDescription")}</p>
+
+                    <div className="space-y-4 mb-6">
+                      <motion.div
+                        className="border border-gray-200 dark:border-gray-700 rounded-lg p-4"
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-medium text-gray-800 dark:text-gray-200">{t("Parcours.TroncCommunTitle")}</h4>
+                          <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{t("Parcours.TroncCommunDuration")}</span>
+                        </div>
+                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t("Parcours.TroncCommunDesc")}</p>
+                        <span className="text-xs text-gray-500 dark:text-gray-500">{t("Parcours.TroncCommunYears")}</span>
+                      </motion.div>
+
+                      <motion.div
+                        className="border border-gray-200 dark:border-gray-700 rounded-lg p-4"
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-medium text-gray-800 dark:text-gray-200">{t("Parcours.GenieInfoTitle")}</h4>
+                          <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{t("Parcours.GenieInfoDuration")}</span>
+                        </div>
+                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t("Parcours.GenieInfoDesc")}</p>
+                        <span className="text-xs text-gray-500 dark:text-gray-500">{t("Parcours.GenieInfoYears")}</span>
+                      </motion.div>
+                    </div>
+
+                    <motion.div
+                      className="bg-gray-800 dark:bg-gray-700 text-white p-4 rounded-lg text-center"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="font-medium text-sm">{t("Parcours.InProgress")}</div>
+                      <div className="text-xs text-gray-300 dark:text-gray-400 mt-1">{t("Parcours.CurrentlyStudying")}</div>
+                    </motion.div>
+                  </motion.div>
+                </div>
+              </div>
+            </StaggeredItem>
+
+            {/* Baccalauréat Entry */}
+            <StaggeredItem direction="right">
               <div className="relative flex items-start md:justify-center">
                 {/* Timeline Dot */}
                 <motion.div
@@ -38,7 +110,7 @@ export default function Parcours() {
                 ></motion.div>
 
                 {/* Content Card */}
-                <div className="ml-16 md:ml-0 md:w-5/12 md:mr-auto">
+                <div className="ml-16 md:w-5/12 md:ml-auto">
                   <motion.div
                     className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-xl transition-shadow duration-300"
                     whileHover={{ y: -5, scale: 1.02 }}
@@ -96,78 +168,6 @@ export default function Parcours() {
                         <div className="text-xs text-gray-600 dark:text-gray-400 font-medium">{t("Parcours.InfoScoreLabel")}</div>
                       </motion.div>
                     </div>
-                  </motion.div>
-                </div>
-              </div>
-            </StaggeredItem>
-
-            {/* UTC Engineering Entry */}
-            <StaggeredItem direction="right">
-              <div className="relative flex items-start md:justify-center">
-                {/* Timeline Dot */}
-                <motion.div
-                  className="absolute left-6 md:left-1/2 w-4 h-4 bg-white dark:bg-gray-800 border-4 border-gray-600 dark:border-gray-400 rounded-full md:transform md:-translate-x-2 z-10"
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ duration: 0.2 }}
-                ></motion.div>
-
-                {/* Content Card */}
-                <div className="ml-16 md:w-5/12 md:ml-auto">
-                  <motion.div
-                    className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-xl transition-shadow duration-300"
-                    whileHover={{ y: -5, scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
-                        <Award className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-                      </div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{t("Parcours.UtcTitle")}</h3>
-                    </div>
-
-                    <div className="flex items-center gap-2 mb-4 text-gray-500 dark:text-gray-400">
-                      <Calendar className="w-4 h-4" />
-                      <span className="text-sm font-medium">{t("Parcours.UtcYears")}</span>
-                    </div>
-
-                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 leading-relaxed">{t("Parcours.UtcDescription")}</p>
-
-                    <div className="space-y-4 mb-6">
-                      <motion.div
-                        className="border border-gray-200 dark:border-gray-700 rounded-lg p-4"
-                        whileHover={{ x: 5 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="font-medium text-gray-800 dark:text-gray-200">{t("Parcours.TroncCommunTitle")}</h4>
-                          <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{t("Parcours.TroncCommunDuration")}</span>
-                        </div>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t("Parcours.TroncCommunDesc")}</p>
-                        <span className="text-xs text-gray-500 dark:text-gray-500">{t("Parcours.TroncCommunYears")}</span>
-                      </motion.div>
-
-                      <motion.div
-                        className="border border-gray-200 dark:border-gray-700 rounded-lg p-4"
-                        whileHover={{ x: 5 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="font-medium text-gray-800 dark:text-gray-200">{t("Parcours.GenieInfoTitle")}</h4>
-                          <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{t("Parcours.GenieInfoDuration")}</span>
-                        </div>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t("Parcours.GenieInfoDesc")}</p>
-                        <span className="text-xs text-gray-500 dark:text-gray-500">{t("Parcours.GenieInfoYears")}</span>
-                      </motion.div>
-                    </div>
-
-                    <motion.div
-                      className="bg-gray-800 dark:bg-gray-700 text-white p-4 rounded-lg text-center"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <div className="font-medium text-sm">{t("Parcours.InProgress")}</div>
-                      <div className="text-xs text-gray-300 dark:text-gray-400 mt-1">{t("Parcours.CurrentlyStudying")}</div>
-                    </motion.div>
                   </motion.div>
                 </div>
               </div>

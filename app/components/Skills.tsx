@@ -7,43 +7,19 @@ import AnimatedSection from "./animated-section"
 import StaggeredContainer from "./staggered-container"
 import StaggeredItem from "./staggered-item"
 import { useLanguage } from "./LanguageProvider"
+import { skills, type SkillCategory } from "../data/skills"
 
-type SkillCategory = "programming" | "frameworks" | "tools" | "soft"
-
-type Skill = {
-  name: string
-  level: number
-  category: SkillCategory
-  icon?: React.ReactNode
+// Icon mapping for rendering
+const iconMap = {
+  Code: <Code className="w-5 h-5" />,
+  Database: <Database className="w-5 h-5" />,
+  Brain: <Brain className="w-5 h-5" />,
+  Palette: <Palette className="w-5 h-5" />,
+  Globe: <Globe className="w-5 h-5" />,
+  Server: <Server className="w-5 h-5" />,
+  Cpu: <Cpu className="w-5 h-5" />,
+  Users: <Users className="w-5 h-5" />,
 }
-
-const skills: Skill[] = [
-  // Programming Languages
-  { name: "Python", level: 90, category: "programming", icon: <Code className="w-5 h-5" /> },
-  { name: "JavaScript", level: 85, category: "programming", icon: <Code className="w-5 h-5" /> },
-  { name: "TypeScript", level: 80, category: "programming", icon: <Code className="w-5 h-5" /> },
-  { name: "C++", level: 75, category: "programming", icon: <Code className="w-5 h-5" /> },
-  { name: "SQL", level: 70, category: "programming", icon: <Database className="w-5 h-5" /> },
-  
-  // Frameworks & Libraries
-  { name: "React", level: 85, category: "frameworks", icon: <Globe className="w-5 h-5" /> },
-  { name: "Next.js", level: 80, category: "frameworks", icon: <Globe className="w-5 h-5" /> },
-  { name: "Node.js", level: 75, category: "frameworks", icon: <Server className="w-5 h-5" /> },
-  { name: "TensorFlow", level: 70, category: "frameworks", icon: <Brain className="w-5 h-5" /> },
-  { name: "PyTorch", level: 65, category: "frameworks", icon: <Brain className="w-5 h-5" /> },
-  
-  // Tools & Technologies
-  { name: "Git", level: 85, category: "tools", icon: <Cpu className="w-5 h-5" /> },
-  { name: "Docker", level: 70, category: "tools", icon: <Cpu className="w-5 h-5" /> },
-  { name: "PostgreSQL", level: 75, category: "tools", icon: <Database className="w-5 h-5" /> },
-  { name: "Unity", level: 65, category: "tools", icon: <Palette className="w-5 h-5" /> },
-  { name: "Figma", level: 60, category: "tools", icon: <Palette className="w-5 h-5" /> },
-  
-  // Soft Skills
-  { name: "Team Leadership", level: 80, category: "soft", icon: <Users className="w-5 h-5" /> },
-  { name: "Problem Solving", level: 90, category: "soft", icon: <Brain className="w-5 h-5" /> },
-  { name: "Communication", level: 85, category: "soft", icon: <Users className="w-5 h-5" /> },
-]
 
 export default function Skills() {
   const { t } = useLanguage()
@@ -51,9 +27,9 @@ export default function Skills() {
 
   const categoryMap: Record<SkillCategory, { label: string; icon: React.ReactNode }> = {
     programming: { label: t("Skills.CategoryProgramming"), icon: <Code className="w-4 h-4" /> },
-    frameworks: { label: t("Skills.CategoryFrameworks"), icon: <Globe className="w-4 h-4" /> },
+    ml: { label: t("Skills.CategoryML"), icon: <Brain className="w-4 h-4" /> },
+    web: { label: t("Skills.CategoryWeb"), icon: <Globe className="w-4 h-4" /> },
     tools: { label: t("Skills.CategoryTools"), icon: <Cpu className="w-4 h-4" /> },
-    soft: { label: t("Skills.CategorySoft"), icon: <Users className="w-4 h-4" /> },
   }
 
   const filteredSkills = skills.filter((skill) => skill.category === categoryActive)
@@ -113,7 +89,7 @@ export default function Skills() {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
-                      <span className="text-gray-600 dark:text-gray-300">{skill.icon}</span>
+                      <span className="text-gray-600 dark:text-gray-300">{iconMap[skill.iconName as keyof typeof iconMap]}</span>
                     </div>
                     <h3 className="font-semibold text-gray-900 dark:text-white">{skill.name}</h3>
                   </div>

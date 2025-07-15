@@ -132,7 +132,7 @@ export default function Projects() {
                     <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
                       {projet.titre}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 font-light">{projet.description}</p>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 font-light">{t(projet.descriptionKey)}</p>
 
                     {projet.githubUrl && (
                       <motion.a
