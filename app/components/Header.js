@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 
 export default function Header() {
   const t = useTranslations("Header")
@@ -17,15 +17,16 @@ export default function Header() {
 
   return (
     <>
+      {/* Sticky Header */}
       <motion.header
-        className="sticky top-0 z-50 bg-white border-b shadow-sm"
+        className="sticky top-0 z-50 bg-white/95 border-b shadow-sm backdrop-blur"
         style={{ opacity: headerOpacity }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <nav className="w-full flex items-center justify-between px-4 sm:px-8 lg:px-12 py-4 lg:py-8">
-          {/* Logo/Name */}
+          {/* Logo */}
           <div
             className="text-2xl sm:text-3xl lg:text-6xl font-bold transition-all duration-300 hover:text-gray-700 cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -53,7 +54,7 @@ export default function Header() {
             </motion.li>
           </ul>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle Button */}
           <motion.button
             onClick={toggleMenu}
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 relative z-60"
@@ -77,50 +78,40 @@ export default function Header() {
         </nav>
       </motion.header>
 
-      {/* Mobile Menu - Fixed position, starts below the header */}
-      <motion.div
-        className={`md:hidden fixed inset-x-0 bg-white border-t transition-all duration-300 ease-in-out z-45`}
-        style={{ top: "64px" }}
-        initial={{ y: "-100%", opacity: 0 }}
-        animate={{
-          y: isMenuOpen ? 0 : "-100%",
-          opacity: isMenuOpen ? 1 : 0,
-        }}
-        transition={{ duration: 0.3 }}
-      >
-        <ul className="flex flex-col space-y-1 px-4 py-4">
-          <motion.li whileHover={{ x: 10 }} transition={{ duration: 0.2 }}>
-            <a
-              href="#projects"
-              className="block py-3 px-4 text-lg font-medium hover:bg-gray-50 rounded-lg transition-all duration-200"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t("Project")}
-            </a>
-          </motion.li>
-          <motion.li whileHover={{ x: 10 }} transition={{ duration: 0.2 }}>
-            <a
-              href="#contact"
-              className="block py-3 px-4 text-lg font-medium hover:bg-gray-50 rounded-lg transition-all duration-200"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t("Contact")}
-            </a>
-          </motion.li>
-        </ul>
-      </motion.div>
-
-      {/* Mobile Menu Overlay */}
-      {isMenuOpen && (
-        <motion.div
-          className="md:hidden fixed inset-0 bg-black bg-opacity-20 z-40"
-          onClick={() => setIsMenuOpen(false)}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-        />
-      )}
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            key="mobile-menu"
+            className="md:hidden fixed inset-x-0 top-[64px] bg-white/95 border-t z-50 backdrop-blur overflow-y-auto max-h-[calc(100vh-64px)]"
+            initial={{ y: "-100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "-100%", opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ul className="flex flex-col space-y-1 px-4 py-4">
+              <motion.li whileHover={{ x: 10 }} transition={{ duration: 0.2 }}>
+                <a
+                  href="#projects"
+                  className="block py-3 px-4 text-lg font-medium hover:bg-gray-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t("Project")}
+                </a>
+              </motion.li>
+              <motion.li whileHover={{ x: 10 }} transition={{ duration: 0.2 }}>
+                <a
+                  href="#contact"
+                  className="block py-3 px-4 text-lg font-medium hover:bg-gray-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t("Contact")}
+                </a>
+              </motion.li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }
