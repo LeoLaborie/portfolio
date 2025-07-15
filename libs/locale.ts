@@ -1,9 +1,11 @@
-export async function getUserLocale(): Promise<string> {
+import { getUserLocale } from "get-user-locale";
+
+export async function getUserLocale_function(): Promise<string> {
   // This function determines the user's locale based on browser settings or defaults.
   // For simplicity, we'll use 'navigator.language' and fallback to 'fr'.
 
   try {
-    const locale = navigator.language;
+    const locale = getUserLocale();
     const supportedLocales = ["en", "fr"]; // Define supported locales.
     if (supportedLocales.includes(locale.split('-')[0])) {
       return locale.split('-')[0]; // Return the language code (e.g., 'en' from 'en-US').
