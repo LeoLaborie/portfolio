@@ -1,7 +1,8 @@
 {
   "Header": {
     "Project": "Projet",
-    "Contact": "Contact"
+    "Contact": "Contact",
+    "DarkMode": "Mode sombre"
   },
   "Hero": {
     "Title": "Élève ingénieur à l'UTC en Génie Informatique",
@@ -51,5 +52,13 @@
     "AvailableStatus": "Disponible pour de nouvelles opportunités",
     "GithubDescription": "Consultez mes dépôts de code et mes contributions open source",
     "LinkedinDescription": "Connectez-vous avec moi professionnellement "
+  },
+  "Skills": {
+    "Title": "Compétences & Expertise",
+    "Subtitle": "Technologies et outils que j'utilise pour donner vie aux idées",
+    "CategoryProgramming": "Programmation",
+    "CategoryFrameworks": "Frameworks",
+    "CategoryTools": "Outils",
+    "CategorySoft": "Soft Skills"
   }
 }

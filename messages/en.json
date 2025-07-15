@@ -1,7 +1,8 @@
 {
   "Header": {
     "Project": "Projects",
-    "Contact": "Contact"
+    "Contact": "Contact",
+    "DarkMode": "Dark mode"
   },
   "Hero": {
     "Title": "Computer Science Engineering Student at UTC",
@@ -51,5 +52,13 @@
     "AvailableStatus": "Available for new opportunities",
     "GithubDescription": "View my code repositories and open source contributions",
     "LinkedinDescription": "Connect with me professionally and view my career journey"
+  },
+  "Skills": {
+    "Title": "Skills & Expertise",
+    "Subtitle": "Technologies and tools I work with to bring ideas to life",
+    "CategoryProgramming": "Programming",
+    "CategoryFrameworks": "Frameworks",
+    "CategoryTools": "Tools",
+    "CategorySoft": "Soft Skills"
   }
 }
