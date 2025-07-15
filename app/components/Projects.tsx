@@ -8,14 +8,7 @@ import AnimatedSection from "./animated-section"
 import StaggeredContainer from "./staggered-container"
 import StaggeredItem from "./staggered-item"
 
-type Categorie =
-  | "Machine Learning"
-  | "Applications Web"
-  | "Algorithmie"
-  | "Autres"
-  | "Web Applications"
-  | "Algorithms"
-  | "Other"
+type Categorie = "ml" | "web" | "algo" | "other"
 
 type Projet = {
   titre: string
@@ -34,7 +27,7 @@ const projets: Projet[] = [
     mediaUrl: "/videos/drone.mp4",
     mediaType: "video",
     githubUrl: "https://github.com/LeoLaborie/AI-autonomous-drone-RL",
-    categorie: "Machine Learning",
+    categorie: "ml",
   },
   {
     titre: "SnakeAI",
@@ -43,7 +36,7 @@ const projets: Projet[] = [
     mediaUrl: "/videos/snake.mp4",
     mediaType: "video",
     githubUrl: "https://github.com/LeoLaborie/snakeAI",
-    categorie: "Machine Learning",
+    categorie: "ml",
   },
   {
     titre: "Hackathon SWERC",
@@ -52,7 +45,7 @@ const projets: Projet[] = [
     mediaUrl: "/images/SWERC.png",
     mediaType: "image",
     githubUrl: "",
-    categorie: "Algorithmie",
+    categorie: "algo",
   },
   {
     titre: "Hackathon YouScribe",
@@ -61,7 +54,7 @@ const projets: Projet[] = [
     mediaUrl: "/images/hackathon.png",
     mediaType: "image",
     githubUrl: "https://gitlab.utc.fr/gareajea/hackaton-groupe-c",
-    categorie: "Algorithmie",
+    categorie: "algo",
   },
   {
     titre: "MailFast",
@@ -70,7 +63,7 @@ const projets: Projet[] = [
     mediaUrl: "/videos/mailfast.mp4",
     mediaType: "video",
     githubUrl: "https://github.com/LeoLaborie/mailfast",
-    categorie: "Applications Web",
+    categorie: "web",
   },
   {
     titre: "Portfolio",
@@ -79,7 +72,7 @@ const projets: Projet[] = [
     mediaUrl: "/images/portfolio.png",
     mediaType: "image",
     githubUrl: "https://github.com/LeoLaborie/portfolio",
-    categorie: "Applications Web",
+    categorie: "web",
   },
   {
     titre: "Hackathon MC2I",
@@ -88,39 +81,24 @@ const projets: Projet[] = [
     mediaUrl: "/images/university_project.png",
     mediaType: "image",
     githubUrl: "https://gitlab.utc.fr/gareajea/hackaton-groupe-c",
-    categorie: "Applications Web",
+    categorie: "web",
   },
 ]
 
-const getCategoryIcon = (category: Categorie) => {
-  switch (category) {
-    case "Machine Learning":
-      return <Brain className="w-4 h-4" />
-    case "Applications Web":
-      return <Globe className="w-4 h-4" />
-    case "Web Applications":
-      return <Globe className="w-4 h-4" />
-    case "Algorithmie":
-      return <Code className="w-4 h-4" />
-    case "Algorithms":
-      return <Code className="w-4 h-4" />
-    case "Autres":
-      return <Zap className="w-4 h-4" />
-    case "Other":
-      return <Zap className="w-4 h-4" />
-  }
-}
-
 export default function Projects() {
   const t = useTranslations("Projects")
-  const [categorieActive, setCategorieActive] = useState<Categorie>("Machine Learning")
+  const [categorieActive, setCategorieActive] = useState<Categorie>("ml")
 
-  const categories: Categorie[] = [
-    t("CategoryML") as Categorie,
-    t("CategoryWeb") as Categorie,
-    t("CategoryAlgo") as Categorie,
-    t("CategoryOther") as Categorie,
-  ]
+  const categoryMap: Record<
+    Categorie,
+    { label: string; icon: React.ReactNode }
+  > = {
+    ml: { label: t("CategoryML"), icon: <Brain className="w-4 h-4" /> },
+    web: { label: t("CategoryWeb"), icon: <Globe className="w-4 h-4" /> },
+    algo: { label: t("CategoryAlgo"), icon: <Code className="w-4 h-4" /> },
+    other: { label: t("CategoryOther"), icon: <Zap className="w-4 h-4" /> },
+  }
+
   const projetsFiltres = projets.filter((p) => p.categorie === categorieActive)
 
   return (
@@ -141,12 +119,14 @@ export default function Projects() {
         <AnimatedSection delay={0.5} direction="up">
           <div className="flex justify-center mb-16">
             <div className="inline-flex bg-gray-100 rounded-2xl p-1.5 border border-gray-200">
-              {categories.map((cat, index) => (
+              {(Object.keys(categoryMap) as Categorie[]).map((cat, index) => (
                 <motion.button
                   key={cat}
                   onClick={() => setCategorieActive(cat)}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium transition-all duration-200 text-sm ${
-                    cat === categorieActive ? "bg-white text-gray-900 shadow-sm" : "text-gray-600 hover:text-gray-900"
+                    cat === categorieActive
+                      ? "bg-white text-gray-900 shadow-sm"
+                      : "text-gray-600 hover:text-gray-900"
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -154,8 +134,8 @@ export default function Projects() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 + 0.5 }}
                 >
-                  {getCategoryIcon(cat)}
-                  <span className="hidden sm:inline">{cat}</span>
+                  {categoryMap[cat].icon}
+                  <span className="hidden sm:inline">{categoryMap[cat].label}</span>
                 </motion.button>
               ))}
             </div>
@@ -164,7 +144,7 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <StaggeredContainer className="grid gap-8 md:gap-12" staggerDelay={0.2}>
-          {projetsFiltres.map((projet, index) => (
+          {projetsFiltres.map((projet) => (
             <StaggeredItem key={`${projet.titre}-${categorieActive}`} direction="up">
               <motion.div className="group" whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
                 <div className="bg-white rounded-3xl overflow-hidden border border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-lg">
@@ -203,8 +183,8 @@ export default function Projects() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.3 }}
                       >
-                        {getCategoryIcon(projet.categorie)}
-                        <span className="hidden sm:inline">{projet.categorie}</span>
+                        {categoryMap[projet.categorie].icon}
+                        <span className="hidden sm:inline">{categoryMap[projet.categorie].label}</span>
                       </motion.div>
                     </div>
                   </div>
@@ -216,7 +196,6 @@ export default function Projects() {
                     </h3>
                     <p className="text-gray-600 leading-relaxed mb-8 font-light">{projet.description}</p>
 
-                    {/* Action Button */}
                     {projet.githubUrl && (
                       <motion.a
                         href={projet.githubUrl}
