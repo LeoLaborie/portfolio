@@ -61,9 +61,31 @@
     "CategoryWeb": "Web Development",
     "CategoryTools": "Tools"
   },
+  "ProjectTitles": {
+    "MinecraftMods": "Minecraft Mods (Java)",
+    "TradingBot": "Binance Trading Bot",
+    "GamingBot": "Automated Gaming Bot",
+    "ImageEnhancement": "Image Quality Enhancement",
+    "InstagramScraper": "Instagram Scraper",
+    "ScreenResizer": "Screen Resizer Tool",
+    "PygameGames": "Pygame Mini-games",
+    "DigitRecognition": "Handwritten Digit Recognition AI",
+    "TitanicPrediction": "Titanic Survival Prediction AI",
+    "RealEstatePricing": "Real Estate Pricing AI",
+    "Connect4AI": "AI solving Connect 4",
+    "SnakeAI": "SnakeAI",
+    "TicTacToeAI": "AI solving Tic-Tac-Toe",
+    "HackathonSWERC": "SWERC Hackathon",
+    "HackathonYouScribe": "YouScribe Hackathon",
+    "MailFast": "MailFast",
+    "Portfolio": "Portfolio",
+    "HackathonMC2I": "MC2I Hackathon",
+    "XtraSup": "XtraSup",
+    "AutoEcole": "Driving School Management System"
+  },
   "ProjectDescriptions": {
     "DroneNavigation": "An autonomous drone model that navigates to a target while avoiding obstacles. Trained using reinforcement learning on Unity with ML-agents. From a university project in collaboration with Intellitech.",
-    "SnakeAI": "An autonomous Snake model that learns to play by avoiding obstacles and maximizing score. Trained using a genetic algorithm.",
+    "SnakeAI": "An autonomous Snake model that learns to play by avoiding obstacles and maximizing score. Trained using a genetic algorithm with innovative pre-training.",
     "HackathonSWERC": "Participation in SWERC 2024, in a team with 3 other UTC students. SWERC is a European 5-hour algorithmic hackathon.",
     "HackathonYouScribe": "1st place at the YouScribe x UTC hackathon, in a team with 3 other UTC students. The goal of the hackathon was to create a book recommendation algorithm for YouScribe platform users.",
     "MailFast": "A web application for writing emails quickly and efficiently using OpenAI's API. Uses Node.js, Tailwind and PostgreSQL.",
@@ -71,6 +93,26 @@
     "HackathonMC2I": "Participation in the MC2I x UTC hackathon, in a team with 3 other UTC students. The goal of the hackathon was to create an accessible and responsible web application for UTC students. MC2I is a digital transformation consulting company.",
     "XtraSup": "AI for assisting in the selection of post-bac candidates wishing to join a higher education institution. Developed as part of a university project.",
     "TicTacToeAI": "AI capable of playing Tic-Tac-Toe. Uses a Minimax algorithm with alpha-beta pruning to optimize performance.",
-    "Connect4AI": "AI capable of playing Connect 4."
+    "Connect4AI": "AI capable of playing Connect 4.",
+    "MinecraftMods": "My first steps in programming with Java to create Minecraft mods.",
+    "TradingBot": "Automated trading bot for the Binance platform, developed in Python.",
+    "GamingBot": "Automated bot to play a video game for me with auto-click, allowing efficiency gains even in my absence.",
+    "ImageEnhancement": "Image quality enhancement program for photos in Python.",
+    "InstagramScraper": "Scraping bot to map friendship networks on Instagram.",
+    "ScreenResizer": "Screen resizing program, used by a high-level Valorant player.",
+    "PygameGames": "Series of mini-games developed in Python with the Pygame library.",
+    "DigitRecognition": "Artificial intelligence for handwritten digit recognition using TensorFlow.",
+    "TitanicPrediction": "AI to predict survival of Titanic passengers using Scikit-Learn.",
+    "RealEstatePricing": "Artificial intelligence to estimate real estate prices.",
+    "AutoEcole": "Complete driving school management system developed in PHP, allowing management of students, driving sessions, learning themes and planning. Developed as part of the NF92 course at UTC."
+  },
+  "Timeline": {
+    "JavaStart": "My first steps in programming with Java to create Minecraft mods.",
+    "PythonDiscovery": "Intensive Python learning in one week at a rate of 14h/day.",
+    "CreativeExplosion": "Development of a series of varied Python mini-projects and participation in the Mathematics Olympiad.",
+    "AIEntry": "Discovery of machine learning and neural networks, training on Scikit-Learn and TensorFlow.",
+    "InnovationExcellence": "Development of innovative AI and excellent results at the Baccalaureate.",
+    "TechnicalDiversification": "Expansion into new technical domains and full-stack web development.",
+    "AdvancedAI": "Development of autonomous drone AI with reinforcement learning on Unity."
   }
 }

@@ -11,7 +11,6 @@ export default function Home(): React.ReactElement {
     <main className="bg-gray-100 dark:bg-gray-800 text-black dark:text-white font-[Times_New_Roman] scroll-smooth transition-colors duration-300">
       <Header />
       <Hero />
-      <Contact />
       <Projects />
       <Skills />
       <Parcours />

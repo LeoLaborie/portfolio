@@ -61,9 +61,31 @@
     "CategoryWeb": "Développement Web",
     "CategoryTools": "Outils"
   },
+  "ProjectTitles": {
+    "MinecraftMods": "Mods Minecraft (Java)",
+    "TradingBot": "Bot Trading Binance",
+    "GamingBot": "Bot Gaming Automatisé",
+    "ImageEnhancement": "Amélioration Qualité Image",
+    "InstagramScraper": "Instagram Scraper",
+    "ScreenResizer": "Outil Redimensionnement Écran",
+    "PygameGames": "Mini-jeux Pygame",
+    "DigitRecognition": "IA Reconnaissance Chiffres",
+    "TitanicPrediction": "IA Prédiction Titanic",
+    "RealEstatePricing": "IA Prix Immobilier",
+    "Connect4AI": "IA Puissance 4",
+    "SnakeAI": "SnakeAI",
+    "TicTacToeAI": "IA Morpion",
+    "HackathonSWERC": "Hackathon SWERC",
+    "HackathonYouScribe": "Hackathon YouScribe",
+    "MailFast": "MailFast",
+    "Portfolio": "Portfolio",
+    "HackathonMC2I": "Hackathon MC2I",
+    "XtraSup": "XtraSup",
+    "AutoEcole": "Système Gestion Auto-École"
+  },
   "ProjectDescriptions": {
-    "DroneNavigation": "Un modèle de drone autonome qui navigue vers une cible en évitant les obstacles. Entrainé par reinforcement learning sur Unity avec ML-agents. Issu d'un projet universaire en collaboration avec Intellitech.",
-    "SnakeAI": "Un modèle de Snake autonome qui apprend à jouer en évitant les obstacles et en maximisant le score. Entrainé par un algorithme génétique.",
+    "DroneNavigation": "An autonomous drone model that navigates to a target while avoiding obstacles. Trained using reinforcement learning on Unity with ML-agents. From a university project in collaboration with Intellitech.",
+    "SnakeAI": "Un modèle de Snake autonome qui apprend à jouer en évitant les obstacles et en maximisant le score. Entrainé par un algorithme génétique avec pré-entrainement innovant.",
     "HackathonSWERC": "Participation au SWERC 2024, en équipe avec 3 autres étudiants de l'UTC. Le Swerc est un hackathon d'Algorithmie Européen de 5 heures.",
     "HackathonYouScribe": "1ère place au hackathon de YouScribe x UTC, en équipe avec 3 autres étudiants de l'UTC. Le but du Hackathon était de créer un algorithme de recommandation de livres pour les utilisateurs de la plateforme YouScribe.",
     "MailFast": "Une application web permettant d'écrire des emails rapidement et efficacement grâce à l'API de OpenAI. Utilise Node.js, Tailwind et PostgresSQL.",
@@ -71,6 +93,27 @@
     "HackathonMC2I": "Participation au hackathon MC2I x UTC, en équipe avec 3 autres étudiants de l'UTC. Le but du Hackathon était de faire une application web accessible et responsable pour les étudiants de l'UTC. MC2I est une entreprise de conseil en transformation numérique.",
     "XtraSup": "IA d'aide à la sélection de candidats post-bac souhaitant intégrer un établissement d'enseignement supérieur. Développée dans le cadre d'un projet universitaire.",
     "TicTacToeAI": "IA capable de jouer au jeu du Morpion. Utilise un algorithme Minimax avec élagage alpha-bêta pour optimiser les performances.",
-    "Connect4AI": "IA capable de jouer au jeu Puissance 4."
+    "Connect4AI": "IA capable de jouer au jeu Puissance 4.",
+    "MinecraftMods": "Mes premiers pas en programmation avec Java pour créer des mods Minecraft.",
+    "TradingBot": "Bot de trading automatisé pour la plateforme Binance, développé en Python.",
+    "GamingBot": "Bot automatisé pour jouer à ma place à un jeu vidéo avec auto-clic, permettant un gain d'efficacité même en mon absence.",
+    "ImageEnhancement": "Programme d'amélioration de la qualité d'image pour des photos en Python.",
+    "InstagramScraper": "Bot de scraping pour cartographier les réseaux d'amitié sur Instagram.",
+    "ScreenResizer": "Programme de redimensionnement d'écran, utilisé par un joueur de haut niveau de Valorant.",
+    "PygameGames": "Série de mini-jeux développés en Python avec la bibliothèque Pygame.",
+    "DigitRecognition": "Intelligence artificielle de reconnaissance de chiffres manuscrits utilisant TensorFlow.",
+    "TitanicPrediction": "IA pour prédire la survie des passagers du Titanic en utilisant Scikit-Learn.",
+    "RealEstatePricing": "Intelligence artificielle pour estimer les prix de l'immobilier.",
+    "AutoEcole": "Système de gestion complet pour auto-école développé en PHP, permettant la gestion des élèves, séances de conduite, thèmes d'apprentissage et planification. Développé dans le cadre du cours NF92 à l'UTC."
+  },
+  "Timeline": {
+    "JavaStart": "Mes premiers pas dans la programmation avec Java pour créer des mods Minecraft.",
+    "PythonDiscovery": "Apprentissage intensif de Python en une semaine à raison de 14h/jour.",
+    "CreativeExplosion": "Développement d'une série de mini-projets Python variés et participation à l'Olympiade de mathématiques.",
+    "AIEntry": "Découverte de l'apprentissage automatique et des réseaux de neurones, formation sur Scikit-Learn et TensorFlow.",
+    "InnovationExcellence": "Développement d'IA innovantes et excellents résultats au Baccalauréat.",
+    "TechnicalDiversification": "Expansion vers de nouveaux domaines techniques et développement web full-stack.",
+    "AdvancedAI": "Développement d'IA de drones autonomes avec apprentissage par renforcement sur Unity."
   }
 }
+

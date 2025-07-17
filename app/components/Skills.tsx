@@ -1,13 +1,20 @@
 "use client"
 
-import React, { useState, useMemo } from "react"
+import React, { useState, useMemo, useCallback } from "react"
 import { Code, Database, Brain, Palette, Globe, Server, Cpu, Users } from "lucide-react"
 import { motion } from "framer-motion"
-import AnimatedSection from "./animated-section"
 import StaggeredContainer from "./staggered-container"
 import StaggeredItem from "./staggered-item"
+import SectionHeader from "./SectionHeader"
+import CategoryFilter from "./CategoryFilter"
 import { useLanguage } from "./LanguageProvider"
-import { skills, type SkillCategory } from "../data/skills"
+import { skills, type SkillCategory, type Skill } from "../data/skills"
+import { commonStyles } from "../styles/common"
+
+interface SkillCardProps {
+  skill: Skill
+  index: number
+}
 
 // Icon mapping for rendering
 const iconMap = {
@@ -19,6 +26,43 @@ const iconMap = {
   Server: <Server className="w-5 h-5" />,
   Cpu: <Cpu className="w-5 h-5" />,
   Users: <Users className="w-5 h-5" />,
+}
+
+// Define importance ranking by skill name (most important first)
+const importanceRank: Record<string, number> = {
+  // Programming - Core skills first
+  "Python": 1,
+  "JavaScript / TypeScript": 2,
+  "C": 3,
+  "C#": 4,
+  "Java": 5,
+  "PHP": 6,
+  "SQL": 7,
+  "Assembly": 8,
+  
+  // ML - Most advanced/recent first
+  "ML concepts": 1,
+  "Unity ML-Agents (RL)": 2,
+  "Genetic Algorithms": 3,
+  "XGBoost": 4,
+  "TensorFlow": 5,
+  "Scikit-learn": 6,
+  "Computer Vision": 7,
+  "Fuzzy Logic": 8,
+  
+  // Web - Full-stack order
+  "Next.js": 1,
+  "HTML/CSS": 2,
+  "Tailwind CSS": 3,
+  
+  // Tools - Most important first
+  "Git": 1,
+  "Linux": 2,
+  "API Integration": 3,
+  "Unity": 4,
+  "Web Scraping": 5,
+  "PostgreSQL": 6,
+  "Pygame": 7,
 }
 
 export default function Skills() {
@@ -33,94 +77,87 @@ export default function Skills() {
     tools: { label: t("Skills.CategoryTools"), icon: <Cpu className="w-4 h-4" /> },
   }), [t])
 
-  // Memoize filtered skills to prevent unnecessary recalculations
-  const filteredSkills = useMemo(() => 
-    skills.filter((skill) => skill.category === categoryActive), 
-    [categoryActive]
-  )
+  // Memoize filtered and sorted skills to prevent unnecessary recalculations
+  const filteredSkills = useMemo(() => {
+    return skills
+      .filter((skill) => skill.category === categoryActive)
+      .sort((a, b) => {
+        const rankA = importanceRank[a.name] || 999
+        const rankB = importanceRank[b.name] || 999
+        return rankA - rankB
+      })
+  }, [categoryActive])
+
+  const handleCategoryChangeAction = useCallback((category: SkillCategory) => {
+    setCategoryActive(category)
+  }, [])
 
   return (
-    <section id="skills" className="py-20 px-4 md:px-8 bg-gray-50 dark:bg-gray-800 scroll-mt-20 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <AnimatedSection delay={0.1} direction="up">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">{t("Skills.Title")}</h2>
-            <div className="w-24 h-1 bg-gray-300 dark:bg-gray-600 mx-auto mb-6"></div>
-          </AnimatedSection>
-          <AnimatedSection delay={0.3} direction="up">
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-light">
-              {t("Skills.Subtitle")}
-            </p>
-          </AnimatedSection>
-        </div>
+    <section id="skills" className={commonStyles.sectionGray}>
+      <div className={commonStyles.container}>
+        <SectionHeader 
+          title={t("Skills.Title")} 
+          subtitle={t("Skills.Subtitle")} 
+        />
 
-        {/* Category Filter */}
-        <AnimatedSection delay={0.5} direction="up">
-          <div className="flex justify-center mb-16">
-            <div className="inline-flex bg-white dark:bg-gray-800 rounded-2xl p-1.5 border border-gray-200 dark:border-gray-700 shadow-sm">
-              {(Object.keys(categoryMap) as SkillCategory[]).map((cat, index) => (
-                <motion.button
-                  key={cat}
-                  onClick={() => setCategoryActive(cat)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium transition-all duration-200 text-sm ${
-                    cat === categoryActive 
-                      ? "bg-gray-900 dark:bg-gray-600 text-white shadow-sm" 
-                      : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700"
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 + 0.5 }}
-                >
-                  {categoryMap[cat].icon}
-                  <span className="hidden sm:inline">{categoryMap[cat].label}</span>
-                </motion.button>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
+        <CategoryFilter
+          categories={categoryMap}
+          activeCategory={categoryActive}
+          onCategoryChangeAction={handleCategoryChangeAction}
+        />
 
         {/* Skills Grid */}
-        <StaggeredContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.1}>
+        <StaggeredContainer className={commonStyles.gridTwo} staggerDelay={0.1}>
           {filteredSkills.map((skill, index) => (
             <StaggeredItem key={`${skill.name}-${categoryActive}`} direction="up">
-              <motion.div 
-                className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 hover:shadow-lg dark:hover:shadow-xl"
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
-                      <span className="text-gray-600 dark:text-gray-300">{iconMap[skill.iconName as keyof typeof iconMap]}</span>
-                    </div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white">{skill.name}</h3>
-                  </div>
-                  <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{skill.level}%</span>
-                </div>
-                
-                {/* Progress Bar */}
-                <div className="relative">
-                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <motion.div
-                      className="bg-gray-900 dark:bg-gray-400 h-2 rounded-full"
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{ 
-                        duration: 1,
-                        delay: index * 0.1 + 0.5,
-                        ease: "easeOut"
-                      }}
-                    />
-                  </div>
-                </div>
-              </motion.div>
+              <SkillCard skill={skill} index={index} />
             </StaggeredItem>
           ))}
         </StaggeredContainer>
       </div>
     </section>
+  )
+}
+
+// Extracted SkillCard component
+function SkillCard({ skill, index }: SkillCardProps) {
+  return (
+    <motion.div 
+      className={`${commonStyles.card} ${commonStyles.cardPadding} hover:shadow-lg dark:hover:shadow-xl`}
+      whileHover={{ y: -2 }}
+      transition={{ duration: 0.2 }}
+    >
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-3">
+          <div className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg transition-colors duration-300">
+            <span className={commonStyles.textGray}>
+              {iconMap[skill.iconName as keyof typeof iconMap]}
+            </span>
+          </div>
+          <h3 className={`${commonStyles.textDark} ${commonStyles.textSemibold}`}>
+            {skill.name}
+          </h3>
+        </div>
+        <span className={`text-sm ${commonStyles.textMedium} ${commonStyles.textGray}`}>
+          {skill.level}%
+        </span>
+      </div>
+      
+      {/* Progress Bar */}
+      <div className="relative">
+        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 transition-colors duration-300">
+          <motion.div
+            className="bg-gray-900 dark:bg-gray-400 h-2 rounded-full transition-colors duration-300"
+            initial={{ width: 0 }}
+            animate={{ width: `${skill.level}%` }}
+            transition={{ 
+              duration: 1,
+              delay: index * 0.1 + 0.5,
+              ease: "easeOut"
+            }}
+          />
+        </div>
+      </div>
+    </motion.div>
   )
 }

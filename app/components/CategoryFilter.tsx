@@ -7,14 +7,14 @@ import AnimatedSection from "./animated-section"
 interface CategoryFilterProps<T extends string> {
   categories: Record<T, { label: string; icon: React.ReactNode }>
   activeCategory: T
-  onCategoryChange: (category: T) => void
+  onCategoryChangeAction: (category: T) => void
   delay?: number
 }
 
 export default function CategoryFilter<T extends string>({
   categories,
   activeCategory,
-  onCategoryChange,
+  onCategoryChangeAction,
   delay = 0.5
 }: CategoryFilterProps<T>) {
   return (
@@ -24,7 +24,7 @@ export default function CategoryFilter<T extends string>({
           {(Object.keys(categories) as T[]).map((cat, index) => (
             <motion.button
               key={cat}
-              onClick={() => onCategoryChange(cat)}
+              onClick={() => onCategoryChangeAction(cat)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium transition-all duration-200 text-sm ${
                 cat === activeCategory 
                   ? "bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm" 
