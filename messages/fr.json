@@ -1,13 +1,13 @@
 {
   "Header": {
-    "Project": "Projet",
+    "Project": "Projets",
     "Contact": "Contact",
     "DarkMode": "Mode sombre"
   },
   "Hero": {
     "Title": "Élève ingénieur à l'UTC en Génie Informatique",
     "Subtitle": "spécialité IA et Données",
-    "Description": "Passionné par l'Intelligence Artificielle et le développement web, je crée des applications innovantes.",
+    "Description": "Développeur spécialisé en Intelligence Artificielle et algorithmes, avec une expertise en Python et une passion pour résoudre des problèmes complexes par la programmation.",
     "DownloadCV": "Télécharger mon CV"
   },
   "Parcours": {
@@ -84,7 +84,7 @@
     "AutoEcole": "Système Gestion Auto-École"
   },
   "ProjectDescriptions": {
-    "DroneNavigation": "An autonomous drone model that navigates to a target while avoiding obstacles. Trained using reinforcement learning on Unity with ML-agents. From a university project in collaboration with Intellitech.",
+    "DroneNavigation": "Un modèle de drone autonome qui navigue vers une cible tout en évitant les obstacles. Entraîné par apprentissage par renforcement sur Unity avec ML-agents. Issu d'un projet universitaire en collaboration avec Intellitech.",
     "SnakeAI": "Un modèle de Snake autonome qui apprend à jouer en évitant les obstacles et en maximisant le score. Entrainé par un algorithme génétique avec pré-entrainement innovant.",
     "HackathonSWERC": "Participation au SWERC 2024, en équipe avec 3 autres étudiants de l'UTC. Le Swerc est un hackathon d'Algorithmie Européen de 5 heures.",
     "HackathonYouScribe": "1ère place au hackathon de YouScribe x UTC, en équipe avec 3 autres étudiants de l'UTC. Le but du Hackathon était de créer un algorithme de recommandation de livres pour les utilisateurs de la plateforme YouScribe.",
@@ -101,9 +101,9 @@
     "InstagramScraper": "Bot de scraping pour cartographier les réseaux d'amitié sur Instagram.",
     "ScreenResizer": "Programme de redimensionnement d'écran, utilisé par un joueur de haut niveau de Valorant.",
     "PygameGames": "Série de mini-jeux développés en Python avec la bibliothèque Pygame.",
-    "DigitRecognition": "Intelligence artificielle de reconnaissance de chiffres manuscrits utilisant TensorFlow.",
+    "DigitRecognition": "Intelligence artificielle de reconnaissance de chiffres manuscrits utilisant TensorFlow et le dataset MNIST.",
     "TitanicPrediction": "IA pour prédire la survie des passagers du Titanic en utilisant Scikit-Learn.",
-    "RealEstatePricing": "Intelligence artificielle pour estimer les prix de l'immobilier.",
+    "RealEstatePricing": "Intelligence artificielle pour estimer les prix de l'immobilier en utilisant Scikit-Learn.",
     "AutoEcole": "Système de gestion complet pour auto-école développé en PHP, permettant la gestion des élèves, séances de conduite, thèmes d'apprentissage et planification. Développé dans le cadre du cours NF92 à l'UTC."
   },
   "Timeline": {
