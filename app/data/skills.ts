@@ -6,10 +6,10 @@ export const skills: Skill[] = [
   // Programming Languages (chronological order)
   { name: "Java", level: 75, category: "programming", iconName: "Code", yearLearned: 2018 },
   { name: "Python", level: 99.99, category: "programming", iconName: "Code", yearLearned: 2020 },
-  { name: "JavaScript / TypeScript", level: 85, category: "programming", iconName: "Code", yearLearned: 2024 },
+  { name: "C++", level: 85, category: "programming", iconName: "Code", yearLearned: 2024 },
+  { name: "JavaScript / TypeScript", level: 80, category: "programming", iconName: "Code", yearLearned: 2024 },
   { name: "C", level: 80, category: "programming", iconName: "Code", yearLearned: 2024 },
-  { name: "C#", level: 80, category: "programming", iconName: "Code", yearLearned: 2025 },
-  // { name: "C++", level: 75, category: "programming", iconName: "Code", yearLearned: 2024 },
+  // { name: "C#", level: 80, category: "programming", iconName: "Code", yearLearned: 2025 },
   { name: "PHP", level: 75, category: "programming", iconName: "Code", yearLearned: 2024 },
   { name: "Assembly", level: 70, category: "programming", iconName: "Code", yearLearned: 2024 },
   { name: "SQL", level: 70, category: "programming", iconName: "Database", yearLearned: 2024 },
