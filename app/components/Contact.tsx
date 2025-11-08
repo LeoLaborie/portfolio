@@ -6,7 +6,13 @@ import AnimatedSection from "./animated-section"
 import StaggeredContainer from "./staggered-container"
 import StaggeredItem from "./staggered-item"
 import { useLanguage } from "./LanguageProvider"
+import { socialLinks } from "../data/contact"
 
+/**
+ * Contact section component with email and social media links
+ * Displays availability status and animated contact cards
+ * @returns Contact section with interactive social media cards
+ */
 export default function Contact() {
   const { t } = useLanguage()
 
@@ -39,7 +45,7 @@ export default function Contact() {
           {/* Email Card */}
           <StaggeredItem direction="up">
             <motion.a
-              href={`mailto:${t("Contact.Email")}`}
+              href={`mailto:${socialLinks.email}`}
               className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6 md:p-8 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-lg transition-all duration-300 block"
               whileHover={{ y: -5, scale: 1.02 }}
               transition={{ duration: 0.3 }}
@@ -56,7 +62,7 @@ export default function Contact() {
                   <div className="min-w-0 flex-1">
                     <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-1">Email</h3>
                     <div className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 font-medium text-sm sm:text-base truncate">
-                      {t("Contact.Email")}
+                      {socialLinks.email}
                     </div>
                   </div>
                 </div>
@@ -72,7 +78,7 @@ export default function Contact() {
             {/* GitHub Card */}
             <StaggeredItem direction="left">
               <motion.a
-                href="https://github.com/LeoLaborie"
+                href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6 md:p-8 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-lg transition-all duration-300 block h-full"
@@ -99,7 +105,7 @@ export default function Contact() {
             {/* LinkedIn Card */}
             <StaggeredItem direction="right">
               <motion.a
-                href="https://www.linkedin.com/in/l%C3%A9o-laborie/"
+                href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6 md:p-8 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-lg transition-all duration-300 block h-full"

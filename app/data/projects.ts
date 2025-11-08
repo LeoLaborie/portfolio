@@ -1,6 +1,4 @@
-import { type Categorie, type Projet } from "../types"
-
-export type { Categorie, Projet }
+import { type Projet } from "../types"
 
 export const projets: Projet[] = [
   // 2018 Projects

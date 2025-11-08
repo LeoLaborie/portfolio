@@ -11,6 +11,15 @@ interface CategoryFilterProps<T extends string> {
   delay?: number
 }
 
+/**
+ * Category filter component with animated buttons
+ * Generic component that works with any category type
+ * @param categories - Record of categories with labels and icons
+ * @param activeCategory - Currently selected category
+ * @param onCategoryChangeAction - Callback when category changes
+ * @param delay - Animation delay (default: 0.5s)
+ * @returns Animated category filter buttons
+ */
 export default function CategoryFilter<T extends string>({
   categories,
   activeCategory,

@@ -5,7 +5,13 @@ import { motion } from "framer-motion"
 import AnimatedSection from "./animated-section"
 import ParallaxSection from "./parallax-section"
 import { useLanguage } from "./LanguageProvider"
+import { CV_PATH } from "../data/contact"
 
+/**
+ * Hero section component - Main landing section with profile image and CTA
+ * Features animated introduction text and CV download button
+ * @returns Hero section with profile image and download CV button
+ */
 export default function Hero() {
   const { t } = useLanguage()
 
@@ -32,7 +38,7 @@ export default function Hero() {
         <AnimatedSection delay={0.8} direction="up">
           <div className="flex justify-center">
             <motion.a
-              href="/leo-laborie-cv.pdf"
+              href={CV_PATH}
               download
               className="inline-block px-6 md:px-12 py-3 md:py-4 bg-black dark:bg-white text-white dark:text-black text-base md:text-2xl rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-200"
               whileHover={{ scale: 1.05 }}
@@ -51,9 +57,10 @@ export default function Hero() {
             <div className="relative">
               <Image
                 src="/images/moi.png"
-                alt="Photo de moi"
+                alt={t("Hero.ProfileImageAlt")}
                 width={500}
                 height={500}
+                priority
                 className="rounded-full object-cover w-[300px] h-auto lg:w-[500px]"
               />
             </div>

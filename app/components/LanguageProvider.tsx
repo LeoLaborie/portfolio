@@ -27,19 +27,22 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   const [messages, setMessages] = useState<Messages>(enMessages)
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     // Check localStorage for saved preference
-    const savedLanguage = localStorage.getItem("preferredLanguage") as Language | null
+    const savedLanguage = localStorage.getItem("preferredLanguage") as Language | null;
     if (savedLanguage && (savedLanguage === "en" || savedLanguage === "fr")) {
-      setCurrentLanguage(savedLanguage)
-      setMessages(savedLanguage === "en" ? enMessages : frMessages)
+      setCurrentLanguage(savedLanguage);
+      setMessages(savedLanguage === "en" ? enMessages : frMessages);
     }
   }, [])
 
   const switchLanguage = useCallback((newLanguage: Language) => {
     if (newLanguage === "en" || newLanguage === "fr") {
-      setCurrentLanguage(newLanguage)
-      setMessages(newLanguage === "en" ? enMessages : frMessages)
-      localStorage.setItem("preferredLanguage", newLanguage)
+      setCurrentLanguage(newLanguage);
+      setMessages(newLanguage === "en" ? enMessages : frMessages);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem("preferredLanguage", newLanguage);
+      }
     }
   }, [])
 

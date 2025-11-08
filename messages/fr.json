@@ -8,7 +8,8 @@
     "Title": "Élève ingénieur à l'UTC en Génie Informatique",
     "Subtitle": "spécialité IA et Données",
     "Description": "Développeur spécialisé en Intelligence Artificielle et algorithmes, avec une expertise en Python et une passion pour résoudre des problèmes complexes par la programmation.",
-    "DownloadCV": "Télécharger mon CV"
+    "DownloadCV": "Télécharger mon CV",
+    "ProfileImageAlt": "Photo de profil de Léo Laborie"
   },
   "Parcours": {
     "Title": "Formation",

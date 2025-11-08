@@ -7,6 +7,11 @@ import StaggeredContainer from "./staggered-container"
 import StaggeredItem from "./staggered-item"
 import { useLanguage } from "./LanguageProvider"
 
+/**
+ * Education/Career path component displaying academic background
+ * Shows UTC engineering program and Baccalaureate with timeline visualization
+ * @returns Education timeline section with animated cards
+ */
 export default function Parcours() {
   const { t } = useLanguage()
 

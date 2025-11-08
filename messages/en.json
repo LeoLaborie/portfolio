@@ -8,7 +8,8 @@
     "Title": "Computer Science Engineering Student at UTC",
     "Subtitle": "AI and Data specialization",
     "Description": "Developer specialized in Artificial Intelligence and algorithms, with Python expertise and a passion for solving complex problems through programming.",
-    "DownloadCV": "Download my CV"
+    "DownloadCV": "Download my CV",
+    "ProfileImageAlt": "Profile photo of Léo Laborie"
   },
   "Parcours": {
     "Title": "Education",

@@ -8,7 +8,8 @@ import StaggeredItem from "./staggered-item"
 import SectionHeader from "./SectionHeader"
 import CategoryFilter from "./CategoryFilter"
 import { useLanguage } from "./LanguageProvider"
-import { skills, type SkillCategory, type Skill } from "../data/skills"
+import { skills } from "../data/skills"
+import { type SkillCategory, type Skill } from "../types"
 import { commonStyles } from "../styles/common"
 
 interface SkillCardProps {
@@ -30,11 +31,11 @@ const iconMap = {
 
 // Define importance ranking by skill name (most important first)
 const importanceRank: Record<string, number> = {
-  // Programming - Core skills first
+  // Programming - Sorted by proficiency level (highest first)
   "Python": 1,
-  "JavaScript / TypeScript": 2,
-  "C": 3,
-  "C#": 4,
+  "C++": 2,
+  "JavaScript / TypeScript": 3,
+  "C": 4,
   "Java": 5,
   "PHP": 6,
   "SQL": 7,
@@ -65,6 +66,11 @@ const importanceRank: Record<string, number> = {
   "Pygame": 7,
 }
 
+/**
+ * Skills section component that displays technical skills with proficiency levels
+ * Allows filtering by skill category (Programming, ML, Web, Tools)
+ * @returns Skills section with category filtering and skill cards with progress bars
+ */
 export default function Skills() {
   const { t } = useLanguage()
   const [categoryActive, setCategoryActive] = useState<SkillCategory>("programming")
@@ -109,7 +115,7 @@ export default function Skills() {
         {/* Skills Grid */}
         <StaggeredContainer className={commonStyles.gridTwo} staggerDelay={0.1}>
           {filteredSkills.map((skill, index) => (
-            <StaggeredItem key={`${skill.name}-${categoryActive}`} direction="up">
+            <StaggeredItem key={skill.name} direction="up">
               <SkillCard skill={skill} index={index} />
             </StaggeredItem>
           ))}

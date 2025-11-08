@@ -11,6 +11,14 @@ interface StaggeredContainerProps {
   staggerDelay?: number
 }
 
+/**
+ * Staggered animation container for child elements
+ * Animates children sequentially with a delay between each
+ * @param children - Child elements to animate
+ * @param className - Additional CSS classes
+ * @param staggerDelay - Delay between child animations (default: 0.1s)
+ * @returns Container with staggered child animations
+ */
 export default function StaggeredContainer({ children, className = "", staggerDelay = 0.1 }: StaggeredContainerProps) {
   const [ref, inView] = useInView({
     triggerOnce: true,

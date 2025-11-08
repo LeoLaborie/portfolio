@@ -10,6 +10,14 @@ interface StaggeredItemProps {
   direction?: "up" | "down" | "left" | "right"
 }
 
+/**
+ * Individual staggered item component
+ * Must be used as child of StaggeredContainer to work properly
+ * @param children - Content to animate
+ * @param className - Additional CSS classes
+ * @param direction - Animation direction (default: "up")
+ * @returns Motion div that responds to parent container animation
+ */
 export default function StaggeredItem({ children, className = "", direction = "up" }: StaggeredItemProps) {
   const itemVariants: Variants = {
     hidden: {

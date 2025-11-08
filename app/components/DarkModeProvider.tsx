@@ -15,21 +15,23 @@ const DarkModeContext = createContext<DarkModeContextType | undefined>(undefined
 export function DarkModeProvider({ children }: DarkModeProviderProps) {
   // Appliquer le thème stocké au chargement initial
   useEffect(() => {
-    const theme = localStorage.theme
+    if (typeof window === 'undefined') return;
+    const theme = localStorage.getItem('theme');
     if (theme === "dark") {
-      document.documentElement.classList.add("dark")
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark")
+      document.documentElement.classList.remove("dark");
     }
   }, [])
 
   const toggleDarkMode = useCallback(() => {
+    if (typeof window === 'undefined') return;
     if (document.documentElement.classList.contains("dark")) {
-      localStorage.theme = "light"
-      document.documentElement.classList.remove("dark")
+      localStorage.setItem('theme', "light");
+      document.documentElement.classList.remove("dark");
     } else {
-      localStorage.theme = "dark"
-      document.documentElement.classList.add("dark")
+      localStorage.setItem('theme', "dark");
+      document.documentElement.classList.add("dark");
     }
   }, [])
 

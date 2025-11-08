@@ -24,6 +24,8 @@ export default function Header() {
 
   // Close mobile menu when clicking under the menu area
   useEffect(() => {
+    const MENU_CLOSE_THRESHOLD = 200; // Height below which clicks should close menu
+    
     const handleClickOutside = (event: MouseEvent) => {
       if (!isMenuOpen) return
       
@@ -31,7 +33,7 @@ export default function Header() {
       const isClickInsideMenu = mobileMenuRef.current?.contains(target)
       
       // Only close if click is below the menu area (not inside menu or header)
-      if (!isClickInsideMenu && (event.clientY > 200)) {
+      if (!isClickInsideMenu && (event.clientY > MENU_CLOSE_THRESHOLD)) {
         setIsMenuOpen(false)
       }
     }

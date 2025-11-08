@@ -10,6 +10,14 @@ interface SectionHeaderProps {
   subtitleDelay?: number
 }
 
+/**
+ * Section header component with title, divider, and optional subtitle
+ * @param title - Main section title
+ * @param subtitle - Optional descriptive subtitle
+ * @param titleDelay - Animation delay for title (default: 0.1s)
+ * @param subtitleDelay - Animation delay for subtitle (default: 0.3s)
+ * @returns Animated section header with consistent styling
+ */
 export default function SectionHeader({ 
   title, 
   subtitle, 

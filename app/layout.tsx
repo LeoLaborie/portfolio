@@ -1,9 +1,11 @@
 import React from "react"
 import { Geist, Geist_Mono } from "next/font/google"
+import Script from "next/script"
 import type { Metadata, Viewport } from "next"
 import "./globals.css"
 import { LanguageProvider } from "./components/LanguageProvider"
 import { DarkModeProvider } from "./components/DarkModeProvider"
+import { HtmlLangWrapper } from "./components/HtmlLangWrapper"
 import ErrorBoundary from "./components/ErrorBoundary"
 
 const geistSans = Geist({
@@ -54,6 +56,13 @@ export const metadata: Metadata = {
     icon: "/images/moi.png",
     apple: "/images/moi.png",
   },
+  // Indicate that this page is available in multiple languages
+  alternates: {
+    languages: {
+      'fr': '/',
+      'en': '/',
+    },
+  },
 }
 
 interface RootLayoutProps {
@@ -62,7 +71,22 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="fr" className="scroll-smooth">
+      <head>
+        {/* Simple Analytics - Privacy-friendly analytics */}
+        <Script 
+          src="https://scripts.simpleanalyticscdn.com/latest.js" 
+          strategy="afterInteractive"
+        />
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://queue.simpleanalyticscdn.com/noscript.gif"
+            alt=""
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </noscript>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-900 text-black dark:text-white font-[Times_New_Roman] transition-colors duration-300`}
         suppressHydrationWarning={true}
@@ -70,7 +94,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <ErrorBoundary>
           <DarkModeProvider>
             <LanguageProvider>
-              {children}
+              <HtmlLangWrapper>
+                {children}
+              </HtmlLangWrapper>
             </LanguageProvider>
           </DarkModeProvider>
         </ErrorBoundary>

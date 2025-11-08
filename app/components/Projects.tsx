@@ -1,7 +1,6 @@
 "use client"
 
-import React, { useMemo, useCallback } from "react"
-import { useState } from "react"
+import React, { useState, useMemo, useCallback } from "react"
 import { ExternalLink, Brain, Globe, Code, Zap, Play } from "lucide-react"
 import { motion } from "framer-motion"
 import AnimatedSection from "./animated-section"
@@ -10,7 +9,8 @@ import StaggeredItem from "./staggered-item"
 import SectionHeader from "./SectionHeader"
 import CategoryFilter from "./CategoryFilter"
 import { useLanguage } from "./LanguageProvider"
-import { projets, type Categorie, type Projet } from "../data/projects"
+import { projets } from "../data/projects"
+import { type Categorie, type Projet } from "../types"
 import { commonStyles } from "../styles/common"
 
 interface ProjectCardProps {
@@ -33,6 +33,11 @@ interface EmptyStateProps {
   t: (key: string) => string
 }
 
+/**
+ * Projects section component that displays filterable project portfolio
+ * Allows users to filter projects by category (ML, Web, Algo, Other)
+ * @returns Projects section with category filtering and project cards
+ */
 export default function Projects() {
   const { t } = useLanguage()
   const [categorieActive, setCategorieActive] = useState<Categorie>("ml")
@@ -74,7 +79,7 @@ export default function Projects() {
         {/* Projects Grid */}
         <StaggeredContainer className={commonStyles.grid} staggerDelay={0.2}>
           {projetsFiltres.map((projet) => (
-            <StaggeredItem key={`${projet.titre}-${categorieActive}`} direction="up">
+            <StaggeredItem key={projet.titre} direction="up">
               <ProjectCard projet={projet} categoryMap={categoryMap} t={t} />
             </StaggeredItem>
           ))}
@@ -142,10 +147,25 @@ function MediaContainer({ projet, categoryMap }: MediaContainerProps) {
           alt={projet.titre}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           whileHover={{ scale: 1.05 }}
+          onError={(e) => {
+            const target = e.currentTarget;
+            target.src = '/images/placeholder.svg';
+            target.onerror = null;
+          }}
         />
       ) : (
         <div className="relative w-full h-full">
-          <video src={projet.mediaUrl} className="w-full h-full object-cover" muted loop playsInline />
+          <video 
+            src={projet.mediaUrl} 
+            className="w-full h-full object-cover" 
+            muted 
+            loop 
+            playsInline 
+            autoPlay
+            aria-label={`Video demonstration of ${projet.titre}`}
+          >
+            <p>Your browser does not support the video tag.</p>
+          </video>
           <motion.div
             className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             whileHover={{ opacity: 1 }}
