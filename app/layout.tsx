@@ -72,21 +72,6 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <head>
-        {/* Simple Analytics - Privacy-friendly analytics */}
-        <Script 
-          src="https://scripts.simpleanalyticscdn.com/latest.js" 
-          strategy="afterInteractive"
-        />
-        <noscript>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://queue.simpleanalyticscdn.com/noscript.gif"
-            alt=""
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </noscript>
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-900 text-black dark:text-white font-[Times_New_Roman] transition-colors duration-300`}
         suppressHydrationWarning={true}
@@ -101,6 +86,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </DarkModeProvider>
         </ErrorBoundary>
       </body>
+      <Script
+        src="https://scripts.simpleanalyticscdn.com/latest.js"
+      />
     </html>
   )
 }
