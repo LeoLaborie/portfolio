@@ -7,6 +7,7 @@ import { LanguageProvider } from "./components/LanguageProvider"
 import { DarkModeProvider } from "./components/DarkModeProvider"
 import { HtmlLangWrapper } from "./components/HtmlLangWrapper"
 import ErrorBoundary from "./components/ErrorBoundary"
+import JsonLd from "./components/JsonLd"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +25,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://leolaborie.com'),
   title: "Léo Laborie - Portfolio",
   description: "Portfolio de Léo Laborie, étudiant en Génie Informatique à l'UTC, spécialisé en IA et développement web.",
   keywords: "Léo Laborie, portfolio, développeur, IA, machine learning, web development, UTC, ingénieur informatique",
@@ -58,6 +60,7 @@ export const metadata: Metadata = {
   },
   // Indicate that this page is available in multiple languages
   alternates: {
+    canonical: '/',
     languages: {
       'fr': '/',
       'en': '/',
@@ -80,6 +83,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <DarkModeProvider>
             <LanguageProvider>
               <HtmlLangWrapper>
+                <JsonLd />
                 {children}
               </HtmlLangWrapper>
             </LanguageProvider>
