@@ -19,8 +19,8 @@
 
         body {
             font-family: 'Times New Roman', Times, serif;
-            font-size: 9pt;
-            line-height: 1.15;
+            font-size: 10pt;
+            line-height: 1.5;
             color: #333;
             background: white;
         }
@@ -28,9 +28,9 @@
         .header {
             position: relative;
             text-align: center;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
             border-bottom: 1.5px solid #333;
-            padding-bottom: 6px;
+            padding-bottom: 7px;
         }
 
         .header-content {
@@ -48,52 +48,52 @@
         }
 
         .name {
-            font-size: 18pt;
+            font-size: 20pt;
             font-weight: bold;
             color: #333;
-            margin-bottom: 3px;
+            margin-bottom: 6px;
         }
 
         .contact-info {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 8px;
-            font-size: 8pt;
+            gap: 9px;
+            font-size: 9pt;
         }
 
         .section {
-            margin-bottom: 7px;
+            margin-bottom: 12px;
         }
 
         .section-title {
-            font-size: 10.5pt;
+            font-size: 11.5pt;
             font-weight: bold;
             color: #333;
-            margin-bottom: 3px;
+            margin-bottom: 6px;
             border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 1px;
+            padding-bottom: 1.5px;
         }
 
         .experience-item {
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .experience-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 1px;
+            margin-bottom: 1.5px;
         }
 
         .experience-title {
             font-weight: bold;
             color: #1f2937;
-            font-size: 9pt;
+            font-size: 10pt;
         }
 
         .experience-date {
-            font-size: 8pt;
+            font-size: 9pt;
             color: #6b7280;
             font-style: italic;
         }
@@ -101,14 +101,53 @@
         .experience-company {
             font-style: italic;
             color: #4b5563;
-            margin-bottom: 1px;
-            font-size: 8.5pt;
+            margin-bottom: 1.5px;
+            font-size: 9.5pt;
         }
 
         .experience-description {
-            margin-left: 8px;
-            font-size: 8.5pt;
-            line-height: 1.2;
+            margin-left: 9px;
+            font-size: 9.5pt;
+            line-height: 1.5;
+        }
+
+        .formation-item {
+            margin-bottom: 6px;
+            font-size: 10pt;
+        }
+
+        .formation-item.single-line {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .formation-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .formation-row.details {
+            justify-content: flex-start;
+        }
+
+        .formation-item .experience-company {
+            margin-left: 0;
+            font-weight: normal;
+        }
+
+        .formation-item.single-line .experience-company {
+            margin-left: 4px;
+        }
+
+
+
+        .formation-item.single-line .experience-date {
+            margin-left: auto;
+        }
+
+        .formation-item .experience-description {
+            margin-left: 4px;
         }
     </style>
 </head>
@@ -117,7 +156,8 @@
     <div class="header">
         <div class="header-content">
             <div class="name">LÉO LABORIE</div>
-            <div style="font-size: 9pt; color: #666; margin-bottom: 4px; font-style: italic;">Stage de 6 mois à partir
+            <div style="font-size: 10pt; color: #666; margin-bottom: 5px; font-style: italic;">Stage de 6 mois à
+                partir
                 de septembre 2026</div>
             <div class="contact-info">
                 <a href="https://leolaborie.com"> leolaborie.com</a>
@@ -134,29 +174,34 @@
         <div class="section-title">PROFIL</div>
         <div class="experience-description">
             Étudiant en génie informatique à l'UTC, je conçois des projets mêlant intelligence artificielle,
-            algorithmique et développement web. Autonome, rigoureux et passionné de projets techniques, je combine
-            esprit d'analyse et créativité pour résoudre des problématiques complexes. Actif en programmation compétitive et participant régulier à des hackathons.
+            algorithmique et développement web. Autonome et rigoureux, je combine
+            esprit d'analyse et créativité pour résoudre des problématiques complexes. Actif en programmation
+            compétitive.
         </div>
     </div>
 
     <div class="section">
         <div class="section-title">FORMATION</div>
-        <div class="experience-item">
-            <div class="experience-header">
-                <div class="experience-title">Cycle ingénieur – Génie Informatique</div>
-                <div class="experience-date">2023 - Présent</div>
+        <div class="formation-item">
+            <div class="formation-row">
+                <span class="experience-title">Cycle ingénieur – Génie Informatique</span>
+                <span class="experience-date">2023 - Présent</span>
             </div>
-            <div class="experience-company">Université de Technologie de Compiègne (UTC)</div>
+            <div class="formation-row details">
+                <span class="experience-company">Université de Technologie de Compiègne (UTC)</span>,
+                <span class="experience-description" style="margin-left: 4px;">Intégré en POST-BAC, 2 ans de prépa
+                    intégré</span>
+            </div>
         </div>
-        <div class="experience-item">
-            <div class="experience-header">
-                <div class="experience-title">Baccalauréat Général</div>
-                <div class="experience-date">2023</div>
+        <div class="formation-item">
+            <div class="formation-row">
+                <span class="experience-title">Baccalauréat Général</span>
+                <span class="experience-date">2023</span>
             </div>
-            <div class="experience-company">Lycée Joliot-Curie, Rennes</div>
-            <div class="experience-description">
-                Mention Bien – Spécialités : Mathématiques, NSI<br>
-                Options : Maths expertes, Section Européenne (Maths-Anglais)
+            <div class="formation-row details">
+                <span class="experience-company">Lycée Joliot-Curie, Rennes</span>,
+                <span class="experience-description" style="margin-left: 4px;">Mention Bien – Mathématiques, NSI – Maths
+                    expertes, Section Européenne (Maths-Anglais)</span>
             </div>
         </div>
     </div>
@@ -164,41 +209,42 @@
     <div class="section">
         <div class="section-title">COMPÉTENCES TECHNIQUES</div>
         <div class="experience-description">
-            Langages : Python, C++, JavaScript / TypeScript, C, C#, PHP, SQL, PostgreSQL<br>
-            Machine Learning : Scikit-learn, TensorFlow<br>
-            Développement Web : Next.js, Tailwind CSS, React<br>
+            Langages : Python, C++, JavaScript, C, PHP, SQL, PostgreSQL &nbsp;&nbsp; | &nbsp;&nbsp;
+            Développement web/mobile : Next.js, Tailwind CSS, React native <br>
+            Machine Learning : Scikit-learn, XGBoost, TensorFlow &nbsp;&nbsp; | &nbsp;&nbsp;
             Autres : Git, Linux, algorithmique, Web Scraping, API integration
         </div>
     </div>
 
     <div class="section">
         <div class="section-title">
-            PROJETS NOTABLES 
-            <span style="font-style: italic; font-size: 9pt; color: #4b5563; font-weight: normal; margin-left: 8px;">
+            PROJETS NOTABLES
+            <span style="font-style: italic; font-size: 10pt; color: #4b5563; font-weight: normal; margin-left: 9px;">
                 Voir tous mes projets sur <a href="https://leolaborie.com" style="color: #4b5563;">leolaborie.com</a>
             </span>
         </div>
         <div class="experience-item">
             <div class="experience-header">
-                <div class="experience-title">Autonomous Drone Navigation to a Target</div>
+                <div class="experience-title">Deep learning non supervisé - Autonomous Drone Navigation to a Target
+                </div>
                 <div class="experience-date">2025</div>
             </div>
-            <div class="experience-company">Projet universitaire en collaboration avec Intellitech</div>
+            <div class="experience-company">Projet universitaire de 6 mois en collaboration avec Intellitech, suite à
+                une formation sur les mathématiques du flou appliquées à l'IA </div>
             <div class="experience-description">
                 Modèle de drone autonome ayant pour but de détruire une cible en évitant les obstacles.
                 Entraîné par reinforcement learning (Unity + ML-Agents).<br>
-                🔗 <a
-                    href="https://github.com/LeoLaborie/AI-autonomous-drone-RL">github.com/LeoLaborie/AI-autonomous-drone-RL</a>
             </div>
         </div>
         <div class="experience-item">
             <div class="experience-header">
-                <div class="experience-title">SnakeAI</div>
+                <div class="experience-title">Deep learning non supervisé - SnakeAI</div>
                 <div class="experience-date">2024</div>
             </div>
-            <div class="experience-description">IA jouant à Snake, entraînée par algorithme génétique avec
+            <div class="experience-description">Réseau de neurones jouant à Snake, entraînée par un algorithme génétique
+                codé from scratch avec
                 pré-entrainement innovant <br>
-                🔗 <a href="https://github.com/LeoLaborie/snakeAI">https://github.com/LeoLaborie/snakeAI</a>
+
             </div>
         </div>
         <div class="experience-item">
@@ -206,20 +252,22 @@
                 <div class="experience-title">XtraSup</div>
                 <div class="experience-date">2024</div>
             </div>
-            <div class="experience-description">IA d'aide à la sélection de candidats post-bac pour l'admission de l'UTC – projet universitaire
+            <div class="experience-description">IA d'aide à la sélection de candidats post-bac pour l'admission de l'UTC
+                – projet universitaire
                 UTC</div>
         </div>
         <div class="experience-item">
             <div class="experience-header">
-                <div class="experience-title">MailFast</div>
+                <div class="experience-title">Développement web - MailFast</div>
                 <div class="experience-date">2024</div>
             </div>
-            <div class="experience-description">Application web permettant la génération rapide d'e-mails via l'API OpenAI. Avec
-                système d'authentification (Next.js, Tailwind, PostgreSQL)</div>
+            <div class="experience-description">Application web permettant la génération rapide d'e-mails via l'API
+                OpenAI. Avec
+                système d'authentification (Next.js, supabase)</div>
         </div>
         <div class="experience-item">
             <div class="experience-header">
-                <div class="experience-title">Portfolio: leolaborie.com</div>
+                <div class="experience-title">Développement web - Portfolio: leolaborie.com</div>
                 <div class="experience-date">2025</div>
             </div>
             <div class="experience-description">Site personnel développé avec Next.js, Tailwind CSS et TypeScript</div>
@@ -229,43 +277,40 @@
         <div class="section-title">EXPÉRIENCES PROFESSIONNELLES</div>
         <div class="experience-item">
             <div class="experience-header">
-                <div class="experience-title">Stage ouvrier</div>
-                <div class="experience-date">2024</div>
+                <div class="experience-title">Développeur mobile (React Native) – Junior UTC - startup Phonemia</div>
+                <div class="experience-date">Nov. 2025</div>
             </div>
-            <div class="experience-company">Groupe Morault, Imprimerie de Compiègne</div>
-            <div class="experience-description">Manutentionnaire, logistique de production</div>
+            <div class="experience-description">
+                Développement d’écrans critiques de l’application (authentification Auth0, tutoriels vidéo & audio
+                interactifs, formulaire utilisateur). Réalisation du code et de la documentation technique.
+                Création du jeu Beatbox Hero : animation, logique de jeu, validation sonore en temps réel et écran de
+                récompense.
+            </div>
         </div>
-        <div class="experience-item">
-            <div class="experience-header">
-                <div class="experience-title">Stage d’observation</div>
-                <div class="experience-date">2020</div>
-            </div>
-            <div class="experience-company">Vincent Huet Syndic, Bruz</div>
-        </div>
-        <div class="experience-item">
-            <div class="experience-header">
-                <div class="experience-title">Stage d’observation</div>
-                <div class="experience-date">2019</div>
-            </div>
-            <div class="experience-company">Dazl, Cintré</div>
+        <div class="formation-item single-line">
+            <span class="experience-title">Stage ouvrier - Groupe Morault, Imprimerie de Compiègne - </span>
+            <span class="experience-description" style="margin-left: 0;">&nbsp;Manutentionnaire, logistique de
+                production</span>
+            <span class="experience-date">2024</span>
         </div>
     </div>
 
     <div class="section">
         <div class="section-title">LANGUES</div>
         <div class="experience-description">
-            • Français : Langue maternelle, C2<br>
-            • Anglais : fluent, B2 <br>
-            • Espagnol : Débutant, A2 
+            Français : Langue maternelle, C2 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Anglais : fluent, B2
+            &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Espagnol : Débutant, A2
         </div>
     </div>
 
     <div class="section">
         <div class="section-title">CENTRES D'INTÉRÊT</div>
         <div class="experience-description">
-            • <span style="font-weight: bold; font-size: 9pt;">Programmation compétitive</span> : SWERC 2023 - 2025, Trésorier puis Président (2023-Présent) de UTCode, l'association de programmation compétitive de l'UTC. Participe à toutes les compétitions div2 à div4 sur Codeforces<br>
-            • <span style="font-weight: bold; font-size: 9pt;">Échecs</span> : 1500 élo sur chess.com, anciennement en club<br>
-            • <span style="font-weight: bold; font-size: 9pt;">Sport</span> : Street Workout, dépassement de soi 
+            • <span style="font-weight: bold; font-size: 10pt;">Programmation compétitive</span> : SWERC 2023 - 2025 top 15 France et 67 Europe,
+            Trésorier puis Président (2023-Présent) de UTCode, l'association de programmation compétitive de l'UTC.
+            Participe à toutes les compétitions div2 à div4 sur Codeforces<br>
+            • <span style="font-weight: bold; font-size: 10pt;">Échecs</span> : 1500 élo sur chess.com, anciennement 1 an de club<br>
+            • <span style="font-weight: bold; font-size: 10pt;">Sport</span> : Street Workout, dépassement de soi
         </div>
     </div>
 
