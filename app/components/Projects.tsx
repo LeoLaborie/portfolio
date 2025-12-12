@@ -51,10 +51,18 @@ export default function Projects() {
   }), [t])
 
   // Memoize filtered and sorted projects to prevent unnecessary recalculations
-  const projetsFiltres = useMemo(() => 
+  const projetsFiltres = useMemo(() =>
     projets
       .filter((p) => p.categorie === categorieActive)
-      .sort((a, b) => (b.year || 0) - (a.year || 0)), // Sort by year descending (most recent first)
+      .sort((a, b) => {
+        // Sort by size first (Large > Small/Undefined)
+        const sizeA = a.projectSize === "large" ? 1 : 0
+        const sizeB = b.projectSize === "large" ? 1 : 0
+        if (sizeA !== sizeB) return sizeB - sizeA
+
+        // Then sort by year descending
+        return (b.year || 0) - (a.year || 0)
+      }),
     [categorieActive]
   )
 
@@ -65,9 +73,9 @@ export default function Projects() {
   return (
     <section id="projects" className={`${commonStyles.sectionWhite}`}>
       <div className={commonStyles.container}>
-        <SectionHeader 
-          title={t("Projects.Title")} 
-          subtitle={t("Projects.Subtitle")} 
+        <SectionHeader
+          title={t("Projects.Title")}
+          subtitle={t("Projects.Subtitle")}
         />
 
         <CategoryFilter
@@ -80,7 +88,11 @@ export default function Projects() {
         <StaggeredContainer className={commonStyles.grid} staggerDelay={0.2}>
           {projetsFiltres.map((projet) => (
             <StaggeredItem key={projet.titre} direction="up">
-              <ProjectCard projet={projet} categoryMap={categoryMap} t={t} />
+              {projet.projectSize === "large" ? (
+                <LargeProjectCard projet={projet} categoryMap={categoryMap} t={t} />
+              ) : (
+                <ProjectCard projet={projet} categoryMap={categoryMap} t={t} />
+              )}
             </StaggeredItem>
           ))}
         </StaggeredContainer>
@@ -91,6 +103,68 @@ export default function Projects() {
         )}
       </div>
     </section>
+  )
+}
+
+// Extracted LargeProjectCard component
+function LargeProjectCard({ projet, categoryMap, t }: ProjectCardProps) {
+  return (
+    <motion.div className="group h-full" whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
+      <div className={`${commonStyles.card} overflow-hidden h-full flex flex-col md:flex-row`}>
+        {/* Media Container - Bigger and Side-by-Side on Desktop */}
+        <div className="md:w-3/5 relative min-h-[300px] md:min-h-full">
+          {projet.mediaUrl ? (
+            <MediaContainer projet={projet} categoryMap={categoryMap} isLarge={true} />
+          ) : (
+            <div className="w-full h-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+              <Code className="w-20 h-20 text-gray-300" />
+            </div>
+          )}
+        </div>
+
+        {/* Content */}
+        <div className={`${commonStyles.cardPadding} md:w-2/5 flex flex-col justify-center`}>
+          <div className="mb-4">
+            <CategoryBadge projet={projet} categoryMap={categoryMap} />
+          </div>
+
+          <h3 className={`${commonStyles.textDark} text-3xl md:text-4xl ${commonStyles.textSemibold} mb-6 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors`}>
+            {projet.titreKey ? t(projet.titreKey) : projet.titre}
+          </h3>
+          <p className={`${commonStyles.textGray} text-lg leading-relaxed mb-8 font-light`}>
+            {t(projet.descriptionKey)}
+          </p>
+
+          {/* Features List */}
+          {projet.features && projet.features.length > 0 && (
+            <ul className="mb-8 space-y-3">
+              {projet.features.map((feature, idx) => (
+                <li key={idx} className="flex items-start text-gray-600 dark:text-gray-300">
+                  <span className="mt-1.5 w-1.5 h-1.5 bg-blue-500 rounded-full mr-3 flex-shrink-0" />
+                  <span className="text-sm md:text-base">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <div className="mt-auto pt-4">
+            {projet.githubUrl && (
+              <motion.a
+                href={projet.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={commonStyles.buttonPrimary}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ExternalLink className="w-4 h-4" />
+                {t("Projects.DetailsButton")}
+              </motion.a>
+            )}
+          </div>
+        </div>
+      </div>
+    </motion.div>
   )
 }
 
@@ -137,10 +211,18 @@ function ProjectCard({ projet, categoryMap, t }: ProjectCardProps) {
   )
 }
 
+interface ExtendedMediaContainerProps extends MediaContainerProps {
+  isLarge?: boolean
+}
+
 // Extracted MediaContainer component
-function MediaContainer({ projet, categoryMap }: MediaContainerProps) {
+function MediaContainer({ projet, categoryMap, isLarge = false }: ExtendedMediaContainerProps) {
+  const containerClass = isLarge
+    ? "relative overflow-hidden bg-gray-50 dark:bg-gray-700 h-full w-full transition-colors duration-300"
+    : "relative overflow-hidden bg-gray-50 dark:bg-gray-700 aspect-[16/10] transition-colors duration-300"
+
   return (
-    <div className="relative overflow-hidden bg-gray-50 dark:bg-gray-700 aspect-[16/10] transition-colors duration-300">
+    <div className={containerClass}>
       {projet.mediaType === "image" ? (
         <motion.img
           src={projet.mediaUrl}
@@ -155,12 +237,12 @@ function MediaContainer({ projet, categoryMap }: MediaContainerProps) {
         />
       ) : (
         <div className="relative w-full h-full">
-          <video 
-            src={projet.mediaUrl} 
-            className="w-full h-full object-cover" 
-            muted 
-            loop 
-            playsInline 
+          <video
+            src={projet.mediaUrl}
+            className="w-full h-full object-cover"
+            muted
+            loop
+            playsInline
             autoPlay
             aria-label={`Video demonstration of ${projet.titre}`}
           >

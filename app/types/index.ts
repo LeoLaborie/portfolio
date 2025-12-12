@@ -11,6 +11,9 @@ export interface Projet {
   githubUrl?: string
   categorie: Categorie
   year?: number
+  projectSize?: "small" | "large"
+  features?: string[]
+  featuresKey?: string
 }
 
 export type Categorie = "ml" | "web" | "algo" | "other"

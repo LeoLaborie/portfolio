@@ -114,6 +114,13 @@ export const projets: Projet[] = [
     githubUrl: "https://github.com/LeoLaborie/snakeAI",
     categorie: "ml",
     year: 2024,
+    projectSize: "large",
+    features: [
+      "Deep Reinforcement Learning",
+      "Algorithme Génétique",
+      "PyTorch & Python",
+      "Neural Network Architecture"
+    ]
   },
   {
     titre: "AI solving Tic-Tac-Toe",
@@ -154,6 +161,13 @@ export const projets: Projet[] = [
     githubUrl: "https://github.com/LeoLaborie/mailfast",
     categorie: "web",
     year: 2024,
+    projectSize: "large",
+    features: [
+      "OpenAI API Integration",
+      "Node.js & Express Backend",
+      "PostgreSQL Database",
+      "React & Tailwind Frontend"
+    ]
   },
   {
     titre: "Portfolio",
@@ -164,6 +178,13 @@ export const projets: Projet[] = [
     githubUrl: "https://github.com/LeoLaborie/portfolio",
     categorie: "web",
     year: 2025,
+    projectSize: "large",
+    features: [
+      "Next.js 14 App Router",
+      "Framer Motion Animations",
+      "Multi-language Support (i18n)",
+      "Responsive Design"
+    ]
   },
   {
     titre: "Hackathon MC2I",
@@ -206,5 +227,12 @@ export const projets: Projet[] = [
     githubUrl: "https://github.com/LeoLaborie/AI-autonomous-drone-RL",
     categorie: "ml",
     year: 2025,
+    projectSize: "large",
+    features: [
+      "Unity ML-Agents",
+      "PPO Algorithm",
+      "3D Physics Simulation",
+      "Obstacle Avoidance"
+    ]
   },
 ]
