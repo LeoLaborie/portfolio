@@ -117,8 +117,8 @@ export const projets: Projet[] = [
     year: 2024,
     projectSize: "large",
     features: [
-      "Deep Reinforcement Learning",
-      "Algorithme Génétique",
+      "Deep Learning",
+      "genetic algorithm",
       "TensorFlow",
     ]
   },
