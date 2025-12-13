@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import AnimatedSection from "./animated-section"
 import ParallaxSection from "./parallax-section"
 import { useLanguage } from "./LanguageProvider"
-import { CV_PATH } from "../data/contact"
+import { CV_PATHS } from "../data/contact"
 
 /**
  * Hero section component - Main landing section with profile image and CTA
@@ -13,7 +13,7 @@ import { CV_PATH } from "../data/contact"
  * @returns Hero section with profile image and download CV button
  */
 export default function Hero() {
-  const { t } = useLanguage()
+  const { t, currentLanguage } = useLanguage()
 
   return (
     <section className="bg-gray-100 dark:bg-gray-800 hero flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 py-8 md:py-16 px-4 md:px-8 overflow-hidden transition-colors duration-300">
@@ -38,7 +38,7 @@ export default function Hero() {
         <AnimatedSection delay={0.8} direction="up">
           <div className="flex justify-center">
             <motion.a
-              href={CV_PATH}
+              href={CV_PATHS[currentLanguage]}
               download
               className="inline-block px-6 md:px-12 py-3 md:py-4 bg-black dark:bg-white text-white dark:text-black text-base md:text-2xl rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-200"
               whileHover={{ scale: 1.05 }}

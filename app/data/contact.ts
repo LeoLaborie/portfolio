@@ -8,6 +8,9 @@ export const socialLinks = {
 };
 
 /**
- * Path to CV file for download
+ * Paths to CV files for download
  */
-export const CV_PATH = "/leo-laborie-cv.pdf";
+export const CV_PATHS = {
+  fr: "/leo-laborie-cv-fr.pdf",
+  en: "/leo-laborie-cv.pdf"
+};
