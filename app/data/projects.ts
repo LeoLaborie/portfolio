@@ -111,6 +111,7 @@ export const projets: Projet[] = [
       "Un modèle de jeu Snake autonome qui apprend à jouer en évitant les obstacles et en maximisant le score. Entrainé par un algorithme génétique avec pré-entrainement innovant.",
     descriptionKey: "ProjectDescriptions.SnakeAI",
     mediaType: "video",
+    mediaUrl: "/images/snake.webm",
     githubUrl: "https://github.com/LeoLaborie/snakeAI",
     categorie: "ml",
     year: 2024,
@@ -118,8 +119,7 @@ export const projets: Projet[] = [
     features: [
       "Deep Reinforcement Learning",
       "Algorithme Génétique",
-      "PyTorch & Python",
-      "Neural Network Architecture"
+      "TensorFlow",
     ]
   },
   {
@@ -134,13 +134,21 @@ export const projets: Projet[] = [
   },
   // 2024 Projects
   {
-    titre: "Hackathon SWERC",
+    titre: "SWERC",
     titreKey: "ProjectTitles.HackathonSWERC",
     description:
-      "Participation au SWERC 2024, en équipe avec 3 autres étudiants de l'UTC. Le Swerc est un hackathon d'Algorithmie Européen de 5 heures.",
+      "Participation au SWERC 2025, en équipe avec 3 autres étudiants de l'UTC. Le Swerc est un hackathon d'Algorithmie Européen de 5 heures.",
     descriptionKey: "ProjectDescriptions.HackathonSWERC",
     categorie: "algo",
-    year: 2024,
+    year: 2025,
+    projectSize: "large",
+    mediaType: "image",
+    mediaUrl: "/images/swerc.png",
+    features: [
+      "competitive programming",
+      "top 15 France",
+      "Team work",
+    ]
   },
   {
     titre: "Hackathon YouScribe",
@@ -157,16 +165,16 @@ export const projets: Projet[] = [
     description:
       "Une application web permettant d'écrire des emails rapidement et efficacement grâce à l'API de OpenAI. Utilise Node.js, Tailwind et PostgresSQL.",
     descriptionKey: "ProjectDescriptions.MailFast",
-    mediaType: "video",
+    mediaType: "image",
+    mediaUrl: "/images/mailfast.png",
     githubUrl: "https://github.com/LeoLaborie/mailfast",
     categorie: "web",
     year: 2024,
     projectSize: "large",
     features: [
       "OpenAI API Integration",
-      "Node.js & Express Backend",
+      "Next.js & Tailwind CSS",
       "PostgreSQL Database",
-      "React & Tailwind Frontend"
     ]
   },
   {
@@ -179,11 +187,13 @@ export const projets: Projet[] = [
     categorie: "web",
     year: 2025,
     projectSize: "large",
+    mediaType: "image",
+    mediaUrl: "/images/portfolio.png",
     features: [
-      "Next.js 14 App Router",
-      "Framer Motion Animations",
+      "Next.js & Tailwind CSS",
       "Multi-language Support (i18n)",
-      "Responsive Design"
+      "Dark/Light Mode",
+      "Responsive Design",
     ]
   },
   {
@@ -231,8 +241,7 @@ export const projets: Projet[] = [
     features: [
       "Unity ML-Agents",
       "PPO Algorithm",
-      "3D Physics Simulation",
-      "Obstacle Avoidance"
+      "autonomous drone navigation",
     ]
   },
 ]

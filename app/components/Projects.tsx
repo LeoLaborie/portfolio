@@ -248,18 +248,7 @@ function MediaContainer({ projet, categoryMap, isLarge = false }: ExtendedMediaC
           >
             <p>Your browser does not support the video tag.</p>
           </video>
-          <motion.div
-            className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            whileHover={{ opacity: 1 }}
-          >
-            <motion.div
-              className="w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <Play className="w-6 h-6 text-gray-800 ml-1" />
-            </motion.div>
-          </motion.div>
+
         </div>
       )}
 

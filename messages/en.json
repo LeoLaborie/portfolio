@@ -76,7 +76,7 @@
     "Connect4AI": "AI solving Connect 4",
     "SnakeAI": "SnakeAI",
     "TicTacToeAI": "AI solving Tic-Tac-Toe",
-    "HackathonSWERC": "SWERC Hackathon",
+    "HackathonSWERC": "SWERC (ICPC)",
     "HackathonYouScribe": "YouScribe Hackathon",
     "MailFast": "MailFast",
     "Portfolio": "Portfolio",
@@ -87,7 +87,7 @@
   "ProjectDescriptions": {
     "DroneNavigation": "An autonomous drone model that navigates to a target while avoiding obstacles. Trained using reinforcement learning on Unity with ML-agents. From a university project in collaboration with Intellitech.",
     "SnakeAI": "An autonomous Snake model that learns to play by avoiding obstacles and maximizing score. Trained using a genetic algorithm with innovative pre-training.",
-    "HackathonSWERC": "Participation in SWERC 2024, in a team with 3 other UTC students. SWERC is a European 5-hour algorithmic hackathon.",
+    "HackathonSWERC": "Participation in SWERC 2025, in a team with 3 other UTC students. SWERC is a European 5-hour algorithmic hackathon.",
     "HackathonYouScribe": "1st place at the YouScribe x UTC hackathon, in a team with 3 other UTC students. The goal of the hackathon was to create a book recommendation algorithm for YouScribe platform users.",
     "MailFast": "A web application for writing emails quickly and efficiently using OpenAI's API. Uses Node.js, Tailwind and PostgreSQL.",
     "Portfolio": "My personal portfolio, built with Next.js, Tailwind and TypeScript. It showcases my projects and skills.",
