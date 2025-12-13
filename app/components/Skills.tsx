@@ -1,21 +1,15 @@
 "use client"
 
-import React, { useState, useMemo, useCallback } from "react"
+import React from "react"
 import { Code, Database, Brain, Palette, Globe, Server, Cpu, Users } from "lucide-react"
 import { motion } from "framer-motion"
 import StaggeredContainer from "./staggered-container"
 import StaggeredItem from "./staggered-item"
 import SectionHeader from "./SectionHeader"
-import CategoryFilter from "./CategoryFilter"
 import { useLanguage } from "./LanguageProvider"
 import { skills } from "../data/skills"
 import { type SkillCategory, type Skill } from "../types"
 import { commonStyles } from "../styles/common"
-
-interface SkillCardProps {
-  skill: Skill
-  index: number
-}
 
 // Icon mapping for rendering
 const iconMap = {
@@ -29,141 +23,82 @@ const iconMap = {
   Users: <Users className="w-5 h-5" />,
 }
 
-// Define importance ranking by skill name (most important first)
-const importanceRank: Record<string, number> = {
-  // Programming - Sorted by proficiency level (highest first)
-  "Python": 1,
-  "C++": 2,
-  "JavaScript / TypeScript": 3,
-  "C": 4,
-  "Java": 5,
-  "PHP": 6,
-  "SQL": 7,
-  "Assembly": 8,
-  
-  // ML - Most advanced/recent first
-  "ML concepts": 1,
-  "Unity ML-Agents (RL)": 2,
-  "Genetic Algorithms": 3,
-  "XGBoost": 4,
-  "TensorFlow": 5,
-  "Scikit-learn": 6,
-  "Computer Vision": 7,
-  "Fuzzy Logic": 8,
-  
-  // Web - Full-stack order
-  "Next.js": 1,
-  "HTML/CSS": 2,
-  "Tailwind CSS": 3,
-  
-  // Tools - Most important first
-  "Git": 1,
-  "Linux": 2,
-  "API Integration": 3,
-  "Unity": 4,
-  "Web Scraping": 5,
-  "PostgreSQL": 6,
-  "Pygame": 7,
-}
-
-/**
- * Skills section component that displays technical skills with proficiency levels
- * Allows filtering by skill category (Programming, ML, Web, Tools)
- * @returns Skills section with category filtering and skill cards with progress bars
- */
 export default function Skills() {
   const { t } = useLanguage()
-  const [categoryActive, setCategoryActive] = useState<SkillCategory>("programming")
 
-  // Memoize categoryMap to prevent recreation on every render
-  const categoryMap: Record<SkillCategory, { label: string; icon: React.ReactNode }> = useMemo(() => ({
-    programming: { label: t("Skills.CategoryProgramming"), icon: <Code className="w-4 h-4" /> },
-    ml: { label: t("Skills.CategoryML"), icon: <Brain className="w-4 h-4" /> },
-    web: { label: t("Skills.CategoryWeb"), icon: <Globe className="w-4 h-4" /> },
-    tools: { label: t("Skills.CategoryTools"), icon: <Cpu className="w-4 h-4" /> },
-  }), [t])
-
-  // Memoize filtered and sorted skills to prevent unnecessary recalculations
-  const filteredSkills = useMemo(() => {
-    return skills
-      .filter((skill) => skill.category === categoryActive)
-      .sort((a, b) => {
-        const rankA = importanceRank[a.name] || 999
-        const rankB = importanceRank[b.name] || 999
-        return rankA - rankB
-      })
-  }, [categoryActive])
-
-  const handleCategoryChangeAction = useCallback((category: SkillCategory) => {
-    setCategoryActive(category)
-  }, [])
+  const categories: { id: SkillCategory; label: string; icon: React.ReactNode; color: string }[] = [
+    { id: "programming", label: t("Skills.CategoryProgramming"), icon: <Code className="w-5 h-5" />, color: "text-blue-500" },
+    { id: "ml", label: t("Skills.CategoryML"), icon: <Brain className="w-5 h-5" />, color: "text-purple-500" },
+    { id: "web", label: t("Skills.CategoryWeb"), icon: <Globe className="w-5 h-5" />, color: "text-cyan-500" },
+    { id: "tools", label: t("Skills.CategoryTools"), icon: <Cpu className="w-5 h-5" />, color: "text-orange-500" },
+  ]
 
   return (
     <section id="skills" className={commonStyles.sectionGray}>
       <div className={commonStyles.container}>
-        <SectionHeader 
-          title={t("Skills.Title")} 
-          subtitle={t("Skills.Subtitle")} 
+        <SectionHeader
+          title={t("Skills.Title")}
+          subtitle={t("Skills.Subtitle")}
         />
 
-        <CategoryFilter
-          categories={categoryMap}
-          activeCategory={categoryActive}
-          onCategoryChangeAction={handleCategoryChangeAction}
-        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          {categories.map((category, categoryIndex) => {
+            const categorySkills = skills.filter(skill => skill.category === category.id)
+              // Sort by level descending
+              .sort((a, b) => b.level - a.level);
 
-        {/* Skills Grid */}
-        <StaggeredContainer className={commonStyles.gridTwo} staggerDelay={0.1}>
-          {filteredSkills.map((skill, index) => (
-            <StaggeredItem key={skill.name} direction="up">
-              <SkillCard skill={skill} index={index} />
-            </StaggeredItem>
-          ))}
-        </StaggeredContainer>
+            return (
+              <motion.div
+                key={category.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: categoryIndex * 0.1, duration: 0.5 }}
+                className={`${commonStyles.card} ${commonStyles.cardPadding} h-full`}
+              >
+                <div className="flex items-center gap-3 mb-6 border-b border-gray-100 dark:border-gray-700 pb-4">
+                  <div className={`p-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg ${category.color}`}>
+                    {category.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    {category.label}
+                  </h3>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4">
+                  {categorySkills.map((skill, index) => (
+                    <SkillItem key={skill.name} skill={skill} index={index} />
+                  ))}
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )
 }
 
-// Extracted SkillCard component
-function SkillCard({ skill, index }: SkillCardProps) {
+function SkillItem({ skill, index }: { skill: Skill; index: number }) {
   return (
-    <motion.div 
-      className={`${commonStyles.card} ${commonStyles.cardPadding} hover:shadow-lg dark:hover:shadow-xl`}
-      whileHover={{ y: -2 }}
-      transition={{ duration: 0.2 }}
-    >
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-3">
-          <div className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg transition-colors duration-300">
-            <span className={commonStyles.textGray}>
-              {iconMap[skill.iconName as keyof typeof iconMap]}
-            </span>
-          </div>
-          <h3 className={`${commonStyles.textDark} ${commonStyles.textSemibold}`}>
-            {skill.name}
-          </h3>
-        </div>
-        <span className={`text-sm ${commonStyles.textMedium} ${commonStyles.textGray}`}>
+    <div className="group">
+      <div className="flex justify-between items-center mb-1.5">
+        <span className="font-medium text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors">
+          {skill.name}
+        </span>
+        <span className="text-sm text-gray-500 dark:text-gray-400 font-mono">
           {skill.level}%
         </span>
       </div>
-      
-      {/* Progress Bar */}
-      <div className="relative">
-        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 transition-colors duration-300">
-          <motion.div
-            className="bg-gray-900 dark:bg-gray-400 h-2 rounded-full transition-colors duration-300"
-            initial={{ width: 0 }}
-            animate={{ width: `${skill.level}%` }}
-            transition={{ 
-              duration: 1,
-              delay: index * 0.1 + 0.5,
-              ease: "easeOut"
-            }}
-          />
-        </div>
+      <div className="h-1.5 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+        <motion.div
+          className="h-full bg-gray-900 dark:bg-gray-400 rounded-full"
+          initial={{ width: 0 }}
+          whileInView={{ width: `${skill.level}%` }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 + (index * 0.05), ease: "easeOut" }}
+        />
       </div>
-    </motion.div>
+    </div>
   )
 }
