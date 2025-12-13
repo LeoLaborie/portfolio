@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Léo Laborie</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 8mm 12mm 8mm 12mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 10pt;
+            line-height: 1.5;
+            color: #333;
+            background: white;
+        }
+
+        .header {
+            position: relative;
+            text-align: center;
+            margin-bottom: 15px;
+            border-bottom: 1.5px solid #333;
+            padding-bottom: 7px;
+        }
+
+        .header-content {
+            flex: 1;
+            text-align: center;
+        }
+
+        .profile-image {
+            position: absolute;
+            top: 0px;
+            right: -10px;
+            width: 93px;
+            height: 93px;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 20pt;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 9px;
+            font-size: 9pt;
+        }
+
+        .section {
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 11.5pt;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 6px;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1.5px;
+        }
+
+        .experience-item {
+            margin-bottom: 6px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1.5px;
+        }
+
+        .experience-title {
+            font-weight: bold;
+            color: #1f2937;
+            font-size: 10pt;
+        }
+
+        .experience-date {
+            font-size: 9pt;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .experience-company {
+            font-style: italic;
+            color: #4b5563;
+            margin-bottom: 1.5px;
+            font-size: 9.5pt;
+        }
+
+        .experience-description {
+            margin-left: 9px;
+            font-size: 9.5pt;
+            line-height: 1.5;
+        }
+
+        .formation-item {
+            margin-bottom: 6px;
+            font-size: 10pt;
+        }
+
+        .formation-item.single-line {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .formation-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .formation-row.details {
+            justify-content: flex-start;
+        }
+
+        .formation-item .experience-company {
+            margin-left: 0;
+            font-weight: normal;
+        }
+
+        .formation-item.single-line .experience-company {
+            margin-left: 4px;
+        }
+
+
+
+        .formation-item.single-line .experience-date {
+            margin-left: auto;
+        }
+
+        .formation-item .experience-description {
+            margin-left: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="name">LÉO LABORIE</div>
+            <div style="font-size: 10pt; color: #666; margin-bottom: 5px; font-style: italic;">6-month internship
+                starting September 2026</div>
+            <div class="contact-info">
+                <a href="https://leolaborie.com"> leolaborie.com</a>
+                <div> leo.laborie.ll@icloud.com</div>
+                <div> 06 49 71 45 17</div>
+                <a href="https://www.linkedin.com/in/l%C3%A9o-laborie/"> linkedin.com/in/léo-laborie</a>
+                <a href="https://github.com/LeoLaborie"> github.com/LeoLaborie</a>
+            </div>
+        </div>
+        <img src="images/moi_rogne.png" alt="Photo of Léo Laborie" class="profile-image">
+    </div>
+
+    <div class="section">
+        <div class="section-title">PROFILE</div>
+        <div class="experience-description">
+            Computer Engineering student at UTC, I design projects combining artificial intelligence,
+            algorithms, and web development. Autonomous and rigorous, I combine
+            analytical skills and creativity to solve complex problems. Active in competitive programming.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">EDUCATION</div>
+        <div class="formation-item">
+            <div class="formation-row">
+                <span class="experience-title">Engineering Cycle – Computer Engineering</span>
+                <span class="experience-date">2023 - Present</span>
+            </div>
+            <div class="formation-row details">
+                <span class="experience-company">Université de Technologie de Compiègne (UTC)</span>,
+                <span class="experience-description" style="margin-left: 4px;">Integrated Preparatory Classes (2
+                    years)</span>
+            </div>
+        </div>
+        <div class="formation-item">
+            <div class="formation-row">
+                <span class="experience-title">High School Diploma (Baccalauréat Général)</span>
+                <span class="experience-date">2023</span>
+            </div>
+            <div class="formation-row details">
+                <span class="experience-company">Lycée Joliot-Curie, Rennes</span>,
+                <span class="experience-description" style="margin-left: 4px;">With Honors – Mathematics, Computer
+                    Science – Expert Maths, European Section (Maths-English)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">TECHNICAL SKILLS</div>
+        <div class="experience-description">
+            Languages: Python, C++, JavaScript, C, PHP, SQL, PostgreSQL &nbsp;&nbsp; | &nbsp;&nbsp;
+            Web/Mobile Development: Next.js, Tailwind CSS, React Native <br>
+            Machine Learning: Scikit-learn, XGBoost, TensorFlow &nbsp;&nbsp; | &nbsp;&nbsp;
+            Others: Git, Linux, algorithms, Web Scraping, API integration
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">
+            NOTABLE PROJECTS
+            <span style="font-style: italic; font-size: 10pt; color: #4b5563; font-weight: normal; margin-left: 9px;">
+                See all my projects on <a href="https://leolaborie.com" style="color: #4b5563;">leolaborie.com</a>
+            </span>
+        </div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Unsupervised Deep Learning - Autonomous Drone Navigation to a Target
+                </div>
+                <div class="experience-date">2025</div>
+            </div>
+            <div class="experience-company">6-month university project in collaboration with Intellitech, following a
+                course on fuzzy mathematics applied to AI</div>
+            <div class="experience-description">
+                Autonomous drone model aiming to destroy a target while avoiding obstacles.
+                Trained using reinforcement learning (Unity + ML-Agents).<br>
+            </div>
+        </div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Unsupervised Deep Learning - SnakeAI</div>
+                <div class="experience-date">2024</div>
+            </div>
+            <div class="experience-description">Neural network playing Snake, trained by a genetic algorithm coded from
+                scratch with
+                innovative pre-training <br>
+
+            </div>
+        </div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">XtraSup</div>
+                <div class="experience-date">2024</div>
+            </div>
+            <div class="experience-description">AI assistant for selecting post-bac candidates for UTC admission – UTC
+                university project</div>
+        </div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Web Development - MailFast</div>
+                <div class="experience-date">2024</div>
+            </div>
+            <div class="experience-description">Web application allowing rapid email generation via the OpenAI API. With
+                authentication system (Next.js, Supabase)</div>
+        </div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Web Development - Portfolio: leolaborie.com</div>
+                <div class="experience-date">2025</div>
+            </div>
+            <div class="experience-description">Personal website developed with Next.js, Tailwind CSS, and TypeScript
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-title">PROFESSIONAL EXPERIENCE</div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Mobile Developer (React Native) – Junior UTC - Phonemia startup</div>
+                <div class="experience-date">Nov. 2025</div>
+            </div>
+            <div class="experience-description">
+                Development of critical application screens (Auth0 authentication, interactive video & audio tutorials,
+                user form). Implementation of code and technical documentation.
+                Creation of the Beatbox Hero game: animation, game logic, real-time sound validation, and reward screen.
+            </div>
+        </div>
+        <div class="formation-item single-line">
+            <span class="experience-title">Internship - Groupe Morault, Printing House of Compiègne - </span>
+            <span class="experience-description" style="margin-left: 0;">&nbsp;Handler, production logistics</span>
+            <span class="experience-date">2024</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">LANGUAGES</div>
+        <div class="experience-description">
+            French: Native, C2 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; English: Fluent, B2
+            &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Spanish: Beginner, A2
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">INTERESTS</div>
+        <div class="experience-description">
+            • <span style="font-weight: bold; font-size: 10pt;">Competitive Programming</span>: SWERC 2023 - 2025 top
+            15 France and 67 Europe,
+            Treasurer then President (2023-Present) of UTCode, the UTC competitive programming association.
+            Participates in all div2 to div4 competitions on Codeforces<br>
+            • <span style="font-weight: bold; font-size: 10pt;">Chess</span>: 1500 ELO on chess.com, formerly 1
+            year in a club<br>
+            • <span style="font-weight: bold; font-size: 10pt;">Sport</span>: Street Workout, self-improvement
+        </div>
+    </div>
+
+</body>
+
+</html>
