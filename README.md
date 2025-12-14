@@ -1,6 +1,6 @@
-# portfolio
+# leolaborie.com portfolio
 
-This repository contains the source code for a project named 'portfolio'.
+This repository contains the source code of my leolaborie.com portfolio.
 
 ## Installation
 
@@ -78,17 +78,6 @@ The project uses several configuration files to manage its settings:
 *   **`jsconfig.json`**: Provides configuration for JavaScript language features within the editor.
 *   **`.gitignore`**: Specifies files and directories that Git should ignore.
 
-## API Documentation
-
-No public API endpoints were detected in the provided information.
-
-## Contributing
-
-Contribution guidelines are not currently provided.
-
-## License
-
-This project is currently unlicensed.
 
 ## Badges
 
