@@ -82,7 +82,8 @@
     "Portfolio": "Portfolio",
     "HackathonMC2I": "Hackathon MC2I",
     "XtraSup": "XtraSup",
-    "AutoEcole": "Système Gestion Auto-École"
+    "AutoEcole": "Système Gestion Auto-École",
+    "ReadmeGenerator": "Readme Writer"
   },
   "ProjectDescriptions": {
     "DroneNavigation": "Un modèle de drone autonome qui navigue vers une cible tout en évitant les obstacles. Entraîné par apprentissage par renforcement sur Unity avec ML-agents. Issu d'un projet universitaire en collaboration avec Intellitech.",
@@ -105,7 +106,8 @@
     "DigitRecognition": "Intelligence artificielle de reconnaissance de chiffres manuscrits utilisant TensorFlow et le dataset MNIST.",
     "TitanicPrediction": "IA pour prédire la survie des passagers du Titanic en utilisant Scikit-Learn.",
     "RealEstatePricing": "Intelligence artificielle pour estimer les prix de l'immobilier en utilisant Scikit-Learn.",
-    "AutoEcole": "Système de gestion complet pour auto-école développé en PHP, permettant la gestion des élèves, séances de conduite, thèmes d'apprentissage et planification. Développé dans le cadre du cours NF92 à l'UTC."
+    "AutoEcole": "Système de gestion complet pour auto-école développé en PHP, permettant la gestion des élèves, séances de conduite, thèmes d'apprentissage et planification. Développé dans le cadre du cours NF92 à l'UTC.",
+    "ReadmeGenerator": "👉 readme.leolaborie.com 👈 \n Application web qui génère automatiquement des fichiers README pour vos projets GitHub. Passez simplement l'URL de votre dépôt et l'app récupère l'arborescence du projet via l'API GitHub, puis génère un README complet grâce à un LLM Google."
   },
   "Timeline": {
     "JavaStart": "Mes premiers pas dans la programmation avec Java pour créer des mods Minecraft.",
@@ -117,4 +119,3 @@
     "AdvancedAI": "Développement d'IA de drones autonomes avec apprentissage par renforcement sur Unity."
   }
 }
-

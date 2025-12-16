@@ -9,6 +9,7 @@ export interface Projet {
   mediaUrl?: string
   mediaType?: "image" | "video"
   githubUrl?: string
+  liveUrl?: string
   categorie: Categorie
   year?: number
   projectSize?: "small" | "large"

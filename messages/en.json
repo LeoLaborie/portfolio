@@ -82,7 +82,8 @@
     "Portfolio": "Portfolio",
     "HackathonMC2I": "MC2I Hackathon",
     "XtraSup": "XtraSup",
-    "AutoEcole": "Driving School Management System"
+    "AutoEcole": "Driving School Management System",
+    "ReadmeGenerator": "Readme Writer"
   },
   "ProjectDescriptions": {
     "DroneNavigation": "An autonomous drone model that navigates to a target while avoiding obstacles. Trained using reinforcement learning on Unity with ML-agents. From a university project in collaboration with Intellitech.",
@@ -105,7 +106,8 @@
     "DigitRecognition": "Artificial intelligence for handwritten digit recognition using TensorFlow and MNIST dataset.",
     "TitanicPrediction": "AI to predict survival of Titanic passengers using Scikit-Learn.",
     "RealEstatePricing": "Artificial intelligence to estimate real estate prices.",
-    "AutoEcole": "Complete driving school management system developed in PHP, allowing management of students, driving sessions, learning themes and planning. Developed as part of the NF92 course at UTC."
+    "AutoEcole": "Complete driving school management system developed in PHP, allowing management of students, driving sessions, learning themes and planning. Developed as part of the NF92 course at UTC.",
+    "ReadmeGenerator": "👉 readme.leolaborie.com 👈\nWeb application that automatically generates README files for your GitHub projects. Simply pass your repository URL and the app retrieves the project tree via GitHub API, then generates a complete README using a Google LLM."
   },
   "Timeline": {
     "JavaStart": "My first steps in programming with Java to create Minecraft mods.",

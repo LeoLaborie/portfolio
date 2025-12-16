@@ -197,6 +197,24 @@ export const projets: Projet[] = [
     ]
   },
   {
+    titre: "ReadmeGenerator",
+    titreKey: "ProjectTitles.ReadmeGenerator",
+    description:
+      "Application web qui génère automatiquement des fichiers README pour vos projets GitHub. Passez simplement l'URL de votre dépôt et l'app récupère l'arborescence du projet via l'API GitHub, puis génère un README complet grâce à un LLM Google.",
+    descriptionKey: "ProjectDescriptions.ReadmeGenerator",
+    liveUrl: "https://readme.leolaborie.com",
+    categorie: "web",
+    year: 2025,
+    projectSize: "large",
+    mediaType: "image",
+    mediaUrl: "/images/readme.png",
+    features: [
+      "Automatic README Generation",
+      "GitHub API Integration",
+      "Google LLM (Gemini)",
+    ]
+  },
+  {
     titre: "Hackathon MC2I",
     titreKey: "ProjectTitles.HackathonMC2I",
     description:

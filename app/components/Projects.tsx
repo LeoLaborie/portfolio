@@ -108,62 +108,73 @@ export default function Projects() {
 
 // Extracted LargeProjectCard component
 function LargeProjectCard({ projet, categoryMap, t }: ProjectCardProps) {
-  return (
-    <motion.div className="group h-full" whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
-      <div className={`${commonStyles.card} overflow-hidden h-full flex flex-col md:flex-row`}>
-        {/* Media Container - Bigger and Side-by-Side on Desktop */}
-        <div className="md:w-3/5 relative min-h-[300px] md:min-h-full">
-          {projet.mediaUrl ? (
-            <MediaContainer projet={projet} categoryMap={categoryMap} isLarge={true} />
-          ) : (
-            <div className="w-full h-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-              <Code className="w-20 h-20 text-gray-300" />
-            </div>
-          )}
+  const cardContent = (
+    <div className={`${commonStyles.card} overflow-hidden h-full flex flex-col md:flex-row ${projet.liveUrl ? 'cursor-pointer' : ''}`}>
+      {/* Media Container - Bigger and Side-by-Side on Desktop */}
+      <div className="md:w-3/5 relative min-h-[300px] md:min-h-full">
+        {projet.mediaUrl ? (
+          <MediaContainer projet={projet} categoryMap={categoryMap} isLarge={true} />
+        ) : (
+          <div className="w-full h-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+            <Code className="w-20 h-20 text-gray-300" />
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className={`${commonStyles.cardPadding} md:w-2/5 flex flex-col justify-center`}>
+        <div className="mb-4">
+          <CategoryBadge projet={projet} categoryMap={categoryMap} />
         </div>
 
-        {/* Content */}
-        <div className={`${commonStyles.cardPadding} md:w-2/5 flex flex-col justify-center`}>
-          <div className="mb-4">
-            <CategoryBadge projet={projet} categoryMap={categoryMap} />
-          </div>
+        <h3 className={`${commonStyles.textDark} text-3xl md:text-4xl ${commonStyles.textSemibold} mb-6 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors`}>
+          {projet.titreKey ? t(projet.titreKey) : projet.titre}
+        </h3>
+        <p className={`${commonStyles.textGray} text-lg leading-relaxed mb-8 font-light`}>
+          {t(projet.descriptionKey)}
+        </p>
 
-          <h3 className={`${commonStyles.textDark} text-3xl md:text-4xl ${commonStyles.textSemibold} mb-6 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors`}>
-            {projet.titreKey ? t(projet.titreKey) : projet.titre}
-          </h3>
-          <p className={`${commonStyles.textGray} text-lg leading-relaxed mb-8 font-light`}>
-            {t(projet.descriptionKey)}
-          </p>
+        {/* Features List */}
+        {projet.features && projet.features.length > 0 && (
+          <ul className="mb-8 space-y-3">
+            {projet.features.map((feature, idx) => (
+              <li key={idx} className="flex items-start text-gray-600 dark:text-gray-300">
+                <span className="mt-1.5 w-1.5 h-1.5 bg-blue-500 rounded-full mr-3 flex-shrink-0" />
+                <span className="text-sm md:text-base">{feature}</span>
+              </li>
+            ))}
+          </ul>
+        )}
 
-          {/* Features List */}
-          {projet.features && projet.features.length > 0 && (
-            <ul className="mb-8 space-y-3">
-              {projet.features.map((feature, idx) => (
-                <li key={idx} className="flex items-start text-gray-600 dark:text-gray-300">
-                  <span className="mt-1.5 w-1.5 h-1.5 bg-blue-500 rounded-full mr-3 flex-shrink-0" />
-                  <span className="text-sm md:text-base">{feature}</span>
-                </li>
-              ))}
-            </ul>
+        <div className="mt-auto pt-4">
+          {projet.githubUrl && (
+            <motion.a
+              href={projet.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={commonStyles.buttonPrimary}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ExternalLink className="w-4 h-4" />
+              {t("Projects.DetailsButton")}
+            </motion.a>
           )}
-
-          <div className="mt-auto pt-4">
-            {projet.githubUrl && (
-              <motion.a
-                href={projet.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={commonStyles.buttonPrimary}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ExternalLink className="w-4 h-4" />
-                {t("Projects.DetailsButton")}
-              </motion.a>
-            )}
-          </div>
         </div>
       </div>
+    </div>
+  )
+
+  return (
+    <motion.div className="group h-full" whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
+      {projet.liveUrl ? (
+        <a href={projet.liveUrl} target="_blank" rel="noopener noreferrer" className="block h-full">
+          {cardContent}
+        </a>
+      ) : (
+        cardContent
+      )}
     </motion.div>
   )
 }
