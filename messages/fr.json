@@ -54,6 +54,17 @@
     "GithubDescription": "Consultez mes dépôts de code et mes contributions open source",
     "LinkedinDescription": "Connectez-vous avec moi professionnellement "
   },
+  "Experience": {
+    "Title": "Expérience Professionnelle",
+    "Subtitle": "Mon parcours en entreprise",
+    "Company1": "Junior UTC — Startup Phonemia",
+    "Role1": "Développeur Applications Mobiles (React Native)",
+    "Period1": "Nov. 2025 · 1 mois",
+    "Location1": "À distance",
+    "Desc1_1": "Développement d'écrans critiques de l'application (authentification Auth0, tutoriels vidéo & audio interactifs, formulaire utilisateur).",
+    "Desc1_2": "Réalisation du code et de la documentation technique.",
+    "Desc1_3": "Création du jeu Beatbox Hero : animation, logique de jeu, validation sonore en temps réel et écran de récompense."
+  },
   "Skills": {
     "Title": "Compétences & Expertise",
     "Subtitle": "Technologies et outils que j'utilise pour donner vie aux idées",

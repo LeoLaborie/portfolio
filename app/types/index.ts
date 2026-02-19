@@ -30,6 +30,22 @@ export interface Skill {
 
 export type SkillCategory = "programming" | "ml" | "web" | "tools"
 
+// Experience related types
+export interface Experience {
+  company: string
+  companyKey: string
+  role: string
+  roleKey: string
+  period: string
+  periodKey: string
+  location: string
+  locationKey: string
+  descriptionKeys: string[]
+  techStack: string[]
+  mediaUrl: string
+  mediaType: "image" | "video"
+}
+
 // Component prop types
 export interface CategoryFilterProps<T extends string> {
   categories: Record<T, { label: string; icon: React.ReactNode }>
