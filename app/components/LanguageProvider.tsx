@@ -12,7 +12,7 @@ type Messages = typeof enMessages
 interface LanguageContextType {
   currentLanguage: Language
   switchLanguage: (newLanguage: Language) => void
-  t: (key: string) => string
+  t: (key: string, variables?: Record<string, string | number>) => string
   messages: Messages
 }
 
@@ -46,10 +46,10 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     }
   }, [])
 
-  const t = useCallback((key: string): string => {
+  const t = useCallback((key: string, variables?: Record<string, string | number>): string => {
     const keys = key.split(".")
     let value: unknown = messages
-    
+
     for (const k of keys) {
       if (typeof value === 'object' && value !== null && k in value) {
         value = (value as Record<string, unknown>)[k]
@@ -57,8 +57,17 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
         return key
       }
     }
-    
-    return typeof value === 'string' ? value : key
+
+    if (typeof value !== 'string') return key;
+
+    let result = value;
+    if (variables) {
+      Object.entries(variables).forEach(([varKey, varValue]) => {
+        result = result.replace(`{${varKey}}`, String(varValue));
+      });
+    }
+
+    return result;
   }, [messages])
 
   const value: LanguageContextType = useMemo(() => ({

@@ -5,11 +5,12 @@
     "DarkMode": "Mode sombre"
   },
   "Hero": {
-    "Title": "Élève ingénieur à l'UTC en Génie Informatique",
-    "Subtitle": "spécialité IA et Données",
-    "Description": "Développeur spécialisé en Intelligence Artificielle et algorithmes, avec une expertise en Python et une passion pour résoudre des problèmes complexes par la programmation.",
-    "DownloadCV": "Télécharger mon CV",
-    "ProfileImageAlt": "Photo de profil de Léo Laborie"
+    "Greeting": "salut, c'est léo. 👋",
+    "Title": "Étudiant ingénieur en IA de {age} ans, France 🇫🇷",
+    "Bio": "Spécialisation IA & Données, passionné par la résolution de problèmes complexes par la programmation",
+    "ContactPrompt": "Des questions ? Découvrez mes projets ↘",
+    "ContactEscalation": "Pour toute autre demande, contactez-moi directement.",
+    "Resume": "CV"
   },
   "Parcours": {
     "Title": "Formation",

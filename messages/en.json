@@ -5,11 +5,12 @@
     "DarkMode": "Dark mode"
   },
   "Hero": {
-    "Title": "Computer Science Engineering Student at UTC",
-    "Subtitle": "AI and Data specialization",
-    "Description": "Developer specialized in Artificial Intelligence and algorithms, with Python expertise and a passion for solving complex problems through programming.",
-    "DownloadCV": "Download my CV",
-    "ProfileImageAlt": "Profile photo of Léo Laborie"
+    "Greeting": "hi leo here. 👋",
+    "Title": "{age}yo software engineering student from France 🇫🇷",
+    "Bio": "AI & Data specialization, passionate about solving complex problems through programming.",
+    "ContactPrompt": "For Q&A, check out my projects ↘",
+    "ContactEscalation": "For any escalations, please contact me directly.",
+    "Resume": "Resume"
   },
   "Parcours": {
     "Title": "Education",
