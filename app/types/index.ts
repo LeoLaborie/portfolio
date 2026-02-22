@@ -17,7 +17,7 @@ export interface Projet {
   featuresKey?: string
 }
 
-export type Categorie = "ml" | "web" | "algo" | "other"
+export type Categorie = "all" | "ml" | "web" | "algo" | "other"
 
 // Skill related types
 export interface Skill {
@@ -48,7 +48,7 @@ export interface Experience {
 
 // Component prop types
 export interface CategoryFilterProps<T extends string> {
-  categories: Record<T, { label: string; icon: React.ReactNode }>
+  categories: Record<T, { label: string }>
   activeCategory: T
   onCategoryChangeAction: (category: T) => void
   delay?: number

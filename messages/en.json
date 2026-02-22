@@ -37,14 +37,15 @@
   },
   "Projects": {
     "Title": "My Projects",
-    "Subtitle": "Discover my technical achievements across different domains",
+    "Subtitle": "A selection of my recent work, from machine learning to web development.",
+    "CategoryAll": "All",
     "CategoryML": "Machine Learning",
-    "CategoryWeb": "Web Applications",
-    "CategoryAlgo": "Algorithms",
+    "CategoryWeb": "Web App",
+    "CategoryAlgo": "Algo & Scripts",
     "CategoryOther": "Other",
     "DetailsButton": "Details",
-    "EmptyStateTitle": "No projects in this category",
-    "EmptyStateDescription": "Select another category to view my projects."
+    "EmptyStateTitle": "No projects found",
+    "EmptyStateDescription": "There are no projects in this category yet."
   },
   "Contact": {
     "Title": "Contact Me",

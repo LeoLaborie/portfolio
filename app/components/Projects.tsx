@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useMemo, useCallback } from "react"
-import { ExternalLink, Brain, Globe, Code, Zap, Play } from "lucide-react"
+import { ExternalLink, Code } from "lucide-react"
 import { motion } from "framer-motion"
 import AnimatedSection from "./animated-section"
 import StaggeredContainer from "./staggered-container"
@@ -15,18 +15,18 @@ import { commonStyles } from "../styles/common"
 
 interface ProjectCardProps {
   projet: Projet
-  categoryMap: Record<Categorie, { label: string; icon: React.ReactNode }>
+  categoryMap: Record<Categorie, { label: string }>
   t: (key: string) => string
 }
 
 interface MediaContainerProps {
   projet: Projet
-  categoryMap: Record<Categorie, { label: string; icon: React.ReactNode }>
+  categoryMap: Record<Categorie, { label: string }>
 }
 
 interface CategoryBadgeProps {
   projet: Projet
-  categoryMap: Record<Categorie, { label: string; icon: React.ReactNode }>
+  categoryMap: Record<Categorie, { label: string }>
 }
 
 interface EmptyStateProps {
@@ -40,20 +40,21 @@ interface EmptyStateProps {
  */
 export default function Projects() {
   const { t } = useLanguage()
-  const [categorieActive, setCategorieActive] = useState<Categorie>("ml")
+  const [categorieActive, setCategorieActive] = useState<Categorie>("all")
 
   // Memoize categoryMap to prevent recreation on every render
-  const categoryMap: Record<Categorie, { label: string; icon: React.ReactNode }> = useMemo(() => ({
-    ml: { label: t("Projects.CategoryML"), icon: <Brain className="w-4 h-4" /> },
-    web: { label: t("Projects.CategoryWeb"), icon: <Globe className="w-4 h-4" /> },
-    algo: { label: t("Projects.CategoryAlgo"), icon: <Code className="w-4 h-4" /> },
-    other: { label: t("Projects.CategoryOther"), icon: <Zap className="w-4 h-4" /> },
+  const categoryMap: Record<Categorie, { label: string }> = useMemo(() => ({
+    all: { label: t("Projects.CategoryAll") },
+    ml: { label: t("Projects.CategoryML") },
+    web: { label: t("Projects.CategoryWeb") },
+    algo: { label: t("Projects.CategoryAlgo") },
+    other: { label: t("Projects.CategoryOther") },
   }), [t])
 
   // Memoize filtered and sorted projects to prevent unnecessary recalculations
   const projetsFiltres = useMemo(() =>
     projets
-      .filter((p) => p.categorie === categorieActive)
+      .filter((p) => categorieActive === "all" || p.categorie === categorieActive)
       .sort((a, b) => {
         // Sort by size first (Large > Small/Undefined)
         const sizeA = a.projectSize === "large" ? 1 : 0
@@ -263,32 +264,6 @@ function MediaContainer({ projet, categoryMap, isLarge = false }: ExtendedMediaC
         </div>
       )}
 
-      {/* Category Badge */}
-      <div className="absolute top-6 left-6">
-        <motion.div
-          className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-800 bg-opacity-95 backdrop-blur-sm rounded-full text-gray-700 dark:text-gray-300 text-sm font-medium border border-gray-200 dark:border-gray-600 transition-colors duration-300"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          {categoryMap[projet.categorie].icon}
-          <span className="hidden sm:inline">{categoryMap[projet.categorie].label}</span>
-        </motion.div>
-      </div>
-
-      {/* Year Badge */}
-      {projet.year && (
-        <div className="absolute top-6 right-6">
-          <motion.div
-            className="px-3 py-1.5 bg-white dark:bg-gray-800 bg-opacity-95 backdrop-blur-sm rounded-full text-gray-700 dark:text-gray-300 text-sm font-medium border border-gray-200 dark:border-gray-600 transition-colors duration-300"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            {projet.year}
-          </motion.div>
-        </div>
-      )}
     </div>
   )
 }
@@ -303,7 +278,6 @@ function CategoryBadge({ projet, categoryMap }: CategoryBadgeProps) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3 }}
       >
-        {categoryMap[projet.categorie].icon}
         <span>{categoryMap[projet.categorie].label}</span>
       </motion.div>
       {projet.year && (
