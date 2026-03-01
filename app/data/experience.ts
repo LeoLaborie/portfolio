@@ -15,7 +15,7 @@ export const experiences: Experience[] = [
             "Experience.Desc1_2",
             "Experience.Desc1_3"
         ],
-        techStack: ["React Native", "Auth0", "TypeScript"],
+        techStack: ["React Native", "Auth0"],
         mediaUrl: "/images/phonemia.png",
         mediaType: "image"
     }
