@@ -12,5 +12,5 @@ export const socialLinks = {
  */
 export const CV_PATHS = {
   fr: "/leo-laborie-cv-fr.pdf",
-  en: "/leo-laborie-cv.pdf"
+  en: "/leo-laborie-cv-en.pdf"
 };

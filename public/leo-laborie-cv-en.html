@@ -20,7 +20,7 @@
         body {
             font-family: 'Times New Roman', Times, serif;
             font-size: 10pt;
-            line-height: 1.5;
+            line-height: 1;
             color: #333;
             background: white;
         }
@@ -108,7 +108,7 @@
         .experience-description {
             margin-left: 9px;
             font-size: 9.5pt;
-            line-height: 1.5;
+            line-height: 1;
         }
 
         .formation-item {
@@ -182,13 +182,15 @@
         <div class="section-title">EDUCATION</div>
         <div class="formation-item">
             <div class="formation-row">
-                <span class="experience-title">Engineering Cycle – Computer Engineering</span>
+                <span>
+                    <span class="experience-title">Engineering Cycle – Computer Engineering</span>,
+                    <span class="experience-title">Université de Technologie de Compiègne (UTC)</span>
+                </span>
                 <span class="experience-date">2023 - Present</span>
             </div>
             <div class="formation-row details">
-                <span class="experience-company">Université de Technologie de Compiègne (UTC)</span>,
-                <span class="experience-description" style="margin-left: 4px;">Integrated Preparatory Classes (2
-                    years)</span>
+                <span class="experience-description" style="margin-left: 0;">PHITECO Minor (Philosophy, Technology,
+                    Cognition) – combining cognitive sciences, philosophy of mind, and technologies</span>
             </div>
         </div>
         <div class="formation-item">
@@ -205,12 +207,51 @@
     </div>
 
     <div class="section">
-        <div class="section-title">TECHNICAL SKILLS</div>
-        <div class="experience-description">
-            Languages: Python, C++, JavaScript, C, PHP, SQL, PostgreSQL &nbsp;&nbsp; | &nbsp;&nbsp;
-            Web/Mobile Development: Next.js, Tailwind CSS, React Native <br>
-            Machine Learning: Scikit-learn, XGBoost, TensorFlow &nbsp;&nbsp; | &nbsp;&nbsp;
-            Others: Git, Linux, algorithms, Web Scraping, API integration
+        <div class="section-title">PROFESSIONAL EXPERIENCE</div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">CTO & Co-founder – Nealkar</div>
+                <div class="experience-date">2024 - Present</div>
+            </div>
+            <div class="experience-description">
+                Production deployment of a home car wash matchmaking platform between service providers and
+                individuals.<br>
+                Architecture design and complete implementation of the MVP from scratch with Next.js / TailwindCSS /
+                Supabase.<br>
+                Project developed with the National Student-Entrepreneur Status via Pépite France, with two other
+                students.
+            </div>
+        </div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">Mobile Developer (React Native) – Junior UTC - Phonemia startup</div>
+                <div class="experience-date">Nov. 2025</div>
+            </div>
+            <div class="experience-description">
+                Development of critical application screens (Auth0 authentication, interactive video & audio tutorials,
+                user form). Implementation of code and technical documentation.
+                Creation of the Beatbox Star game: animation, game logic, real-time sound validation, and reward screen.
+            </div>
+        </div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <span>
+                    <span class="experience-title">Street Micro-Entrepreneurship</span>,
+                    <span class="experience-title">Zurich, Switzerland</span> (2 weeks)
+                </span>
+                <span class="experience-date">Aug. 2025</span>
+            </div>
+            <div class="experience-description">
+                <span style="font-weight: bold;">100% Autonomous Initiative:</span> Creation of a mobile waffle (stroopwafel) sales business with no structure, stand, or network.<br>
+                <span style="font-weight: bold;">Cold Prospecting & Acquisition:</span> Cold approaching thousands of passersby on the street (English only) with a simple tupperware containing the stroopwafels.<br>
+                <span style="font-weight: bold;">Performance:</span> Optimized sales pitch, achieving an average profitability of around 50€/h.<br>
+                <span style="font-weight: bold;">Soft Skills:</span> Massive steps out of the comfort zone, rejection management, boldness, communication, and resourcefulness.
+            </div>
+        </div>
+        <div class="formation-item single-line">
+            <span class="experience-title">Internship - Groupe Morault, Printing House of Compiègne - </span>
+            <span class="experience-description" style="margin-left: 0;">&nbsp;Handler, production logistics</span>
+            <span class="experience-date">2024</span>
         </div>
     </div>
 
@@ -230,8 +271,7 @@
             <div class="experience-company">6-month university project in collaboration with Intellitech, following a
                 course on fuzzy mathematics applied to AI</div>
             <div class="experience-description">
-                Autonomous drone model aiming to destroy a target while avoiding obstacles.
-                Trained using reinforcement learning (Unity + ML-Agents).<br>
+                Autonomous drone model trained using Deep Reinforcement Learning, achieving a 97.2% success rate in destroying its target, via the implementation of the Proximal Policy Optimization (PPO) algorithm in Unity with ML-Agents.
             </div>
         </div>
         <div class="experience-item">
@@ -239,10 +279,8 @@
                 <div class="experience-title">Unsupervised Deep Learning - SnakeAI</div>
                 <div class="experience-date">2024</div>
             </div>
-            <div class="experience-description">Neural network playing Snake, trained by a genetic algorithm coded from
-                scratch with
-                innovative pre-training <br>
-
+            <div class="experience-description">
+                Development of a frugal neural network for the game Snake, reaching a score of 35 apples on a 10x10 grid using only 10 input neurons, thanks to a genetic algorithm and an innovative pre-training protocol to accelerate convergence.
             </div>
         </div>
         <div class="experience-item">
@@ -250,43 +288,54 @@
                 <div class="experience-title">XtraSup</div>
                 <div class="experience-date">2024</div>
             </div>
-            <div class="experience-description">AI assistant for selecting post-bac candidates for UTC admission – UTC
-                university project</div>
+            <div class="experience-description">Modeling a decision support system for post-baccalaureate candidate selection (UTC), transforming qualitative criteria into decision scores by creating a fuzzy logic rule engine simulating the expertise of the admission jury.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">COMPETITIONS & HACKATHONS</div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-title">SWERC (Southwestern Europe Regional Contest)</div>
+                <div class="experience-date">2023 - 2026</div>
+            </div>
+            <div class="experience-description">
+                Ranked Top 15 in France and 67th in Europe (5-hour ICPC programming contest in teams of 3).
+            </div>
         </div>
         <div class="experience-item">
             <div class="experience-header">
-                <div class="experience-title">Web Development - MailFast</div>
+                <div class="experience-title">YouScribe Hackathon at UTC</div>
                 <div class="experience-date">2024</div>
             </div>
-            <div class="experience-description">Web application allowing rapid email generation via the OpenAI API. With
-                authentication system (Next.js, Supabase)</div>
-        </div>
-        <div class="experience-item">
-            <div class="experience-header">
-                <div class="experience-title">Web Development - Portfolio: leolaborie.com</div>
-                <div class="experience-date">2025</div>
-            </div>
-            <div class="experience-description">Personal website developed with Next.js, Tailwind CSS, and TypeScript
+            <div class="experience-description">
+                1st place at the YouScribe x UTC hackathon, in a team with 3 other UTC students. The goal of the hackathon was to create a book recommendation algorithm based on its relevance and execution speed for YouScribe platform users.
             </div>
         </div>
     </div>
+
     <div class="section">
-        <div class="section-title">PROFESSIONAL EXPERIENCE</div>
+        <div class="section-title">VOLUNTEER & INVOLVEMENT</div>
         <div class="experience-item">
             <div class="experience-header">
-                <div class="experience-title">Mobile Developer (React Native) – Junior UTC - Phonemia startup</div>
-                <div class="experience-date">Nov. 2025</div>
+                <div class="experience-title">President & Treasurer – UTCode (UTC Competitive Programming Association)
+                </div>
+                <div class="experience-date">2023 - Present</div>
             </div>
             <div class="experience-description">
-                Development of critical application screens (Auth0 authentication, interactive video & audio tutorials,
-                user form). Implementation of code and technical documentation.
-                Creation of the Beatbox Star game: animation, game logic, real-time sound validation, and reward screen.
+                Management of the association: organizing weekly training sessions and coding events.<br>
+                Financial management, fundraising, and logistics organization for participation in SWERC.
             </div>
         </div>
-        <div class="formation-item single-line">
-            <span class="experience-title">Internship - Groupe Morault, Printing House of Compiègne - </span>
-            <span class="experience-description" style="margin-left: 0;">&nbsp;Handler, production logistics</span>
-            <span class="experience-date">2024</span>
+    </div>
+
+    <div class="section">
+        <div class="section-title">TECHNICAL SKILLS</div>
+        <div class="experience-description">
+            Languages: Python, C++, JavaScript, C, PHP, SQL, PostgreSQL &nbsp;&nbsp; | &nbsp;&nbsp;
+            Web/Mobile Development: Next.js, Tailwind CSS, React Native <br>
+            Machine Learning: Scikit-learn, XGBoost, TensorFlow &nbsp;&nbsp; | &nbsp;&nbsp;
+            Others: Git, Linux, algorithms, Web Scraping, API integration
         </div>
     </div>
 
@@ -301,10 +350,6 @@
     <div class="section">
         <div class="section-title">INTERESTS</div>
         <div class="experience-description">
-            • <span style="font-weight: bold; font-size: 10pt;">Competitive Programming</span>: SWERC 2023 - 2025 top
-            15 France and 67 Europe,
-            Treasurer then President (2023-Present) of UTCode, the UTC competitive programming association.
-            Participates in all div2 to div4 competitions on Codeforces<br>
             • <span style="font-weight: bold; font-size: 10pt;">Chess</span>: 1500 ELO on chess.com, formerly 1
             year in a club<br>
             • <span style="font-weight: bold; font-size: 10pt;">Sport</span>: Street Workout, self-improvement
