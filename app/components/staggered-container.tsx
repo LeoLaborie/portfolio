@@ -22,7 +22,8 @@ interface StaggeredContainerProps {
 export default function StaggeredContainer({ children, className = "", staggerDelay = 0.1 }: StaggeredContainerProps) {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.05,
+    rootMargin: "50px 0px",
   })
 
   const containerVariants: Variants = {
