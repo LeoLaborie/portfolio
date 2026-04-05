@@ -230,6 +230,7 @@ interface ExtendedMediaContainerProps extends MediaContainerProps {
 
 // Extracted MediaContainer component
 function MediaContainer({ projet, isLarge = false }: ExtendedMediaContainerProps) {
+  const [imageLoaded, setImageLoaded] = useState(false)
   const containerClass = isLarge
     ? "relative overflow-hidden bg-gray-50 dark:bg-gray-700 h-full w-full transition-colors duration-300"
     : "relative overflow-hidden bg-gray-50 dark:bg-gray-700 aspect-[16/10] transition-colors duration-300"
@@ -241,12 +242,16 @@ function MediaContainer({ projet, isLarge = false }: ExtendedMediaContainerProps
           className="relative w-full h-full"
           whileHover={{ scale: 1.05 }}
         >
+          {!imageLoaded && (
+            <div className="absolute inset-0 bg-gray-200 dark:bg-gray-600 animate-pulse" />
+          )}
           <Image
             src={projet.mediaUrl!}
             alt={projet.titre}
             fill
             sizes={isLarge ? "(max-width: 768px) 100vw, 60vw" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className={`object-cover transition-all duration-500 group-hover:scale-105 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
+            onLoad={() => setImageLoaded(true)}
           />
         </motion.div>
       ) : (

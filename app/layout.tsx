@@ -88,6 +88,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-900 text-black dark:text-white font-[Times_New_Roman] transition-colors duration-300`}
         suppressHydrationWarning={true}
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-gray-900 focus:text-white focus:rounded-lg focus:text-sm focus:font-medium dark:focus:bg-gray-100 dark:focus:text-gray-900"
+        >
+          Skip to content
+        </a>
         <ErrorBoundary>
           <DarkModeProvider>
             <LanguageProvider>

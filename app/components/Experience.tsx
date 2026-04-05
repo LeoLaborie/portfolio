@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import { MapPin, Calendar } from "lucide-react"
 import { motion } from "framer-motion"
@@ -32,36 +33,7 @@ export default function Experience() {
                                 <div className={`${commonStyles.card} overflow-hidden h-full flex flex-col md:flex-row`}>
                                     {/* Media Container - Side-by-side on desktop */}
                                     <div className="md:w-3/5 relative min-h-[300px] md:min-h-full">
-                                        <div className="relative overflow-hidden bg-gray-50 dark:bg-gray-700 h-full w-full transition-colors duration-300">
-                                            {exp.mediaType === "image" ? (
-                                                <motion.div
-                                                    className="relative w-full h-full"
-                                                    whileHover={{ scale: 1.05 }}
-                                                >
-                                                    <Image
-                                                        src={exp.mediaUrl}
-                                                        alt={t(exp.companyKey)}
-                                                        fill
-                                                        sizes="(max-width: 768px) 100vw, 60vw"
-                                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                                    />
-                                                </motion.div>
-                                            ) : (
-                                                <div className="relative w-full h-full">
-                                                    <video
-                                                        src={exp.mediaUrl}
-                                                        className="w-full h-full object-cover"
-                                                        muted
-                                                        loop
-                                                        playsInline
-                                                        autoPlay
-                                                        aria-label={`Video demonstration of ${t(exp.companyKey)}`}
-                                                    >
-                                                        <p>Your browser does not support the video tag.</p>
-                                                    </video>
-                                                </div>
-                                            )}
-                                        </div>
+                                        <ExperienceMedia exp={exp} t={t} />
                                     </div>
 
                                     {/* Card Content */}
@@ -115,5 +87,46 @@ export default function Experience() {
                 </StaggeredContainer>
             </div>
         </section>
+    )
+}
+
+function ExperienceMedia({ exp, t }: { exp: typeof experiences[number], t: (key: string) => string }) {
+    const [imageLoaded, setImageLoaded] = useState(false)
+
+    return (
+        <div className="relative overflow-hidden bg-gray-50 dark:bg-gray-700 h-full w-full transition-colors duration-300">
+            {exp.mediaType === "image" ? (
+                <motion.div
+                    className="relative w-full h-full"
+                    whileHover={{ scale: 1.05 }}
+                >
+                    {!imageLoaded && (
+                        <div className="absolute inset-0 bg-gray-200 dark:bg-gray-600 animate-pulse" />
+                    )}
+                    <Image
+                        src={exp.mediaUrl}
+                        alt={t(exp.companyKey)}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 60vw"
+                        className={`object-cover transition-all duration-500 group-hover:scale-105 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
+                        onLoad={() => setImageLoaded(true)}
+                    />
+                </motion.div>
+            ) : (
+                <div className="relative w-full h-full">
+                    <video
+                        src={exp.mediaUrl}
+                        className="w-full h-full object-cover"
+                        muted
+                        loop
+                        playsInline
+                        autoPlay
+                        aria-label={`Video demonstration of ${t(exp.companyKey)}`}
+                    >
+                        <p>Your browser does not support the video tag.</p>
+                    </video>
+                </div>
+            )}
+        </div>
     )
 }
