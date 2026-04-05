@@ -1,35 +1,48 @@
 "use client"
 
 import React from "react"
-import { Code, Database, Brain, Palette, Globe, Server, Cpu, Users } from "lucide-react"
+import { Code, Brain, Globe, Cpu } from "lucide-react"
 import { motion } from "framer-motion"
-import StaggeredContainer from "./staggered-container"
-import StaggeredItem from "./staggered-item"
 import SectionHeader from "./SectionHeader"
 import { useLanguage } from "./LanguageProvider"
 import { skills } from "../data/skills"
-import { type SkillCategory, type Skill } from "../types"
+import { type SkillCategory, type SkillLevel } from "../types"
 import { commonStyles } from "../styles/common"
 
-// Icon mapping for rendering
-const iconMap = {
-  Code: <Code className="w-5 h-5" />,
-  Database: <Database className="w-5 h-5" />,
-  Brain: <Brain className="w-5 h-5" />,
-  Palette: <Palette className="w-5 h-5" />,
-  Globe: <Globe className="w-5 h-5" />,
-  Server: <Server className="w-5 h-5" />,
-  Cpu: <Cpu className="w-5 h-5" />,
-  Users: <Users className="w-5 h-5" />,
+const levelOrder: Record<SkillLevel, number> = {
+  advanced: 0,
+  intermediate: 1,
+  familiar: 2,
+}
+
+const levelStyles: Record<SkillLevel, string> = {
+  advanced: "bg-gray-900 text-white dark:bg-white dark:text-gray-900",
+  intermediate: "bg-gray-200 text-gray-700 dark:bg-gray-600 dark:text-gray-200",
+  familiar: "bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400",
+}
+
+function getYearsLabel(yearLearned: number, suffix: string): string {
+  const currentYear = new Date().getFullYear()
+  const years = currentYear - yearLearned
+  if (years < 1) return `<1 ${suffix}`
+  return `~${years} ${suffix}`
 }
 
 export default function Skills() {
   const { t } = useLanguage()
 
+  const levelKeys: Record<SkillLevel, string> = {
+    advanced: t("Skills.LevelAdvanced"),
+    intermediate: t("Skills.LevelIntermediate"),
+    familiar: t("Skills.LevelFamiliar"),
+  }
+
+  const yearsSuffix = t("Skills.YearsSuffix")
+
   const categories: { id: SkillCategory; label: string; icon: React.ReactNode; color: string }[] = [
-    { id: "programming", label: t("Skills.CategoryProgramming"), icon: <Code className="w-5 h-5" />, color: "text-blue-500" },
     { id: "ml", label: t("Skills.CategoryML"), icon: <Brain className="w-5 h-5" />, color: "text-purple-500" },
     { id: "web", label: t("Skills.CategoryWeb"), icon: <Globe className="w-5 h-5" />, color: "text-cyan-500" },
+    { id: "programming", label: t("Skills.CategoryProgramming"), icon: <Code className="w-5 h-5" />, color: "text-blue-500" },
     { id: "tools", label: t("Skills.CategoryTools"), icon: <Cpu className="w-5 h-5" />, color: "text-orange-500" },
   ]
 
@@ -43,9 +56,9 @@ export default function Skills() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           {categories.map((category, categoryIndex) => {
-            const categorySkills = skills.filter(skill => skill.category === category.id)
-              // Sort by level descending
-              .sort((a, b) => b.level - a.level);
+            const categorySkills = skills
+              .filter(skill => skill.category === category.id)
+              .sort((a, b) => levelOrder[a.level] - levelOrder[b.level] || a.yearLearned - b.yearLearned)
 
             return (
               <motion.div
@@ -65,9 +78,28 @@ export default function Skills() {
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4">
+                <div className="flex flex-col gap-3">
                   {categorySkills.map((skill, index) => (
-                    <SkillItem key={skill.name} skill={skill} index={index} />
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.15 + index * 0.05 }}
+                      className="flex items-center justify-between gap-3 group"
+                    >
+                      <span className="font-medium text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors">
+                        {skill.name}
+                      </span>
+                      <div className="flex items-center gap-2 shrink-0">
+                        <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${levelStyles[skill.level]}`}>
+                          {levelKeys[skill.level]}
+                        </span>
+                        <span className="text-xs text-gray-400 dark:text-gray-500 font-mono w-14 text-right">
+                          {getYearsLabel(skill.yearLearned, yearsSuffix)}
+                        </span>
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
@@ -76,29 +108,5 @@ export default function Skills() {
         </div>
       </div>
     </section>
-  )
-}
-
-function SkillItem({ skill, index }: { skill: Skill; index: number }) {
-  return (
-    <div className="group">
-      <div className="flex justify-between items-center mb-1.5">
-        <span className="font-medium text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors">
-          {skill.name}
-        </span>
-        <span className="text-sm text-gray-500 dark:text-gray-400 font-mono">
-          {skill.level}%
-        </span>
-      </div>
-      <div className="h-1.5 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
-        <motion.div
-          className="h-full bg-gray-900 dark:bg-gray-400 rounded-full"
-          initial={{ width: 0 }}
-          whileInView={{ width: `${skill.level}%` }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.2 + (index * 0.05), ease: "easeOut" }}
-        />
-      </div>
-    </div>
   )
 }

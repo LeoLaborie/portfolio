@@ -128,7 +128,6 @@ export const projets: Projet[] = [
     description:
       "IA capable de jouer au jeu du Morpion. Utilise un algorithme Minimax avec élagage alpha-bêta pour optimiser les performances.",
     descriptionKey: "ProjectDescriptions.TicTacToeAI",
-    mediaType: "video",
     categorie: "algo",
     year: 2023,
   },
@@ -251,7 +250,6 @@ export const projets: Projet[] = [
     description:
       "Un modèle de drone autonome qui navigue vers une cible en évitant les obstacles. Entrainé par reinforcement learning sur Unity avec ML-agents. Issu d'un projet universaire en collaboration avec Intellitech.",
     descriptionKey: "ProjectDescriptions.DroneNavigation",
-    mediaType: "video",
     githubUrl: "https://github.com/LeoLaborie/AI-autonomous-drone-RL",
     categorie: "ml",
     year: 2025,

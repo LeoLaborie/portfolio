@@ -1,13 +1,11 @@
 import type React from "react"
 
 // Project related types
-export interface Projet {
+interface ProjetBase {
   titre: string
   titreKey?: string
   description: string
   descriptionKey: string
-  mediaUrl?: string
-  mediaType?: "image" | "video"
   githubUrl?: string
   liveUrl?: string
   categorie: Categorie
@@ -17,15 +15,29 @@ export interface Projet {
   featuresKey?: string
 }
 
+interface ProjetWithMedia extends ProjetBase {
+  mediaUrl: string
+  mediaType: "image" | "video"
+}
+
+interface ProjetWithoutMedia extends ProjetBase {
+  mediaUrl?: never
+  mediaType?: never
+}
+
+export type Projet = ProjetWithMedia | ProjetWithoutMedia
+
 export type Categorie = "all" | "ml" | "web" | "algo" | "other"
 
 // Skill related types
+export type SkillLevel = "advanced" | "intermediate" | "familiar"
+
 export interface Skill {
   name: string
-  level: number
+  level: SkillLevel
   category: SkillCategory
   iconName: string
-  yearLearned?: number
+  yearLearned: number
 }
 
 export type SkillCategory = "programming" | "ml" | "web" | "tools"

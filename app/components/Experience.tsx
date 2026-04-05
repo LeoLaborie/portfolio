@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { MapPin, Calendar } from "lucide-react"
 import { motion } from "framer-motion"
 import StaggeredContainer from "./staggered-container"
@@ -33,17 +34,18 @@ export default function Experience() {
                                     <div className="md:w-3/5 relative min-h-[300px] md:min-h-full">
                                         <div className="relative overflow-hidden bg-gray-50 dark:bg-gray-700 h-full w-full transition-colors duration-300">
                                             {exp.mediaType === "image" ? (
-                                                <motion.img
-                                                    src={exp.mediaUrl}
-                                                    alt={t(exp.companyKey)}
-                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                <motion.div
+                                                    className="relative w-full h-full"
                                                     whileHover={{ scale: 1.05 }}
-                                                    onError={(e) => {
-                                                        const target = e.currentTarget;
-                                                        target.src = '/images/placeholder.svg';
-                                                        target.onerror = null;
-                                                    }}
-                                                />
+                                                >
+                                                    <Image
+                                                        src={exp.mediaUrl}
+                                                        alt={t(exp.companyKey)}
+                                                        fill
+                                                        sizes="(max-width: 768px) 100vw, 60vw"
+                                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                                    />
+                                                </motion.div>
                                             ) : (
                                                 <div className="relative w-full h-full">
                                                     <video

@@ -73,7 +73,11 @@
     "CategoryProgramming": "Programming",
     "CategoryML": "Machine Learning",
     "CategoryWeb": "Web Development",
-    "CategoryTools": "Tools"
+    "CategoryTools": "Tools",
+    "LevelAdvanced": "Advanced",
+    "LevelIntermediate": "Intermediate",
+    "LevelFamiliar": "Familiar",
+    "YearsSuffix": "yrs"
   },
   "ProjectTitles": {
     "MinecraftMods": "Minecraft Mods (Java)",

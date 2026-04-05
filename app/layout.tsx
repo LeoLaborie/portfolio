@@ -37,11 +37,20 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     alternateLocale: ["en_US"],
+    images: [
+      {
+        url: "/images/portfolio.png",
+        width: 1200,
+        height: 630,
+        alt: "Léo Laborie - Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Léo Laborie - Portfolio",
     description: "Portfolio de Léo Laborie, étudiant en Génie Informatique à l'UTC",
+    images: ["/images/portfolio.png"],
   },
   robots: {
     index: true,
@@ -92,6 +101,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </body>
       <Script
         src="https://scripts.simpleanalyticscdn.com/latest.js"
+        strategy="afterInteractive"
       />
     </html>
   )

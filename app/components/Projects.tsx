@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useMemo, useCallback } from "react"
+import Image from "next/image"
 import { ExternalLink, Code } from "lucide-react"
 import { motion } from "framer-motion"
 import AnimatedSection from "./animated-section"
@@ -228,7 +229,7 @@ interface ExtendedMediaContainerProps extends MediaContainerProps {
 }
 
 // Extracted MediaContainer component
-function MediaContainer({ projet, categoryMap, isLarge = false }: ExtendedMediaContainerProps) {
+function MediaContainer({ projet, isLarge = false }: ExtendedMediaContainerProps) {
   const containerClass = isLarge
     ? "relative overflow-hidden bg-gray-50 dark:bg-gray-700 h-full w-full transition-colors duration-300"
     : "relative overflow-hidden bg-gray-50 dark:bg-gray-700 aspect-[16/10] transition-colors duration-300"
@@ -236,17 +237,18 @@ function MediaContainer({ projet, categoryMap, isLarge = false }: ExtendedMediaC
   return (
     <div className={containerClass}>
       {projet.mediaType === "image" ? (
-        <motion.img
-          src={projet.mediaUrl}
-          alt={projet.titre}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        <motion.div
+          className="relative w-full h-full"
           whileHover={{ scale: 1.05 }}
-          onError={(e) => {
-            const target = e.currentTarget;
-            target.src = '/images/placeholder.svg';
-            target.onerror = null;
-          }}
-        />
+        >
+          <Image
+            src={projet.mediaUrl!}
+            alt={projet.titre}
+            fill
+            sizes={isLarge ? "(max-width: 768px) 100vw, 60vw" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </motion.div>
       ) : (
         <div className="relative w-full h-full">
           <video
