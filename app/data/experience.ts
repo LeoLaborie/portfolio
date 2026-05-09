@@ -2,6 +2,25 @@ import type { Experience } from "../types"
 
 export const experiences: Experience[] = [
     {
+        company: "Antre de Mondes",
+        companyKey: "Experience.Company2",
+        role: "Catalogue produits e-commerce — 10 724 fiches enrichies par scraping & LLM",
+        roleKey: "Experience.Role2",
+        period: "2026 · 2 mois",
+        periodKey: "Experience.Period2",
+        location: "À distance",
+        locationKey: "Experience.Location2",
+        descriptionKeys: [
+            "Experience.Desc2_1",
+            "Experience.Desc2_2",
+            "Experience.Desc2_3"
+        ],
+        techStack: ["Python", "Ollama", "Keepa API", "Scraping"],
+        mediaUrl: "/images/antre-de-mondes.jpg",
+        mediaType: "image",
+        mediaFit: "contain"
+    },
+    {
         company: "Junior UTC",
         companyKey: "Experience.Company1",
         role: "Développeur applications mobiles",

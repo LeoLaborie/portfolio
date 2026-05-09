@@ -56,6 +56,7 @@ export interface Experience {
   techStack: string[]
   mediaUrl: string
   mediaType: "image" | "video"
+  mediaFit?: "cover" | "contain"
 }
 
 // Component prop types

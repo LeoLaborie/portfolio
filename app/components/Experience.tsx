@@ -94,7 +94,7 @@ function ExperienceMedia({ exp, t }: { exp: typeof experiences[number], t: (key:
     const [imageLoaded, setImageLoaded] = useState(false)
 
     return (
-        <div className="relative overflow-hidden bg-gray-50 dark:bg-gray-700 h-full w-full transition-colors duration-300">
+        <div className={`relative overflow-hidden h-full w-full transition-colors duration-300 ${exp.mediaFit === "contain" ? "bg-white" : "bg-gray-50 dark:bg-gray-700"}`}>
             {exp.mediaType === "image" ? (
                 <motion.div
                     className="relative w-full h-full"
@@ -108,7 +108,8 @@ function ExperienceMedia({ exp, t }: { exp: typeof experiences[number], t: (key:
                         alt={t(exp.companyKey)}
                         fill
                         sizes="(max-width: 768px) 100vw, 60vw"
-                        className={`object-cover transition-all duration-500 group-hover:scale-105 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
+                        quality={95}
+                        className={`${exp.mediaFit === "contain" ? "object-contain" : "object-cover"} transition-all duration-500 group-hover:scale-105 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
                         onLoad={() => setImageLoaded(true)}
                     />
                 </motion.div>

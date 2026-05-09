@@ -65,7 +65,14 @@
     "Location1": "Remote",
     "Desc1_1": "Development of critical application screens (Auth0 authentication, interactive video & audio tutorials, user form).",
     "Desc1_2": "Code implementation and technical documentation.",
-    "Desc1_3": "Creation of Beatbox Star game: animation, game logic, real-time sound validation and reward screen."
+    "Desc1_3": "Creation of Beatbox Star game: animation, game logic, real-time sound validation and reward screen.",
+    "Company2": "Antre de Mondes",
+    "Role2": "E-commerce product catalog — 10,724 listings enriched via scraping & LLM",
+    "Period2": "April - May 2026 · 1 month",
+    "Location2": "Remote",
+    "Desc2_1": "Resilient multi-source scraping across 15+ e-commerce sites (PrestaShop, Keepa API for Amazon FR/DE/COM/UK, Google Books) with dedicated adapters, auto-resume, and fine-grained bot handling. Output: titles, descriptions, weights, dimensions, and 20,219 downloaded images.",
+    "Desc2_2": "Quality control via local LLM (Ollama + gemma4): consistency checks across weight ↔ title ↔ description with plausible/suspect/aberrant verdicts, then generation of normalized HTML descriptions (250–500 words).",
+    "Desc2_3": "Unified final catalog delivered to the client: 99.2% titles, 97.6% generated HTML descriptions, 97.7% images, 96.2% verified weights, 89.7% dimensions."
   },
   "Skills": {
     "Title": "Skills & Expertise",
