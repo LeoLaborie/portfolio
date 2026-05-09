@@ -254,6 +254,8 @@ export const projets: Projet[] = [
     categorie: "ml",
     year: 2025,
     projectSize: "large",
+    mediaType: "video",
+    mediaUrl: "/images/drone-navigation.webm",
     features: [
       "Unity ML-Agents",
       "PPO Algorithm",
