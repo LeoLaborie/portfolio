@@ -25,11 +25,7 @@ export default function Experience() {
                 <StaggeredContainer className={commonStyles.grid} staggerDelay={0.2}>
                     {experiences.map((exp) => (
                         <StaggeredItem key={exp.companyKey} direction="up">
-                            <motion.div
-                                className="group"
-                                whileHover={{ y: -5 }}
-                                transition={{ duration: 0.3 }}
-                            >
+                            <div className="group">
                                 <div className={`${commonStyles.card} overflow-hidden h-full flex flex-col md:flex-row`}>
                                     {/* Media Container - Side-by-side on desktop */}
                                     <div className="md:w-3/5 relative min-h-[300px] md:min-h-full">
@@ -81,7 +77,7 @@ export default function Experience() {
                                         </div>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         </StaggeredItem>
                     ))}
                 </StaggeredContainer>
@@ -109,7 +105,7 @@ function ExperienceMedia({ exp, t }: { exp: typeof experiences[number], t: (key:
                         fill
                         sizes="(max-width: 768px) 100vw, 60vw"
                         quality={95}
-                        className={`${exp.mediaFit === "contain" ? "object-contain" : "object-cover"} transition-all duration-500 group-hover:scale-105 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
+                        className={`${exp.mediaFit === "contain" ? "object-contain" : "object-cover"} transition-opacity duration-500 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
                         onLoad={() => setImageLoaded(true)}
                     />
                 </motion.div>

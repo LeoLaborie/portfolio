@@ -169,7 +169,7 @@ function LargeProjectCard({ projet, categoryMap, t }: ProjectCardProps) {
   )
 
   return (
-    <motion.div className="group h-full" whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
+    <div className="group h-full">
       {projet.liveUrl ? (
         <a href={projet.liveUrl} target="_blank" rel="noopener noreferrer" className="block h-full">
           {cardContent}
@@ -177,14 +177,14 @@ function LargeProjectCard({ projet, categoryMap, t }: ProjectCardProps) {
       ) : (
         cardContent
       )}
-    </motion.div>
+    </div>
   )
 }
 
 // Extracted ProjectCard component
 function ProjectCard({ projet, categoryMap, t }: ProjectCardProps) {
   return (
-    <motion.div className="group" whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
+    <div className="group">
       <div className={`${commonStyles.card} overflow-hidden`}>
         {/* Media Container - Only render if mediaUrl exists */}
         {projet.mediaUrl && (
@@ -220,7 +220,7 @@ function ProjectCard({ projet, categoryMap, t }: ProjectCardProps) {
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
@@ -250,7 +250,7 @@ function MediaContainer({ projet, isLarge = false }: ExtendedMediaContainerProps
             alt={projet.titre}
             fill
             sizes={isLarge ? "(max-width: 768px) 100vw, 60vw" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
-            className={`object-cover transition-all duration-500 group-hover:scale-105 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
+            className={`object-cover transition-opacity duration-500 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
             onLoad={() => setImageLoaded(true)}
           />
         </motion.div>
