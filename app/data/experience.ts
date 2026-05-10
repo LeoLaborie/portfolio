@@ -37,5 +37,23 @@ export const experiences: Experience[] = [
         techStack: ["React Native", "Auth0"],
         mediaUrl: "/images/phonemia.png",
         mediaType: "image"
+    },
+    {
+        company: "IDAGRAI LABS",
+        companyKey: "Experience.Company3",
+        role: "Développement d'une IA de navigation autonome pour drone (Reinforcement Learning)",
+        roleKey: "Experience.Role3",
+        period: "Fév. - Juin 2025 · 5 mois",
+        periodKey: "Experience.Period3",
+        location: "À distance",
+        locationKey: "Experience.Location3",
+        descriptionKeys: [
+            "Experience.Desc3_1",
+            "Experience.Desc3_2",
+            "Experience.Desc3_3"
+        ],
+        techStack: ["Unity ML-Agents", "PPO", "Python", "Reinforcement Learning"],
+        mediaUrl: "/images/drone-navigation.webm",
+        mediaType: "video"
     }
 ]

@@ -72,7 +72,14 @@
     "Location2": "À distance",
     "Desc2_1": "Scraping multi-sources résilient sur 15+ sites e-commerce (PrestaShop, API Keepa Amazon FR/DE/COM/UK, Google Books) avec adaptateurs dédiés, reprise automatique et gestion fine des bots. Sortie : titres, descriptions, poids, dimensions et 20 219 images téléchargées.",
     "Desc2_2": "Contrôle qualité par LLM local (Ollama + gemma4) : vérification de cohérence poids ↔ titre ↔ description avec verdicts plausible/suspect/aberrant, puis génération de descriptions HTML normalisées (250-500 mots).",
-    "Desc2_3": "Catalogue final unifié livré au client : 99,2 % de titres, 97,6 % de descriptions HTML générées, 97,7 % d'images, 96,2 % de poids fiabilisés, 89,7 % de dimensions."
+    "Desc2_3": "Catalogue final unifié livré au client : 99,2 % de titres, 97,6 % de descriptions HTML générées, 97,7 % d'images, 96,2 % de poids fiabilisés, 89,7 % de dimensions.",
+    "Company3": "IDAGRAI LABS",
+    "Role3": "Développement d'une IA de navigation autonome pour drone (Reinforcement Learning)",
+    "Period3": "Fév. - Juin 2025 · 5 mois",
+    "Location3": "À distance",
+    "Desc3_1": "Conception et entraînement d'un agent autonome (drone) capable de naviguer vers une cible tout en évitant des obstacles, via apprentissage par renforcement (PPO) sur Unity ML-Agents.",
+    "Desc3_2": "Modélisation de l'environnement de simulation 3D, conception de la fonction de récompense et tuning des hyperparamètres pour stabiliser l'apprentissage.",
+    "Desc3_3": "Projet mené en collaboration avec IDAGRAI LABS, aboutissant à une démonstration vidéo du drone autonome en environnement complexe."
   },
   "Skills": {
     "Title": "Compétences & Expertise",
@@ -110,7 +117,6 @@
     "ReadmeGenerator": "Readme Writer"
   },
   "ProjectDescriptions": {
-    "DroneNavigation": "Un modèle de drone autonome qui navigue vers une cible tout en évitant les obstacles. Entraîné par apprentissage par renforcement sur Unity avec ML-agents. Issu d'un projet universitaire en collaboration avec Intellitech.",
     "SnakeAI": "Un modèle de Snake autonome qui apprend à jouer en évitant les obstacles et en maximisant le score. Entrainé par un algorithme génétique avec pré-entrainement innovant.",
     "HackathonSWERC": "Participation au SWERC 2025, en équipe avec 3 autres étudiants de l'UTC. Le Swerc est un hackathon d'Algorithmie Européen de 5 heures.",
     "HackathonYouScribe": "1ère place au hackathon de YouScribe x UTC, en équipe avec 3 autres étudiants de l'UTC. Le but du Hackathon était de créer un algorithme de recommandation de livres pour les utilisateurs de la plateforme YouScribe.",

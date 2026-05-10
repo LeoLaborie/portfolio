@@ -72,7 +72,14 @@
     "Location2": "Remote",
     "Desc2_1": "Resilient multi-source scraping across 15+ e-commerce sites (PrestaShop, Keepa API for Amazon FR/DE/COM/UK, Google Books) with dedicated adapters, auto-resume, and fine-grained bot handling. Output: titles, descriptions, weights, dimensions, and 20,219 downloaded images.",
     "Desc2_2": "Quality control via local LLM (Ollama + gemma4): consistency checks across weight ↔ title ↔ description with plausible/suspect/aberrant verdicts, then generation of normalized HTML descriptions (250–500 words).",
-    "Desc2_3": "Unified final catalog delivered to the client: 99.2% titles, 97.6% generated HTML descriptions, 97.7% images, 96.2% verified weights, 89.7% dimensions."
+    "Desc2_3": "Unified final catalog delivered to the client: 99.2% titles, 97.6% generated HTML descriptions, 97.7% images, 96.2% verified weights, 89.7% dimensions.",
+    "Company3": "IDAGRAI LABS",
+    "Role3": "Autonomous drone navigation AI development (Reinforcement Learning)",
+    "Period3": "Feb. - June 2025 · 5 months",
+    "Location3": "Remote",
+    "Desc3_1": "Designed and trained an autonomous drone agent that navigates to a target while avoiding obstacles, using reinforcement learning (PPO) on Unity ML-Agents.",
+    "Desc3_2": "Built the 3D simulation environment, designed the reward function, and tuned hyperparameters to stabilize learning.",
+    "Desc3_3": "Project conducted in collaboration with IDAGRAI LABS, resulting in a video demonstration of the autonomous drone in a complex environment."
   },
   "Skills": {
     "Title": "Skills & Expertise",
@@ -110,7 +117,6 @@
     "ReadmeGenerator": "Readme Writer"
   },
   "ProjectDescriptions": {
-    "DroneNavigation": "An autonomous drone model that navigates to a target while avoiding obstacles. Trained using reinforcement learning on Unity with ML-agents. From a university project in collaboration with Intellitech.",
     "SnakeAI": "An autonomous Snake model that learns to play by avoiding obstacles and maximizing score. Trained using a genetic algorithm with innovative pre-training.",
     "HackathonSWERC": "Participation in SWERC 2025, in a team with 3 other UTC students. SWERC is a European 5-hour algorithmic hackathon.",
     "HackathonYouScribe": "1st place at the YouScribe x UTC hackathon, in a team with 3 other UTC students. The goal of the hackathon was to create a book recommendation algorithm for YouScribe platform users.",

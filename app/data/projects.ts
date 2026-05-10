@@ -243,23 +243,4 @@ export const projets: Projet[] = [
     categorie: "web",
     year: 2024,
   },
-  // 2025 Projects
-  {
-    titre: "Drone Navigation to a target",
-    // No titreKey - this title stays in English
-    description:
-      "Un modèle de drone autonome qui navigue vers une cible en évitant les obstacles. Entrainé par reinforcement learning sur Unity avec ML-agents. Issu d'un projet universaire en collaboration avec Intellitech.",
-    descriptionKey: "ProjectDescriptions.DroneNavigation",
-    githubUrl: "https://github.com/LeoLaborie/AI-autonomous-drone-RL",
-    categorie: "ml",
-    year: 2025,
-    projectSize: "large",
-    mediaType: "video",
-    mediaUrl: "/images/drone-navigation.webm",
-    features: [
-      "Unity ML-Agents",
-      "PPO Algorithm",
-      "autonomous drone navigation",
-    ]
-  },
 ]
