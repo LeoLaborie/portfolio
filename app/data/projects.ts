@@ -204,14 +204,6 @@ export const projets: Projet[] = [
     liveUrl: "https://readme.leolaborie.com",
     categorie: "web",
     year: 2025,
-    projectSize: "large",
-    mediaType: "image",
-    mediaUrl: "/images/readme.png",
-    features: [
-      "Automatic README Generation",
-      "GitHub API Integration",
-      "Google LLM (Gemini)",
-    ]
   },
   {
     titre: "Hackathon MC2I",

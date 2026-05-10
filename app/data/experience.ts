@@ -21,7 +21,7 @@ export const experiences: Experience[] = [
         mediaFit: "contain"
     },
     {
-        company: "Junior UTC",
+        company: "Phonemia",
         companyKey: "Experience.Company1",
         role: "Développeur applications mobiles",
         roleKey: "Experience.Role1",
