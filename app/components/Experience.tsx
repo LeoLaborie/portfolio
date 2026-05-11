@@ -90,10 +90,10 @@ function ExperienceMedia({ exp, t }: { exp: typeof experiences[number], t: (key:
     const [imageLoaded, setImageLoaded] = useState(false)
 
     return (
-        <div className={`relative overflow-hidden h-full w-full transition-colors duration-300 ${exp.mediaFit === "contain" ? "bg-white" : "bg-gray-50 dark:bg-gray-700"}`}>
+        <div className={`absolute inset-0 overflow-hidden transition-colors duration-300 ${exp.mediaFit === "contain" ? "bg-white" : "bg-gray-50 dark:bg-gray-700"}`}>
             {exp.mediaType === "image" ? (
                 <motion.div
-                    className="relative w-full h-full"
+                    className="absolute inset-0"
                     whileHover={{ scale: 1.05 }}
                 >
                     {!imageLoaded && (
@@ -110,7 +110,7 @@ function ExperienceMedia({ exp, t }: { exp: typeof experiences[number], t: (key:
                     />
                 </motion.div>
             ) : (
-                <div className="relative w-full h-full">
+                <div className="absolute inset-0">
                     <video
                         src={exp.mediaUrl}
                         className="w-full h-full object-cover"
